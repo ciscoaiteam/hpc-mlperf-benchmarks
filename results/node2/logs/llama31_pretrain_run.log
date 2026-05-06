@@ -1,0 +1,377 @@
+[2026-05-06 15:47:01] Checking GPU utilization via nvidia-smi...
+[2026-05-06 15:47:09] All GPUs idle — proceeding.
+  GPU 0   NVIDIA H200          mem:  4 MiB       /  143771 MiB   util:  0 %
+  GPU 1   NVIDIA H200          mem:  4 MiB       /  143771 MiB   util:  0 %
+  GPU 2   NVIDIA H200          mem:  4 MiB       /  143771 MiB   util:  0 %
+  GPU 3   NVIDIA H200          mem:  4 MiB       /  143771 MiB   util:  0 %
+  GPU 4   NVIDIA H200          mem:  4 MiB       /  143771 MiB   util:  0 %
+  GPU 5   NVIDIA H200          mem:  1 MiB       /  143771 MiB   util:  0 %
+  GPU 6   NVIDIA H200          mem:  1 MiB       /  143771 MiB   util:  0 %
+  GPU 7   NVIDIA H200          mem:  1 MiB       /  143771 MiB   util:  0 %
+[2026-05-06 15:47:09] ======================================================
+[2026-05-06 15:47:09]   Benchmark : llama31
+[2026-05-06 15:47:09]   GPUs      : 8
+[2026-05-06 15:47:09]   Runs      : 10
+[2026-05-06 15:47:09] ======================================================
+[2026-05-06 15:47:09] Checking GPU utilization via nvidia-smi...
+[2026-05-06 15:47:10] All GPUs idle — proceeding.
+  GPU 0   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 1   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 2   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 3   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 4   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 5   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 6   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+  GPU 7   NVIDIA H200          mem:  0 MiB       /  143771 MiB   util:  0 %
+[2026-05-06 15:47:13] Starting Llama 3.1 8B Pre-Training benchmark: 8 GPU(s), 10 runs
+[2026-05-06 15:47:13] GPU IDs            : 0,1,2,3,4,5,6,7
+[2026-05-06 15:47:13] NUMA affinity      : --cpuset-cpus=0-127,128-255
+[2026-05-06 15:47:13] GBS / MBS          : 32 / 2
+[2026-05-06 15:47:13] Max LR             : 5e-4
+[2026-05-06 15:47:13] Target log PPL     : 3.3
+[2026-05-06 15:47:13] C4 preprocessed    : /opt/mlperf/llama31-c4-preprocessed
+[2026-05-06 15:47:13] Tokenizer          : /opt/mlperf/llama31-tokenizer
+[2026-05-06 15:47:13] NPY index cache    : /opt/mlperf/llama31-npy-index
+[2026-05-06 15:47:13] Logs               : /opt/mlperf/logs/llama31_pretraining/llama31_pretraining_8xH200_20260506_154709
+[2026-05-06 15:47:13] --- Run 1/10 ---
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.01 (build 134983853)
+PyTorch Version 2.6.0a0+ecf3bae
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+NOTE: Mellanox network driver detected, but NVIDIA peer memory driver not
+      detected.  Multi-node communication performance may be reduced.
+
+[NeMo W 2026-05-06 15:47:35 nemo_logging:405] /workspace/Megatron-LM/megatron/core/transformer/cuda_graphs.py:741: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+      assert (
+    
+[NeMo W 2026-05-06 15:47:35 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/peft/utils.py:75: SyntaxWarning: invalid escape sequence '\.'
+      return re.match('.*mlp\.experts\.local_experts.[0-9]+\.linear_fc[1-2]$', fqn) is not None
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:107: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?½", "\\1 1/2", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:108: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅓", "\\1 1/3", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:109: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅔", "\\1 2/3", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:110: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?¼", "\\1 1/4", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:111: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?¾", "\\1 3/4", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:112: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅕", "\\1 1/5", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:113: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅖", "\\1 2/5", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:114: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅗", "\\1 3/5", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:115: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅘", "\\1 4/5", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:116: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅙", "\\1 1/6", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:117: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅚", "\\1 5/6", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:118: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅛", "\\1 1/8", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:119: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅜", "\\1 3/8", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:120: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅝", "\\1 5/8", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:121: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅞", "\\1 7/8", written)
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/bert_module.py:57: SyntaxWarning: invalid escape sequence '\.'
+      m = re.match("^bert.*?\.", list(pretrained_dict.keys())[0])
+    
+[NeMo W 2026-05-06 15:47:36 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/gpt_module.py:68: SyntaxWarning: invalid escape sequence '\.'
+      m = re.match("^gpt.*?\.", list(pretrained_dict.keys())[0])
+    
+[NeMo W 2026-05-06 15:47:37 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/models/language_modeling/megatron_base_prompt_learning_model.py:181: SyntaxWarning: invalid escape sequence '\{'
+      "prompt_template_fields": re.findall("\{(.*?)\}", task.prompt_template),
+    
+[NeMo W 2026-05-06 15:47:37 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/models/language_modeling/megatron_base_model.py:390: SyntaxWarning: invalid escape sequence '\.'
+      return re.fullmatch("[0-9][0-9]\.[0-9][0-9].*", nvidia_torch_version)  # "YY.MM.*"
+    
+[NeMo W 2026-05-06 15:47:37 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/megatron/vocab_parallel_cross_entropy.py:88: SyntaxWarning: invalid escape sequence '\s'
+      """
+    
+[NeMo W 2026-05-06 15:47:38 nemo_logging:405] The package `megatron.core` was not imported in this environment which is needed for SSMs.
+tokenizer: <Config[AutoTokenizer(pretrained_model_name='/tokenizer')]>
+use_full_dataset: False
+Parallel settings: tp=1 pp=1 cp=1 dp=8 mini_batch_size=4 grad_accumulation_steps=2
+pretrain.trainer.max_steps=1200000
+pretrain.data.global_batch_size=32
+pretrain.data.num_train_samples=38400000
+static_max_steps=1200000
+Not saving checkpoints
+─── Entering Experiment 8b_0_seed_40220 with id: 8b_0_seed_40220_1778082458 ────
+experiment_max_steps: 0
+static_max_steps: 1200000
+stop_on_step=experiment_max_steps=1200000
+[15:47:38]  Cannot detach from this experiment. Please keep it experiment.py:671
+           running until completion.                                            
+[15:47:38] INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _40220/8b_0_seed_40220_1778082458/bui                       
+                    ld_data_index                                               
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _40220/8b_0_seed_40220_1778082458/8b_                       
+                    0_seed_40220_0_0-1200000-steps                              
+           Dependencies not supported for atleast one of       experiment.py:725
+           {<class                                                              
+           'nemo_run.core.execution.local.LocalExecutor'>}.All                  
+           jobs will be run one after the other based on their                  
+           dependencies, please keep the process alive.                         
+           Launching job build_data_index for experiment       experiment.py:744
+           8b_0_seed_40220                                                      
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _40220/8b_0_seed_40220_1778082458/bui                       
+                    ld_data_index                                               
+           INFO     Launched app:                                launcher.py:111
+                    local_persistent://nemo_run/build_data_index                
+                    -rp1bll7c95b7nd                                             
+           INFO     Waiting for job                              launcher.py:130
+                    build_data_index-rp1bll7c95b7nd to finish                   
+                    [log=False]...                                              
+[15:50:10] INFO     Job build_data_index-rp1bll7c95b7nd          launcher.py:160
+                    finished: SUCCEEDED                                         
+[15:50:10] Launching job 8b_0_seed_40220_0_0-1200000-steps for experiment.py:744
+           experiment 8b_0_seed_40220                                           
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _40220/8b_0_seed_40220_1778082458/8b_                       
+                    0_seed_40220_0_0-1200000-steps                              
+           INFO     Launched app:                                launcher.py:111
+                    local_persistent://nemo_run/8b_0_seed_40220_                
+                    0_0-1200000-steps-jptsx5hzzhgxd                             
+           INFO     Waiting for job                              launcher.py:130
+                    8b_0_seed_40220_0_0-1200000-steps-jptsx5hzzh                
+                    gxd to finish [log=False]...                                
+[20:20:41] INFO     Job                                          launcher.py:160
+                    8b_0_seed_40220_0_0-1200000-steps-jptsx5hzzh                
+                    gxd finished: SUCCEEDED                                     
+──────────── Done waiting for Experiment 8b_0_seed_40220_1778082458 ────────────
+
+Experiment Status for 8b_0_seed_40220_1778082458
+
+Task 0: build_data_index
+- Status: SUCCEEDED
+- Executor: LocalExecutor
+- Job id: build_data_index-rp1bll7c95b7nd
+- Local Directory: /root/.nemo_run/experiments/8b_0_seed_40220/8b_0_seed_40220_1778082458/build_data_index
+
+Task 1: 8b_0_seed_40220_0_0-1200000-steps
+- Status: SUCCEEDED
+- Executor: LocalExecutor
+- Job id: 8b_0_seed_40220_0_0-1200000-steps-jptsx5hzzhgxd
+- Local Directory: /root/.nemo_run/experiments/8b_0_seed_40220/8b_0_seed_40220_1778082458/8b_0_seed_40220_0_0-1200000-steps
+
+╭───────────────────────── 8b_0_seed_40220_1778082458 ─────────────────────────╮
+│                                                                              │
+│   build_data_index SUCCEEDED                    ━━━━━━━━━━━━━━━━━━ 0:02:32   │
+│   8b_0_seed_40220_0_0-1200000-steps SUCCEEDED   ━━━━━━━━━━━━━━━━━━ 4:30:30   │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯                                                                                
+# The experiment was run with the following tasks: ['build_data_index', '8b_0_se
+# You can inspect and reconstruct this experiment at a later point in time using
+experiment = run.Experiment.from_id("8b_0_seed_40220_1778082458")               
+experiment.status() # Gets the overall status                                   
+experiment.logs("build_data_index") # Gets the log for the provided task        
+experiment.cancel("build_data_index") # Cancels the provided task if still runni
+                                                                                
+                                                                                
+# You can inspect this experiment at a later point in time using the CLI as well
+nemo experiment status 8b_0_seed_40220_1778082458                               
+nemo experiment logs 8b_0_seed_40220_1778082458 0                               
+nemo experiment cancel 8b_0_seed_40220_1778082458 0                             
+                                                                                
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+[2026-05-06 20:20:48] Run 1 finished | status=failed | wall_time=273.5667 min
+[2026-05-06 20:20:48] --- Run 2/10 ---
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 25.01 (build 134983853)
+PyTorch Version 2.6.0a0+ecf3bae
+Container image Copyright (c) 2025, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+NOTE: Mellanox network driver detected, but NVIDIA peer memory driver not
+      detected.  Multi-node communication performance may be reduced.
+
+[NeMo W 2026-05-06 20:22:04 nemo_logging:405] /workspace/Megatron-LM/megatron/core/transformer/cuda_graphs.py:741: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+      assert (
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/peft/utils.py:75: SyntaxWarning: invalid escape sequence '\.'
+      return re.match('.*mlp\.experts\.local_experts.[0-9]+\.linear_fc[1-2]$', fqn) is not None
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:107: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?½", "\\1 1/2", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:108: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅓", "\\1 1/3", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:109: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅔", "\\1 2/3", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:110: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?¼", "\\1 1/4", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:111: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?¾", "\\1 3/4", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:112: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅕", "\\1 1/5", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:113: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅖", "\\1 2/5", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:114: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅗", "\\1 3/5", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:115: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅘", "\\1 4/5", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:116: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅙", "\\1 1/6", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:117: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅚", "\\1 5/6", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:118: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅛", "\\1 1/8", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:119: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅜", "\\1 3/8", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:120: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅝", "\\1 5/8", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/data/text_normalization/utils.py:121: SyntaxWarning: invalid escape sequence '\s'
+      written = re.sub("([0-9])\s?⅞", "\\1 7/8", written)
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/bert_module.py:57: SyntaxWarning: invalid escape sequence '\.'
+      m = re.match("^bert.*?\.", list(pretrained_dict.keys())[0])
+    
+[NeMo W 2026-05-06 20:22:05 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/gpt_module.py:68: SyntaxWarning: invalid escape sequence '\.'
+      m = re.match("^gpt.*?\.", list(pretrained_dict.keys())[0])
+    
+[NeMo W 2026-05-06 20:22:06 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/models/language_modeling/megatron_base_prompt_learning_model.py:181: SyntaxWarning: invalid escape sequence '\{'
+      "prompt_template_fields": re.findall("\{(.*?)\}", task.prompt_template),
+    
+[NeMo W 2026-05-06 20:22:06 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/models/language_modeling/megatron_base_model.py:390: SyntaxWarning: invalid escape sequence '\.'
+      return re.fullmatch("[0-9][0-9]\.[0-9][0-9].*", nvidia_torch_version)  # "YY.MM.*"
+    
+[NeMo W 2026-05-06 20:22:07 nemo_logging:405] /workspace/NeMo/nemo/collections/nlp/modules/common/megatron/vocab_parallel_cross_entropy.py:88: SyntaxWarning: invalid escape sequence '\s'
+      """
+    
+[NeMo W 2026-05-06 20:22:07 nemo_logging:405] The package `megatron.core` was not imported in this environment which is needed for SSMs.
+tokenizer: <Config[AutoTokenizer(pretrained_model_name='/tokenizer')]>
+use_full_dataset: False
+Parallel settings: tp=1 pp=1 cp=1 dp=8 mini_batch_size=4 grad_accumulation_steps=2
+pretrain.trainer.max_steps=1200000
+pretrain.data.global_batch_size=32
+pretrain.data.num_train_samples=38400000
+static_max_steps=1200000
+Not saving checkpoints
+─── Entering Experiment 8b_0_seed_46411 with id: 8b_0_seed_46411_1778098928 ────
+experiment_max_steps: 0
+static_max_steps: 1200000
+stop_on_step=experiment_max_steps=1200000
+[20:22:08]  Cannot detach from this experiment. Please keep it experiment.py:671
+           running until completion.                                            
+[20:22:08] INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _46411/8b_0_seed_46411_1778098928/bui                       
+                    ld_data_index                                               
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _46411/8b_0_seed_46411_1778098928/8b_                       
+                    0_seed_46411_0_0-1200000-steps                              
+           Dependencies not supported for atleast one of       experiment.py:725
+           {<class                                                              
+           'nemo_run.core.execution.local.LocalExecutor'>}.All                  
+           jobs will be run one after the other based on their                  
+           dependencies, please keep the process alive.                         
+           Launching job build_data_index for experiment       experiment.py:744
+           8b_0_seed_46411                                                      
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _46411/8b_0_seed_46411_1778098928/bui                       
+                    ld_data_index                                               
+           INFO     Launched app:                                launcher.py:111
+                    local_persistent://nemo_run/build_data_index                
+                    -t01b63m11fh1sd                                             
+           INFO     Waiting for job                              launcher.py:130
+                    build_data_index-t01b63m11fh1sd to finish                   
+                    [log=False]...                                              
+[20:24:40] INFO     Job build_data_index-t01b63m11fh1sd          launcher.py:160
+                    finished: SUCCEEDED                                         
+[20:24:40] Launching job 8b_0_seed_46411_0_0-1200000-steps for experiment.py:744
+           experiment 8b_0_seed_46411                                           
+           INFO     Log directory is:                     local_scheduler.py:777
+                    /root/.nemo_run/experiments/8b_0_seed                       
+                    _46411/8b_0_seed_46411_1778098928/8b_                       
+                    0_seed_46411_0_0-1200000-steps                              
+           INFO     Launched app:                                launcher.py:111
+                    local_persistent://nemo_run/8b_0_seed_46411_                
+                    0_0-1200000-steps-zjzm4jw6thmdzc                            
+           INFO     Waiting for job                              launcher.py:130
+                    8b_0_seed_46411_0_0-1200000-steps-zjzm4jw6th                
+                    mdzc to finish [log=False]...                               

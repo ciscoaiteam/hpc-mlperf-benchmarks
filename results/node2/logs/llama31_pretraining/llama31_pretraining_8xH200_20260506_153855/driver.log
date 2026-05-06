@@ -1,0 +1,17 @@
+[2026-05-06 15:38:59] Starting Llama 3.1 8B Pre-Training benchmark: 8 GPU(s), 10 runs
+[2026-05-06 15:38:59] GPU IDs            : 0,1,2,3,4,5,6,7
+[2026-05-06 15:38:59] NUMA affinity      : --cpuset-cpus=0-127,128-255
+[2026-05-06 15:38:59] GBS / MBS          : 32 / 2
+[2026-05-06 15:38:59] Max LR             : 5e-4
+[2026-05-06 15:38:59] Target log PPL     : 3.3
+[2026-05-06 15:38:59] C4 preprocessed    : /opt/mlperf/llama31-c4-preprocessed
+[2026-05-06 15:38:59] Tokenizer          : /opt/mlperf/llama31-tokenizer
+[2026-05-06 15:38:59] NPY index cache    : /opt/mlperf/llama31-npy-index
+[2026-05-06 15:38:59] Logs               : /opt/mlperf/logs/llama31_pretraining/llama31_pretraining_8xH200_20260506_153855
+[2026-05-06 15:38:59] --- Run 1/10 ---
+[2026-05-06 15:39:32] Run 1 finished | status=failed | wall_time=0.5333 min
+[2026-05-06 15:39:32] --- Run 2/10 ---
+[2026-05-06 15:40:43] Run 2 finished | status=failed | wall_time=1.1833 min
+[2026-05-06 15:40:43] --- Run 3/10 ---
+[2026-05-06 15:42:08] Run 3 finished | status=failed | wall_time=1.4000 min
+[2026-05-06 15:42:08] --- Run 4/10 ---

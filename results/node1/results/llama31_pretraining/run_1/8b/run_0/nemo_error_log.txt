@@ -1,0 +1,13 @@
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] The package `megatron.core` was not imported in this environment which is needed for SSMs.
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/gpt/data/pre_training.py:175: UserWarning: split='900,50,50' will be ignored since datasets are being created from 3 separate distributions.
+      warnings.warn(
+    
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/api.py:963: UserWarning: Disabling virtual pipeline parallelism because pipeline model parallelism is disabled
+      warnings.warn("Disabling virtual pipeline parallelism because pipeline model parallelism is disabled")
+    
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] No version folders would be created under the log folder as 'resume_if_exists' is enabled.
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] "update_logger_directory" is True. Overwriting tensorboard logger "save_dir" to /outputs
+[NeMo W 2026-05-06 17:18:45 nemo_logging:405] There were no checkpoints found in checkpoint_dir or no checkpoint folder at checkpoint_dir :/outputs/8b/checkpoints. Training from scratch.
+[NeMo W 2026-05-06 17:18:46 nemo_logging:405] /usr/local/lib/python3.12/dist-packages/torch/utils/data/dataloader.py:617: UserWarning: This DataLoader will create 128 worker processes in total. Our suggested max number of worker in current system is 32, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+      warnings.warn(
+    

@@ -1,0 +1,7 @@
+[2026-05-06 14:10:43] Starting LLM Fine-Tuning benchmark: 4 GPU(s), 10 runs
+[2026-05-06 14:10:43] GPU IDs      : 0,1,2,3
+[2026-05-06 14:10:43] NUMA affinity: --cpuset-cpus=16-31,144-159,32-47,160-175,48-63,176-191,0-15,128-143
+[2026-05-06 14:10:43] Model src    : /opt/mlperf/mlperf_training/training/llama2_70b_lora
+[2026-05-06 14:10:43] Logs         : /opt/mlperf/logs/llm_finetuning/llm_finetuning_4xH200_20260506_141021
+[2026-05-06 14:10:43] Accelerate config written to /opt/mlperf/logs/llm_finetuning/llm_finetuning_4xH200_20260506_141021/accelerate_config_4gpu.yaml
+[2026-05-06 14:10:43] --- Run 1/10 ---

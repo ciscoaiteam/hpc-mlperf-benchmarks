@@ -1,0 +1,29 @@
+[2026-05-06 14:04:19] Starting LLM Fine-Tuning benchmark: 1 GPU(s), 10 runs
+[2026-05-06 14:04:19] GPU IDs      : 0
+[2026-05-06 14:04:19] NUMA affinity: --cpuset-cpus=16-31,144-159
+[2026-05-06 14:04:19] Model src    : /opt/mlperf/mlperf_training/training/llama2_70b_lora
+[2026-05-06 14:04:19] Logs         : /opt/mlperf/logs/llm_finetuning/llm_finetuning_1xH200_20260506_140358
+[2026-05-06 14:04:19] Accelerate config written to /opt/mlperf/logs/llm_finetuning/llm_finetuning_1xH200_20260506_140358/accelerate_config_1gpu.yaml
+[2026-05-06 14:04:19] --- Run 1/10 ---
+[2026-05-06 14:05:01] Run 1 finished | status=failed | wall_time=0.7000 min
+[2026-05-06 14:05:01] --- Run 2/10 ---
+[2026-05-06 14:05:36] Run 2 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:05:36] --- Run 3/10 ---
+[2026-05-06 14:06:11] Run 3 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:06:11] --- Run 4/10 ---
+[2026-05-06 14:06:46] Run 4 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:06:46] --- Run 5/10 ---
+[2026-05-06 14:07:21] Run 5 finished | status=failed | wall_time=0.5833 min
+[2026-05-06 14:07:21] --- Run 6/10 ---
+[2026-05-06 14:07:56] Run 6 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:07:56] --- Run 7/10 ---
+[2026-05-06 14:08:31] Run 7 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:08:31] --- Run 8/10 ---
+[2026-05-06 14:09:11] Run 8 finished | status=failed | wall_time=0.6667 min
+[2026-05-06 14:09:11] --- Run 9/10 ---
+[2026-05-06 14:09:46] Run 9 finished | status=failed | wall_time=0.5667 min
+[2026-05-06 14:09:46] --- Run 10/10 ---
+[2026-05-06 14:10:21] Run 10 finished | status=failed | wall_time=0.5833 min
+[2026-05-06 14:10:21] All 10 runs complete.
+[2026-05-06 14:10:21] Results written to /opt/mlperf/logs/llm_finetuning/llm_finetuning_1xH200_20260506_140358/wall_times.txt
+[2026-05-06 14:10:21] Run 'python3 /root/mlperf-h200/process_results.py /opt/mlperf/logs/llm_finetuning/llm_finetuning_1xH200_20260506_140358' to compute final stats.

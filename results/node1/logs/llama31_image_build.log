@@ -1,0 +1,1164 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  92.67kB
+Step 1/35 : ARG FROM_IMAGE_NAME=nvcr.io/nvidia/pytorch:25.01-py3
+Step 2/35 : FROM ${FROM_IMAGE_NAME}
+ ---> 96990c828256
+Step 3/35 : ARG FROM_IMAGE_NAME
+ ---> Running in a8c87d38238a
+ ---> Removed intermediate container a8c87d38238a
+ ---> 64b6fb3cbdce
+Step 4/35 : ENV CUSTOM_FROM_IMAGE_NAME ${FROM_IMAGE_NAME}
+ ---> Running in 15491210a7f3
+ ---> Removed intermediate container 15491210a7f3
+ ---> 3afdf2783bb8
+Step 5/35 : WORKDIR /workspace/
+ ---> Running in 115eb9177a9b
+ ---> Removed intermediate container 115eb9177a9b
+ ---> 45aba31590ae
+Step 6/35 : ARG GIT_COMMIT_ID
+ ---> Running in fe5d52d2ee92
+ ---> Removed intermediate container fe5d52d2ee92
+ ---> f32f98f877dc
+Step 7/35 : ENV GIT_COMMIT_ID=$GIT_COMMIT_ID
+ ---> Running in d87e4db145c8
+ ---> Removed intermediate container d87e4db145c8
+ ---> fb93e5bf32ff
+Step 8/35 : RUN git config --global user.name "a" &&     git config --global user.email "a"
+ ---> Running in 8478cf6aee3c
+ ---> Removed intermediate container 8478cf6aee3c
+ ---> 62cb3eb0aa0b
+Step 9/35 : WORKDIR /workspace/
+ ---> Running in f123c5b517a5
+ ---> Removed intermediate container f123c5b517a5
+ ---> e4c7cc9694a5
+Step 10/35 : RUN python3 -c "import importlib, sys; pkgs = ['torch', 'torchvision', 'torchaudio']; lines = []; [lines.append(f'{p}=={importlib.import_module(p).__version__}') for p in pkgs if importlib.util.find_spec(p)]; open('/pip_torch_constraint.txt','w').write('\n'.join(lines)+'\n'); print('--- Pinned torch packages ---'); [print(l) for l in lines]"
+ ---> Running in 5fb39385dc5d
+--- Pinned torch packages ---
+torch==2.6.0a0+ecf3bae40a.nv25.01
+torchvision==0.20.0a0
+ ---> Removed intermediate container 5fb39385dc5d
+ ---> 8bba993c0298
+Step 11/35 : ENV PIP_CONSTRAINT=/pip_torch_constraint.txt
+ ---> Running in 9bcaede3239d
+ ---> Removed intermediate container 9bcaede3239d
+ ---> c6caf9f4dab5
+Step 12/35 : RUN pip install numcodecs==0.13.1
+ ---> Running in 8538de62a358
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Requirement already satisfied: numcodecs==0.13.1 in /usr/local/lib/python3.12/dist-packages (0.13.1)
+Requirement already satisfied: numpy>=1.7 in /usr/local/lib/python3.12/dist-packages (from numcodecs==0.13.1) (1.26.4)
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m ---> Removed intermediate container 8538de62a358
+ ---> cd5945fb66ce
+Step 13/35 : ARG APEX_REVISION=SKIP
+ ---> Running in 29d2963c1ad7
+ ---> Removed intermediate container 29d2963c1ad7
+ ---> 3da9f64e1a44
+Step 14/35 : ENV CUSTOM_APEX_REVISION ${APEX_REVISION}
+ ---> Running in 07454f999d14
+ ---> Removed intermediate container 07454f999d14
+ ---> c1c08009ccb5
+Step 15/35 : ARG APEX_MAX_JOBS=4
+ ---> Running in 51a909372f20
+ ---> Removed intermediate container 51a909372f20
+ ---> dd7b7d1ea53d
+Step 16/35 : RUN if [ "${APEX_REVISION}" != SKIP ]; then     git clone https://github.com/NVIDIA/apex &&     cd apex &&     echo APEX_REVISION=${APEX_REVISION} &&     git checkout ${APEX_REVISION} &&     echo APEX_COMMIT_HASH=$(git rev-parse HEAD) &&     MAX_JOBS=${APEX_MAX_JOBS} NVCC_APPEND_FLAGS="--threads 8" pip install -v --no-build-isolation --no-cache-dir --disable-pip-version-check --config-settings "--build-option=--cpp_ext --cuda_ext --bnp --xentropy --deprecated_fused_adam --deprecated_fused_lamb --fast_multihead_attn --distributed_lamb --fast_layer_norm --transducer --distributed_adam --fmha --fast_bottleneck --nccl_p2p --peer_memory --permutation_search --focal_loss --fused_conv_bias_relu --index_mul_2d --cudnn_gbn --group_norm" .     ; fi
+ ---> Running in 014b6aa010fd
+ ---> Removed intermediate container 014b6aa010fd
+ ---> 3e44076c929b
+Step 17/35 : ARG TE_REVISION=SKIP
+ ---> Running in 066a8637ee41
+ ---> Removed intermediate container 066a8637ee41
+ ---> f8be90195559
+Step 18/35 : ENV CUSTOM_TE_REVISION ${TE_REVISION}
+ ---> Running in cf9d53286fc3
+ ---> Removed intermediate container cf9d53286fc3
+ ---> d2be5d21b4b2
+Step 19/35 : RUN if [ "${TE_REVISION}" != SKIP ]; then     pip uninstall -y transformer-engine &&     git clone https://github.com/NVIDIA/TransformerEngine.git transformerengine &&     cd transformerengine &&     git checkout ${TE_REVISION} &&     echo TE_COMMIT_HASH=$(git rev-parse HEAD) &&     echo $(git rev-parse HEAD) > /TE_COMMIT_HASH.env &&     git submodule init && git submodule update &&     NVTE_CUDA_ARCHS="90;100" NVTE_UB_WITH_MPI=1 NVTE_FRAMEWORK=pytorch MPI_HOME=/usr/local/mpi pip install --force-reinstall --no-deps .     ; fi
+ ---> Running in c2fddd7116f4
+ ---> Removed intermediate container c2fddd7116f4
+ ---> 31d592d63de0
+Step 20/35 : ARG NEMO_REVISION=v2.1.0
+ ---> Running in 26205cd71b68
+ ---> Removed intermediate container 26205cd71b68
+ ---> 3ae6e8bd8c0e
+Step 21/35 : ENV CUSTOM_NEMO_REVISION ${NEMO_REVISION}
+ ---> Running in 61117a2076cb
+ ---> Removed intermediate container 61117a2076cb
+ ---> 5cde3bb702b5
+Step 22/35 : RUN git clone https://github.com/NVIDIA/NeMo.git &&     cd NeMo &&     git checkout ${NEMO_REVISION} &&     echo NEMO_COMMIT_HASH=$(git rev-parse HEAD) &&     echo $(git rev-parse HEAD) > /NEMO_COMMIT_HASH.env &&     pip uninstall -y nemo-toolkit sacrebleu &&     sed -i "/mamba-ssm/d" requirements/requirements_nlp.txt &&     sed -i 's/tensorstore<0.1.46/tensorstore/g' requirements/requirements_nlp.txt &&     sed -i 's/protobuf==3.20.3/protobuf/g' requirements/requirements.txt &&     pip install "cython<3.0.0" &&     pip install -e ".[llm]" &&     pip install -e ".[nlp]"
+ ---> Running in 945a1b819994
+[91mCloning into 'NeMo'...
+[0m[91mNote: switching to 'v2.1.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 633cb60277 chore: Bump release
+[0mNEMO_COMMIT_HASH=633cb602777bffefbe12066b0c915c87e7b469e9
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mWARNING: Skipping nemo-toolkit as it is not installed.
+[0m[91mWARNING: Skipping sacrebleu as it is not installed.
+[0m[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Collecting cython<3.0.0
+  Downloading Cython-0.29.37-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (3.1 kB)
+Downloading Cython-0.29.37-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 4.3 MB/s eta 0:00:00
+Installing collected packages: cython
+  Attempting uninstall: cython
+    Found existing installation: Cython 3.0.11
+    Uninstalling Cython-3.0.11:
+      Successfully uninstalled Cython-3.0.11
+Successfully installed cython-0.29.37
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Obtaining file:///workspace/NeMo
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting huggingface_hub>=0.24 (from nemo-toolkit==2.1.0)
+  Downloading huggingface_hub-1.14.0-py3-none-any.whl.metadata (14 kB)
+Requirement already satisfied: numba in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (0.59.1)
+Requirement already satisfied: numpy>=1.22 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.26.4)
+Requirement already satisfied: onnx>=1.7.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.17.0)
+Requirement already satisfied: python-dateutil in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.9.0.post0)
+Collecting ruamel.yaml (from nemo-toolkit==2.1.0)
+  Downloading ruamel_yaml-0.19.1-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.6.1)
+Requirement already satisfied: setuptools>=70.0.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (70.3.0)
+Requirement already satisfied: tensorboard in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.16.2)
+Collecting text-unidecode (from nemo-toolkit==2.1.0)
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.6.0a0+ecf3bae40a.nv25.1)
+Requirement already satisfied: tqdm>=4.41.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (4.67.1)
+Collecting wget (from nemo-toolkit==2.1.0)
+  Downloading wget-3.2.zip (10 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.17.2)
+[91mWARNING: nemo-toolkit 2.1.0 does not provide the extra 'llm'
+[0mRequirement already satisfied: filelock>=3.10.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.16.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (2024.10.0)
+Collecting hf-xet<2.0.0,>=1.4.3 (from huggingface_hub>=0.24->nemo-toolkit==2.1.0)
+  Downloading hf_xet-1.5.0-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Requirement already satisfied: httpx<1,>=0.23.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.28.1)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (23.2)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (6.0.2)
+Collecting typer>=0.20.0 (from huggingface_hub>=0.24->nemo-toolkit==2.1.0)
+  Downloading typer-0.25.1-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (4.12.2)
+Requirement already satisfied: protobuf>=3.20.2 in /usr/local/lib/python3.12/dist-packages (from onnx>=1.7.0->nemo-toolkit==2.1.0) (4.24.4)
+Requirement already satisfied: llvmlite<0.43,>=0.42.0dev0 in /usr/local/lib/python3.12/dist-packages (from numba->nemo-toolkit==2.1.0) (0.42.0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil->nemo-toolkit==2.1.0) (1.17.0)
+Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->nemo-toolkit==2.1.0) (1.14.1)
+Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->nemo-toolkit==2.1.0) (1.4.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->nemo-toolkit==2.1.0) (3.5.0)
+Requirement already satisfied: absl-py>=0.4 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (2.1.0)
+Requirement already satisfied: grpcio>=1.48.2 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (1.62.1)
+Requirement already satisfied: markdown>=2.6.8 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (3.7)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (0.7.2)
+Requirement already satisfied: werkzeug>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (3.1.3)
+Requirement already satisfied: networkx in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (3.4.2)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (3.1.4)
+Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy==1.13.1->torch->nemo-toolkit==2.1.0) (1.3.0)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (4.8.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (2024.12.14)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.0.7)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.10)
+Requirement already satisfied: h11<0.15,>=0.13 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.14.0)
+Collecting click>=8.2.1 (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0)
+  Downloading click-8.3.3-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in /usr/local/lib/python3.12/dist-packages (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (13.9.4)
+Collecting annotated-doc>=0.0.2 (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0)
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /usr/local/lib/python3.12/dist-packages (from werkzeug>=1.0.1->tensorboard->nemo-toolkit==2.1.0) (3.0.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich>=13.8.0->typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich>=13.8.0->typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (2.18.0)
+Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.12/dist-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.3.1)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.1.2)
+Downloading huggingface_hub-1.14.0-py3-none-any.whl (661 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 661.5/661.5 kB 36.6 MB/s eta 0:00:00
+Downloading ruamel_yaml-0.19.1-py3-none-any.whl (118 kB)
+Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+Downloading hf_xet-1.5.0-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 63.7 MB/s eta 0:00:00
+Downloading typer-0.25.1-py3-none-any.whl (58 kB)
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Downloading click-8.3.3-py3-none-any.whl (110 kB)
+Building wheels for collected packages: nemo-toolkit, wget
+  Building editable for nemo-toolkit (pyproject.toml): started
+  Building editable for nemo-toolkit (pyproject.toml): finished with status 'done'
+  Created wheel for nemo-toolkit: filename=nemo_toolkit-2.1.0-0.editable-py3-none-any.whl size=24103 sha256=3952d42ecd88db6e8b6e86842493be04bb37eb6d3b01062c6bcce5cf6ee12e10
+  Stored in directory: /tmp/pip-ephem-wheel-cache-dts_8p2g/wheels/f6/47/59/edf014d9e67dfe523a8f2fc603d8d5d7444e23bf9eb920b14c
+  Building wheel for wget (setup.py): started
+  Building wheel for wget (setup.py): finished with status 'done'
+  Created wheel for wget: filename=wget-3.2-py3-none-any.whl size=9656 sha256=58d36b12ad1467da2be28bf0d3111de95b49702e5d7ac0a978121056bef86cb0
+  Stored in directory: /tmp/pip-ephem-wheel-cache-dts_8p2g/wheels/01/46/3b/e29ffbe4ebe614ff224bad40fc6a5773a67a163251585a13a9
+Successfully built nemo-toolkit wget
+Installing collected packages: wget, text-unidecode, ruamel.yaml, hf-xet, click, annotated-doc, typer, huggingface_hub, nemo-toolkit
+  Attempting uninstall: click
+    Found existing installation: click 8.1.7
+    Uninstalling click-8.1.7:
+      Successfully uninstalled click-8.1.7
+  Attempting uninstall: typer
+    Found existing installation: typer 0.15.1
+    Uninstalling typer-0.15.1:
+      Successfully uninstalled typer-0.15.1
+Successfully installed annotated-doc-0.0.4 click-8.3.3 hf-xet-1.5.0 huggingface_hub-1.14.0 nemo-toolkit-2.1.0 ruamel.yaml-0.19.1 text-unidecode-1.3 typer-0.25.1 wget-3.2
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Obtaining file:///workspace/NeMo
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: huggingface_hub>=0.24 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.14.0)
+Requirement already satisfied: numba in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (0.59.1)
+Requirement already satisfied: numpy>=1.22 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.26.4)
+Requirement already satisfied: onnx>=1.7.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.17.0)
+Requirement already satisfied: python-dateutil in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.9.0.post0)
+Requirement already satisfied: ruamel.yaml in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (0.19.1)
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.6.1)
+Requirement already satisfied: setuptools>=70.0.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (70.3.0)
+Requirement already satisfied: tensorboard in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.16.2)
+Requirement already satisfied: text-unidecode in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.3)
+Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.6.0a0+ecf3bae40a.nv25.1)
+Requirement already satisfied: tqdm>=4.41.0 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (4.67.1)
+Requirement already satisfied: wget in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (3.2)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (1.17.2)
+Collecting accelerated-scan (from nemo-toolkit==2.1.0)
+  Downloading accelerated_scan-0.3.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting boto3 (from nemo-toolkit==2.1.0)
+  Downloading boto3-1.43.4-py3-none-any.whl.metadata (6.5 kB)
+Collecting faiss-cpu (from nemo-toolkit==2.1.0)
+  Downloading faiss_cpu-1.13.2-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (7.6 kB)
+Collecting fasttext (from nemo-toolkit==2.1.0)
+  Downloading fasttext-0.9.3.tar.gz (73 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting flask_restful (from nemo-toolkit==2.1.0)
+  Downloading Flask_RESTful-0.3.10-py2.py3-none-any.whl.metadata (1.0 kB)
+Collecting ftfy (from nemo-toolkit==2.1.0)
+  Downloading ftfy-6.3.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting gdown (from nemo-toolkit==2.1.0)
+  Downloading gdown-6.0.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting h5py (from nemo-toolkit==2.1.0)
+  Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting ijson (from nemo-toolkit==2.1.0)
+  Downloading ijson-3.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (23 kB)
+Collecting jieba (from nemo-toolkit==2.1.0)
+  Downloading jieba-0.42.1.tar.gz (19.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.2/19.2 MB 63.8 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting markdown2 (from nemo-toolkit==2.1.0)
+  Downloading markdown2-2.5.5-py3-none-any.whl.metadata (2.1 kB)
+Requirement already satisfied: matplotlib>=3.3.2 in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (3.10.0)
+Collecting nltk>=3.6.5 (from nemo-toolkit==2.1.0)
+  Downloading nltk-3.9.4-py3-none-any.whl.metadata (3.2 kB)
+Collecting opencc (from nemo-toolkit==2.1.0)
+  Downloading opencc-1.3.0-cp312-cp312-manylinux2014_x86_64.whl.metadata (17 kB)
+Collecting pangu (from nemo-toolkit==2.1.0)
+  Downloading pangu-4.0.6.1-py3-none-any.whl.metadata (5.3 kB)
+Collecting prettytable (from nemo-toolkit==2.1.0)
+  Downloading prettytable-3.17.0-py3-none-any.whl.metadata (34 kB)
+Collecting rapidfuzz (from nemo-toolkit==2.1.0)
+  Downloading rapidfuzz-3.14.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+Collecting rouge_score (from nemo-toolkit==2.1.0)
+  Downloading rouge_score-0.1.2.tar.gz (17 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting sacrebleu (from nemo-toolkit==2.1.0)
+  Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+Collecting sentence_transformers (from nemo-toolkit==2.1.0)
+  Downloading sentence_transformers-5.4.1-py3-none-any.whl.metadata (17 kB)
+Collecting tensorstore (from nemo-toolkit==2.1.0)
+  Downloading tensorstore-0.1.82-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting tiktoken==0.7.0 (from nemo-toolkit==2.1.0)
+  Downloading tiktoken-0.7.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: zarr in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.18.3)
+Requirement already satisfied: cloudpickle in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (3.1.0)
+Collecting fiddle (from nemo-toolkit==2.1.0)
+  Downloading fiddle-0.3.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting hydra-core<=1.3.2,>1.3 (from nemo-toolkit==2.1.0)
+  Downloading hydra_core-1.3.2-py3-none-any.whl.metadata (5.5 kB)
+Collecting lightning<=2.4.0,>2.2.1 (from nemo-toolkit==2.1.0)
+  Downloading lightning-2.4.0-py3-none-any.whl.metadata (38 kB)
+Collecting omegaconf<=2.3 (from nemo-toolkit==2.1.0)
+  Downloading omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+Collecting torchmetrics>=0.11.0 (from nemo-toolkit==2.1.0)
+  Downloading torchmetrics-1.9.0-py3-none-any.whl.metadata (23 kB)
+Collecting transformers>=4.45.0 (from nemo-toolkit==2.1.0)
+  Downloading transformers-5.8.0-py3-none-any.whl.metadata (33 kB)
+Collecting wandb (from nemo-toolkit==2.1.0)
+  Downloading wandb-0.26.1-py3-none-manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting webdataset>=0.2.86 (from nemo-toolkit==2.1.0)
+  Downloading webdataset-1.0.2-py3-none-any.whl.metadata (12 kB)
+Collecting datasets (from nemo-toolkit==2.1.0)
+  Downloading datasets-4.8.5-py3-none-any.whl.metadata (19 kB)
+Requirement already satisfied: einops in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (0.8.0)
+Collecting inflect (from nemo-toolkit==2.1.0)
+  Downloading inflect-7.5.0-py3-none-any.whl.metadata (24 kB)
+Collecting mediapy==1.1.6 (from nemo-toolkit==2.1.0)
+  Downloading mediapy-1.1.6-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (from nemo-toolkit==2.1.0) (2.2.2)
+Collecting sacremoses>=0.0.43 (from nemo-toolkit==2.1.0)
+  Downloading sacremoses-0.1.1-py3-none-any.whl.metadata (8.3 kB)
+Collecting sentencepiece<1.0.0 (from nemo-toolkit==2.1.0)
+  Downloading sentencepiece-0.2.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: ipython in /usr/local/lib/python3.12/dist-packages (from mediapy==1.1.6->nemo-toolkit==2.1.0) (8.31.0)
+Requirement already satisfied: Pillow in /usr/local/lib/python3.12/dist-packages (from mediapy==1.1.6->nemo-toolkit==2.1.0) (11.1.0)
+Requirement already satisfied: regex>=2022.1.18 in /usr/local/lib/python3.12/dist-packages (from tiktoken==0.7.0->nemo-toolkit==2.1.0) (2024.11.6)
+Requirement already satisfied: requests>=2.26.0 in /usr/local/lib/python3.12/dist-packages (from tiktoken==0.7.0->nemo-toolkit==2.1.0) (2.32.3)
+Requirement already satisfied: filelock>=3.10.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.16.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (2024.10.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.3 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.5.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.28.1)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (23.2)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (6.0.2)
+Requirement already satisfied: typer>=0.20.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.25.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub>=0.24->nemo-toolkit==2.1.0) (4.12.2)
+Collecting antlr4-python3-runtime==4.9.* (from hydra-core<=1.3.2,>1.3->nemo-toolkit==2.1.0)
+  Downloading antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: lightning-utilities<2.0,>=0.10.0 in /usr/local/lib/python3.12/dist-packages/lightning_utilities-0.12.0.dev0-py3.12.egg (from lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (0.12.0.dev0)
+Collecting pytorch-lightning (from lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0)
+  Downloading pytorch_lightning-2.6.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=3.3.2->nemo-toolkit==2.1.0) (1.3.1)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=3.3.2->nemo-toolkit==2.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=3.3.2->nemo-toolkit==2.1.0) (4.55.3)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=3.3.2->nemo-toolkit==2.1.0) (1.4.8)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib>=3.3.2->nemo-toolkit==2.1.0) (3.2.1)
+Requirement already satisfied: click in /usr/local/lib/python3.12/dist-packages (from nltk>=3.6.5->nemo-toolkit==2.1.0) (8.3.3)
+Requirement already satisfied: joblib in /usr/local/lib/python3.12/dist-packages (from nltk>=3.6.5->nemo-toolkit==2.1.0) (1.4.2)
+Requirement already satisfied: protobuf>=3.20.2 in /usr/local/lib/python3.12/dist-packages (from onnx>=1.7.0->nemo-toolkit==2.1.0) (4.24.4)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil->nemo-toolkit==2.1.0) (1.17.0)
+Requirement already satisfied: networkx in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (3.4.2)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (3.1.4)
+Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.12/dist-packages (from torch->nemo-toolkit==2.1.0) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy==1.13.1->torch->nemo-toolkit==2.1.0) (1.3.0)
+Collecting lightning-utilities<2.0,>=0.10.0 (from lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0)
+  Downloading lightning_utilities-0.15.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting regex>=2022.1.18 (from tiktoken==0.7.0->nemo-toolkit==2.1.0)
+  Downloading regex-2026.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers>=4.45.0->nemo-toolkit==2.1.0)
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.12/dist-packages (from transformers>=4.45.0->nemo-toolkit==2.1.0) (0.5.2)
+Collecting braceexpand (from webdataset>=0.2.86->nemo-toolkit==2.1.0)
+  Downloading braceexpand-0.1.7-py2.py3-none-any.whl.metadata (3.0 kB)
+INFO: pip is looking at multiple versions of accelerated-scan to determine which version is compatible with other requirements. This could take a while.
+Collecting accelerated-scan (from nemo-toolkit==2.1.0)
+  Downloading accelerated_scan-0.3.0-py3-none-any.whl.metadata (5.2 kB)
+  Downloading accelerated_scan-0.2.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting botocore<1.44.0,>=1.43.4 (from boto3->nemo-toolkit==2.1.0)
+  Downloading botocore-1.43.4-py3-none-any.whl.metadata (5.5 kB)
+Collecting jmespath<2.0.0,>=0.7.1 (from boto3->nemo-toolkit==2.1.0)
+  Downloading jmespath-1.1.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting s3transfer<0.18.0,>=0.17.0 (from boto3->nemo-toolkit==2.1.0)
+  Downloading s3transfer-0.17.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting pyarrow>=21.0.0 (from datasets->nemo-toolkit==2.1.0)
+  Downloading pyarrow-24.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Requirement already satisfied: dill<0.4.2,>=0.3.0 in /usr/local/lib/python3.12/dist-packages/dill-0.3.9-py3.12.egg (from datasets->nemo-toolkit==2.1.0) (0.3.9)
+Collecting xxhash (from datasets->nemo-toolkit==2.1.0)
+  Downloading xxhash-3.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+Collecting multiprocess<0.70.20 (from datasets->nemo-toolkit==2.1.0)
+  Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+Requirement already satisfied: pybind11>=2.2 in /usr/local/lib/python3.12/dist-packages (from fasttext->nemo-toolkit==2.1.0) (2.13.6)
+Requirement already satisfied: absl-py in /usr/local/lib/python3.12/dist-packages (from fiddle->nemo-toolkit==2.1.0) (2.1.0)
+Collecting graphviz (from fiddle->nemo-toolkit==2.1.0)
+  Downloading graphviz-0.21-py3-none-any.whl.metadata (12 kB)
+Collecting libcst (from fiddle->nemo-toolkit==2.1.0)
+  Downloading libcst-1.8.6-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (15 kB)
+Collecting aniso8601>=0.82 (from flask_restful->nemo-toolkit==2.1.0)
+  Downloading aniso8601-10.0.1-py2.py3-none-any.whl.metadata (23 kB)
+Collecting Flask>=0.8 (from flask_restful->nemo-toolkit==2.1.0)
+  Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+Requirement already satisfied: pytz in /usr/local/lib/python3.12/dist-packages (from flask_restful->nemo-toolkit==2.1.0) (2023.4)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.12/dist-packages (from ftfy->nemo-toolkit==2.1.0) (0.2.13)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.12/dist-packages (from gdown->nemo-toolkit==2.1.0) (4.12.3)
+Collecting more_itertools>=8.5.0 (from inflect->nemo-toolkit==2.1.0)
+  Downloading more_itertools-11.0.2-py3-none-any.whl.metadata (41 kB)
+Collecting typeguard>=4.0.1 (from inflect->nemo-toolkit==2.1.0)
+  Downloading typeguard-4.5.1-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: llvmlite<0.43,>=0.42.0dev0 in /usr/local/lib/python3.12/dist-packages (from numba->nemo-toolkit==2.1.0) (0.42.0)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas->nemo-toolkit==2.1.0) (2024.2)
+Collecting portalocker (from sacrebleu->nemo-toolkit==2.1.0)
+  Downloading portalocker-3.2.0-py3-none-any.whl.metadata (8.7 kB)
+Requirement already satisfied: tabulate>=0.8.9 in /usr/local/lib/python3.12/dist-packages (from sacrebleu->nemo-toolkit==2.1.0) (0.9.0)
+Collecting colorama (from sacrebleu->nemo-toolkit==2.1.0)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting lxml (from sacrebleu->nemo-toolkit==2.1.0)
+  Downloading lxml-6.1.0-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (4.0 kB)
+Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->nemo-toolkit==2.1.0) (1.14.1)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.12/dist-packages (from scikit-learn->nemo-toolkit==2.1.0) (3.5.0)
+Requirement already satisfied: grpcio>=1.48.2 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (1.62.1)
+Requirement already satisfied: markdown>=2.6.8 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (3.7)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (0.7.2)
+Requirement already satisfied: werkzeug>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from tensorboard->nemo-toolkit==2.1.0) (3.1.3)
+Collecting ml_dtypes>=0.5.0 (from tensorstore->nemo-toolkit==2.1.0)
+  Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting gitpython!=3.1.29,>=1.0.0 (from wandb->nemo-toolkit==2.1.0)
+  Downloading gitpython-3.1.50-py3-none-any.whl.metadata (14 kB)
+Requirement already satisfied: platformdirs in /usr/local/lib/python3.12/dist-packages (from wandb->nemo-toolkit==2.1.0) (4.3.6)
+Requirement already satisfied: pydantic<3 in /usr/local/lib/python3.12/dist-packages (from wandb->nemo-toolkit==2.1.0) (2.10.5)
+Collecting sentry-sdk>=2.0.0 (from wandb->nemo-toolkit==2.1.0)
+  Downloading sentry_sdk-2.59.0-py2.py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: asciitree in /usr/local/lib/python3.12/dist-packages (from zarr->nemo-toolkit==2.1.0) (0.3.3)
+Requirement already satisfied: numcodecs>=0.10.0 in /usr/local/lib/python3.12/dist-packages (from zarr->nemo-toolkit==2.1.0) (0.13.1)
+Requirement already satisfied: fasteners in /usr/local/lib/python3.12/dist-packages (from zarr->nemo-toolkit==2.1.0) (0.19)
+Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in /usr/local/lib/python3.12/dist-packages (from botocore<1.44.0,>=1.43.4->boto3->nemo-toolkit==2.1.0) (2.0.7)
+Collecting blinker>=1.9.0 (from Flask>=0.8->flask_restful->nemo-toolkit==2.1.0)
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting itsdangerous>=2.2.0 (from Flask>=0.8->flask_restful->nemo-toolkit==2.1.0)
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: markupsafe>=2.1.1 in /usr/local/lib/python3.12/dist-packages (from Flask>=0.8->flask_restful->nemo-toolkit==2.1.0) (3.0.2)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (3.11.10)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb->nemo-toolkit==2.1.0)
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (4.8.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (2024.12.14)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.0.7)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.10)
+Requirement already satisfied: h11<0.15,>=0.13 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.14.0)
+Collecting dill<0.4.2,>=0.3.0 (from datasets->nemo-toolkit==2.1.0)
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic<3->wandb->nemo-toolkit==2.1.0) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in /usr/local/lib/python3.12/dist-packages (from pydantic<3->wandb->nemo-toolkit==2.1.0) (2.27.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->tiktoken==0.7.0->nemo-toolkit==2.1.0) (3.4.1)
+Collecting typing-extensions>=4.1.0 (from huggingface_hub>=0.24->nemo-toolkit==2.1.0)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in /usr/local/lib/python3.12/dist-packages (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (13.9.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.12/dist-packages (from typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.0.4)
+Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.12/dist-packages (from beautifulsoup4->gdown->nemo-toolkit==2.1.0) (2.6)
+Requirement already satisfied: decorator in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (5.1.1)
+Requirement already satisfied: jedi>=0.16 in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.19.2)
+Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.1.7)
+Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (3.0.48)
+Requirement already satisfied: pygments>=2.4.0 in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (2.18.0)
+Requirement already satisfied: stack_data in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in /usr/local/lib/python3.12/dist-packages (from ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (5.14.3)
+Collecting PySocks!=1.5.7,>=1.5.6 (from requests[socks]->gdown->nemo-toolkit==2.1.0)
+  Downloading PySocks-1.7.1-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (2.4.4)
+Requirement already satisfied: aiosignal>=1.1.2 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (1.3.2)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (24.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (1.5.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (6.1.0)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (0.2.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<2026.0,>=2022.5.0->lightning<=2.4.0,>2.2.1->nemo-toolkit==2.1.0) (1.18.3)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->nemo-toolkit==2.1.0)
+  Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+Requirement already satisfied: parso<0.9.0,>=0.8.4 in /usr/local/lib/python3.12/dist-packages (from jedi>=0.16->ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.8.4)
+Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.12/dist-packages (from pexpect>4.3->ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.7.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich>=13.8.0->typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (3.0.0)
+Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.12/dist-packages (from anyio->httpx<1,>=0.23.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (1.3.1)
+Requirement already satisfied: executing>=1.2.0 in /usr/local/lib/python3.12/dist-packages (from stack_data->ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (2.1.0)
+Requirement already satisfied: asttokens>=2.1.0 in /usr/local/lib/python3.12/dist-packages (from stack_data->ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (3.0.0)
+Requirement already satisfied: pure-eval in /usr/local/lib/python3.12/dist-packages (from stack_data->ipython->mediapy==1.1.6->nemo-toolkit==2.1.0) (0.2.3)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer>=0.20.0->huggingface_hub>=0.24->nemo-toolkit==2.1.0) (0.1.2)
+Downloading mediapy-1.1.6-py3-none-any.whl (24 kB)
+Downloading tiktoken-0.7.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 19.3 MB/s eta 0:00:00
+Downloading hydra_core-1.3.2-py3-none-any.whl (154 kB)
+Downloading lightning-2.4.0-py3-none-any.whl (810 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 811.0/811.0 kB 5.8 MB/s eta 0:00:00
+Downloading nltk-3.9.4-py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 1.2 MB/s eta 0:00:00
+Downloading omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Downloading sacremoses-0.1.1-py3-none-any.whl (897 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 897.5/897.5 kB 1.5 MB/s eta 0:00:00
+Downloading sentencepiece-0.2.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 1.5 MB/s eta 0:00:00
+Downloading torchmetrics-1.9.0-py3-none-any.whl (983 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 983.4/983.4 kB 3.7 MB/s eta 0:00:00
+Downloading transformers-5.8.0-py3-none-any.whl (10.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.6/10.6 MB 5.6 MB/s eta 0:00:00
+Downloading webdataset-1.0.2-py3-none-any.whl (74 kB)
+Downloading accelerated_scan-0.2.0-py3-none-any.whl (11 kB)
+Downloading boto3-1.43.4-py3-none-any.whl (140 kB)
+Downloading datasets-4.8.5-py3-none-any.whl (528 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.0/529.0 kB 7.9 MB/s eta 0:00:00
+Downloading faiss_cpu-1.13.2-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (23.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB 13.9 MB/s eta 0:00:00
+Downloading fiddle-0.3.0-py3-none-any.whl (419 kB)
+Downloading Flask_RESTful-0.3.10-py2.py3-none-any.whl (26 kB)
+Downloading ftfy-6.3.1-py3-none-any.whl (44 kB)
+Downloading gdown-6.0.0-py3-none-any.whl (18 kB)
+Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 20.4 MB/s eta 0:00:00
+Downloading ijson-3.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (149 kB)
+Downloading inflect-7.5.0-py3-none-any.whl (35 kB)
+Downloading markdown2-2.5.5-py3-none-any.whl (56 kB)
+Downloading opencc-1.3.0-cp312-cp312-manylinux2014_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 24.1 MB/s eta 0:00:00
+Downloading pangu-4.0.6.1-py3-none-any.whl (6.4 kB)
+Downloading prettytable-3.17.0-py3-none-any.whl (34 kB)
+Downloading rapidfuzz-3.14.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 23.3 MB/s eta 0:00:00
+Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+Downloading sentence_transformers-5.4.1-py3-none-any.whl (571 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 571.3/571.3 kB 26.5 MB/s eta 0:00:00
+Downloading tensorstore-0.1.82-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (21.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.0/21.0 MB 20.8 MB/s eta 0:00:00
+Downloading wandb-0.26.1-py3-none-manylinux_2_28_x86_64.whl (27.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 27.2/27.2 MB 26.4 MB/s eta 0:00:00
+Downloading aniso8601-10.0.1-py2.py3-none-any.whl (52 kB)
+Downloading botocore-1.43.4-py3-none-any.whl (15.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.0/15.0 MB 23.6 MB/s eta 0:00:00
+Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+Downloading gitpython-3.1.50-py3-none-any.whl (212 kB)
+Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
+Downloading lightning_utilities-0.15.3-py3-none-any.whl (31 kB)
+Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 25.2 MB/s eta 0:00:00
+Downloading more_itertools-11.0.2-py3-none-any.whl (71 kB)
+Downloading multiprocess-0.70.19-py312-none-any.whl (150 kB)
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading pyarrow-24.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (48.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.9/48.9 MB 18.5 MB/s eta 0:00:00
+Downloading regex-2026.4.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.1/801.1 kB 16.0 MB/s eta 0:00:00
+Downloading s3transfer-0.17.0-py3-none-any.whl (86 kB)
+Downloading sentry_sdk-2.59.0-py2.py3-none-any.whl (468 kB)
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 17.9 MB/s eta 0:00:00
+Downloading typeguard-4.5.1-py3-none-any.whl (36 kB)
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading braceexpand-0.1.7-py2.py3-none-any.whl (5.9 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading graphviz-0.21-py3-none-any.whl (47 kB)
+Downloading libcst-1.8.6-cp312-cp312-manylinux_2_28_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 18.4 MB/s eta 0:00:00
+Downloading lxml-6.1.0-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 18.7 MB/s eta 0:00:00
+Downloading portalocker-3.2.0-py3-none-any.whl (22 kB)
+Downloading pytorch_lightning-2.6.1-py3-none-any.whl (857 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.3/857.3 kB 18.9 MB/s eta 0:00:00
+Downloading xxhash-3.7.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (193 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading PySocks-1.7.1-py3-none-any.whl (16 kB)
+Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Building wheels for collected packages: nemo-toolkit, antlr4-python3-runtime, fasttext, jieba, rouge_score
+  Building editable for nemo-toolkit (pyproject.toml): started
+  Building editable for nemo-toolkit (pyproject.toml): finished with status 'done'
+  Created wheel for nemo-toolkit: filename=nemo_toolkit-2.1.0-0.editable-py3-none-any.whl size=24103 sha256=d7711bee6ff4b336712140b41891fc626924ff238a6cf9665fc3a3a968a36224
+  Stored in directory: /tmp/pip-ephem-wheel-cache-cjff1nj2/wheels/f6/47/59/edf014d9e67dfe523a8f2fc603d8d5d7444e23bf9eb920b14c
+  Building wheel for antlr4-python3-runtime (setup.py): started
+  Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144551 sha256=9e8dc44f949f7db1f02b32e669d20a2eb16433f07c06d80849f22bf9b46c205f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-cjff1nj2/wheels/1f/be/48/13754633f1d08d1fbfc60d5e80ae1e5d7329500477685286cd
+  Building wheel for fasttext (pyproject.toml): started
+  Building wheel for fasttext (pyproject.toml): finished with status 'done'
+  Created wheel for fasttext: filename=fasttext-0.9.3-cp312-cp312-linux_x86_64.whl size=4553885 sha256=e26dfecbbca85c0c98be2d348a78af9c6ac46999c760951bedafd23dbbca9f6a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-cjff1nj2/wheels/20/27/95/a7baf1b435f1cbde017cabdf1e9688526d2b0e929255a359c6
+  Building wheel for jieba (setup.py): started
+  Building wheel for jieba (setup.py): finished with status 'done'
+  Created wheel for jieba: filename=jieba-0.42.1-py3-none-any.whl size=19314458 sha256=79b114b8334afcfd9d1c002ce61d9432518b824168571c37daf9df057731ff06
+  Stored in directory: /tmp/pip-ephem-wheel-cache-cjff1nj2/wheels/08/a1/a3/5c8ac52cc2f5782ffffc34c95c57c8e5ecb3063dc69541ee7c
+  Building wheel for rouge_score (setup.py): started
+  Building wheel for rouge_score (setup.py): finished with status 'done'
+  Created wheel for rouge_score: filename=rouge_score-0.1.2-py3-none-any.whl size=24934 sha256=a018cb8eddc78d8b0bdadaeef5493db366b72495cba9d3de5f2d5104728142b1
+  Stored in directory: /tmp/pip-ephem-wheel-cache-cjff1nj2/wheels/85/9d/af/01feefbe7d55ef5468796f0c68225b6788e85d9d0a281e7a70
+Successfully built nemo-toolkit antlr4-python3-runtime fasttext jieba rouge_score
+Installing collected packages: pangu, opencc, jieba, braceexpand, antlr4-python3-runtime, aniso8601, xxhash, webdataset, typing-extensions, smmap, sentry-sdk, sentencepiece, regex, rapidfuzz, PySocks, pyarrow, prettytable, portalocker, omegaconf, more_itertools, ml_dtypes, markdown2, lxml, libcst, jmespath, itsdangerous, ijson, h5py, graphviz, ftfy, fasttext, faiss-cpu, dill, colorama, blinker, typeguard, tiktoken, tensorstore, sacremoses, sacrebleu, nltk, multiprocess, lightning-utilities, hydra-core, gitdb, Flask, fiddle, botocore, torchmetrics, s3transfer, rouge_score, mediapy, inflect, gitpython, gdown, flask_restful, accelerated-scan, wandb, pytorch-lightning, boto3, tokenizers, nemo-toolkit, lightning, datasets, transformers, sentence_transformers
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.12.2
+    Uninstalling typing_extensions-4.12.2:
+      Successfully uninstalled typing_extensions-4.12.2
+  Attempting uninstall: regex
+    Found existing installation: regex 2024.11.6
+    Uninstalling regex-2024.11.6:
+      Successfully uninstalled regex-2024.11.6
+  Attempting uninstall: pyarrow
+    Found existing installation: pyarrow 17.0.0
+    Uninstalling pyarrow-17.0.0:
+      Successfully uninstalled pyarrow-17.0.0
+  Attempting uninstall: dill
+    Found existing installation: dill 0.3.9
+    Uninstalling dill-0.3.9:
+      Successfully uninstalled dill-0.3.9
+  Attempting uninstall: lightning-utilities
+    Found existing installation: lightning-utilities 0.12.0.dev0
+    Uninstalling lightning-utilities-0.12.0.dev0:
+      Successfully uninstalled lightning-utilities-0.12.0.dev0
+  Attempting uninstall: nemo-toolkit
+    Found existing installation: nemo-toolkit 2.1.0
+    Uninstalling nemo-toolkit-2.1.0:
+      Successfully uninstalled nemo-toolkit-2.1.0
+[91mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+cudf 24.10.0 requires pyarrow<18.0.0a0,>=14.0.0, but you have pyarrow 24.0.0 which is incompatible.
+pylibcudf 24.10.0 requires pyarrow<18.0.0a0,>=14.0.0, but you have pyarrow 24.0.0 which is incompatible.
+[0mSuccessfully installed Flask-3.1.3 PySocks-1.7.1 accelerated-scan-0.2.0 aniso8601-10.0.1 antlr4-python3-runtime-4.9.3 blinker-1.9.0 boto3-1.43.4 botocore-1.43.4 braceexpand-0.1.7 colorama-0.4.6 datasets-4.8.5 dill-0.4.1 faiss-cpu-1.13.2 fasttext-0.9.3 fiddle-0.3.0 flask_restful-0.3.10 ftfy-6.3.1 gdown-6.0.0 gitdb-4.0.12 gitpython-3.1.50 graphviz-0.21 h5py-3.16.0 hydra-core-1.3.2 ijson-3.5.0 inflect-7.5.0 itsdangerous-2.2.0 jieba-0.42.1 jmespath-1.1.0 libcst-1.8.6 lightning-2.4.0 lightning-utilities-0.15.3 lxml-6.1.0 markdown2-2.5.5 mediapy-1.1.6 ml_dtypes-0.5.4 more_itertools-11.0.2 multiprocess-0.70.19 nemo-toolkit-2.1.0 nltk-3.9.4 omegaconf-2.3.0 opencc-1.3.0 pangu-4.0.6.1 portalocker-3.2.0 prettytable-3.17.0 pyarrow-24.0.0 pytorch-lightning-2.6.1 rapidfuzz-3.14.5 regex-2026.4.4 rouge_score-0.1.2 s3transfer-0.17.0 sacrebleu-2.6.0 sacremoses-0.1.1 sentence_transformers-5.4.1 sentencepiece-0.2.1 sentry-sdk-2.59.0 smmap-5.0.3 tensorstore-0.1.82 tiktoken-0.7.0 tokenizers-0.22.2 torchmetrics-1.9.0 transformers-5.8.0 typeguard-4.5.1 typing-extensions-4.15.0 wandb-0.26.1 webdataset-1.0.2 xxhash-3.7.0
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m ---> Removed intermediate container 945a1b819994
+ ---> 1dbb7fa6b745
+Step 23/35 : ARG NEMORUN_REVISION=v0.4.0
+ ---> Running in bb9405bc60b9
+ ---> Removed intermediate container bb9405bc60b9
+ ---> 3b3b14f1af84
+Step 24/35 : ENV CUSTOM_NEMORUN_REVISION ${NEMORUN_REVISION}
+ ---> Running in 432f23c49468
+ ---> Removed intermediate container 432f23c49468
+ ---> ddec70135a81
+Step 25/35 : RUN git clone https://github.com/NVIDIA/NeMo-Run.git &&     cd NeMo-Run &&     git checkout ${NEMORUN_REVISION} &&     echo NEMORUN_COMMIT_HASH=$(git rev-parse HEAD) &&     pip install -e .
+ ---> Running in c36846b21954
+[91mCloning into 'NeMo-Run'...
+[0m[91mNote: switching to 'v0.4.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 33458c8 chore: Add changelog (#226)
+[0mNEMORUN_COMMIT_HASH=33458c85ffee2e273e2ca29b37d83c42f274b78a
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Obtaining file:///workspace/NeMo-Run
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: catalogue>=2.0.10 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (2.0.10)
+Collecting cryptography<43.0.0 (from nemo_run==0.4.0)
+  Downloading cryptography-42.0.8-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting fabric>=3.2.2 (from nemo_run==0.4.0)
+  Downloading fabric-3.2.3-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: fiddle>=0.3.0 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (0.3.0)
+Collecting inquirerpy>=0.3.4 (from nemo_run==0.4.0)
+  Downloading InquirerPy-0.3.4-py3-none-any.whl.metadata (8.1 kB)
+Requirement already satisfied: jinja2>=3.1.4 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (3.1.4)
+Requirement already satisfied: networkx>=3.3 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (3.4.2)
+Requirement already satisfied: omegaconf>=2.3.0 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (2.3.0)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (23.2)
+Requirement already satisfied: rich>=13.7.1 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (13.9.4)
+Collecting torchx>=0.7.0 (from nemo_run==0.4.0)
+  Downloading torchx-0.7.0-py3-none-any.whl.metadata (6.2 kB)
+Requirement already satisfied: typer>=0.12.3 in /usr/local/lib/python3.12/dist-packages (from nemo_run==0.4.0) (0.25.1)
+Requirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.12/dist-packages (from cryptography<43.0.0->nemo_run==0.4.0) (1.17.1)
+Collecting invoke<3.0,>=2.0 (from fabric>=3.2.2->nemo_run==0.4.0)
+  Downloading invoke-2.2.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting paramiko>=2.4 (from fabric>=3.2.2->nemo_run==0.4.0)
+  Downloading paramiko-4.0.0-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: decorator>=5 in /usr/local/lib/python3.12/dist-packages (from fabric>=3.2.2->nemo_run==0.4.0) (5.1.1)
+Collecting deprecated>=1.2 (from fabric>=3.2.2->nemo_run==0.4.0)
+  Downloading deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: absl-py in /usr/local/lib/python3.12/dist-packages (from fiddle>=0.3.0->nemo_run==0.4.0) (2.1.0)
+Requirement already satisfied: graphviz in /usr/local/lib/python3.12/dist-packages (from fiddle>=0.3.0->nemo_run==0.4.0) (0.21)
+Requirement already satisfied: libcst in /usr/local/lib/python3.12/dist-packages (from fiddle>=0.3.0->nemo_run==0.4.0) (1.8.6)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.12/dist-packages (from fiddle>=0.3.0->nemo_run==0.4.0) (4.15.0)
+Collecting pfzy<0.4.0,>=0.3.1 (from inquirerpy>=0.3.4->nemo_run==0.4.0)
+  Downloading pfzy-0.3.4-py3-none-any.whl.metadata (4.9 kB)
+Requirement already satisfied: prompt-toolkit<4.0.0,>=3.0.1 in /usr/local/lib/python3.12/dist-packages (from inquirerpy>=0.3.4->nemo_run==0.4.0) (3.0.48)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2>=3.1.4->nemo_run==0.4.0) (3.0.2)
+Requirement already satisfied: antlr4-python3-runtime==4.9.* in /usr/local/lib/python3.12/dist-packages (from omegaconf>=2.3.0->nemo_run==0.4.0) (4.9.3)
+Requirement already satisfied: PyYAML>=5.1.0 in /usr/local/lib/python3.12/dist-packages (from omegaconf>=2.3.0->nemo_run==0.4.0) (6.0.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich>=13.7.1->nemo_run==0.4.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich>=13.7.1->nemo_run==0.4.0) (2.18.0)
+Collecting pyre-extensions (from torchx>=0.7.0->nemo_run==0.4.0)
+  Downloading pyre_extensions-0.0.32-py3-none-any.whl.metadata (4.0 kB)
+Collecting docstring-parser>=0.8.1 (from torchx>=0.7.0->nemo_run==0.4.0)
+  Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.12/dist-packages (from torchx>=0.7.0->nemo_run==0.4.0) (8.5.0)
+Collecting docker (from torchx>=0.7.0->nemo_run==0.4.0)
+  Downloading docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from torchx>=0.7.0->nemo_run==0.4.0) (3.16.1)
+Requirement already satisfied: fsspec>=2023.10.0 in /usr/local/lib/python3.12/dist-packages (from torchx>=0.7.0->nemo_run==0.4.0) (2024.10.0)
+Collecting urllib3<1.27,>=1.21.1 (from torchx>=0.7.0->nemo_run==0.4.0)
+  Downloading urllib3-1.26.20-py2.py3-none-any.whl.metadata (50 kB)
+Requirement already satisfied: tabulate in /usr/local/lib/python3.12/dist-packages (from torchx>=0.7.0->nemo_run==0.4.0) (0.9.0)
+Requirement already satisfied: click>=8.2.1 in /usr/local/lib/python3.12/dist-packages (from typer>=0.12.3->nemo_run==0.4.0) (8.3.3)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from typer>=0.12.3->nemo_run==0.4.0) (1.5.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.12/dist-packages (from typer>=0.12.3->nemo_run==0.4.0) (0.0.4)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.12/dist-packages (from cffi>=1.12->cryptography<43.0.0->nemo_run==0.4.0) (2.22)
+Requirement already satisfied: wrapt<3,>=1.10 in /usr/local/lib/python3.12/dist-packages (from deprecated>=1.2->fabric>=3.2.2->nemo_run==0.4.0) (1.17.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich>=13.7.1->nemo_run==0.4.0) (0.1.2)
+Collecting bcrypt>=3.2 (from paramiko>=2.4->fabric>=3.2.2->nemo_run==0.4.0)
+  Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (10 kB)
+Collecting pynacl>=1.5 (from paramiko>=2.4->fabric>=3.2.2->nemo_run==0.4.0)
+  Downloading pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl.metadata (10.0 kB)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.12/dist-packages (from prompt-toolkit<4.0.0,>=3.0.1->inquirerpy>=0.3.4->nemo_run==0.4.0) (0.2.13)
+Requirement already satisfied: requests>=2.26.0 in /usr/local/lib/python3.12/dist-packages (from docker->torchx>=0.7.0->nemo_run==0.4.0) (2.32.3)
+Requirement already satisfied: zipp>=3.20 in /usr/local/lib/python3.12/dist-packages (from importlib-metadata->torchx>=0.7.0->nemo_run==0.4.0) (3.21.0)
+Collecting typing-inspect (from pyre-extensions->torchx>=0.7.0->nemo_run==0.4.0)
+  Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting cffi>=1.12 (from cryptography<43.0.0->nemo_run==0.4.0)
+  Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->docker->torchx>=0.7.0->nemo_run==0.4.0) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->docker->torchx>=0.7.0->nemo_run==0.4.0) (3.10)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->docker->torchx>=0.7.0->nemo_run==0.4.0) (2024.12.14)
+Requirement already satisfied: mypy-extensions>=0.3.0 in /usr/local/lib/python3.12/dist-packages (from typing-inspect->pyre-extensions->torchx>=0.7.0->nemo_run==0.4.0) (1.0.0)
+Downloading cryptography-42.0.8-cp39-abi3-manylinux_2_28_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 17.1 MB/s eta 0:00:00
+Downloading fabric-3.2.3-py3-none-any.whl (59 kB)
+Downloading InquirerPy-0.3.4-py3-none-any.whl (67 kB)
+Downloading torchx-0.7.0-py3-none-any.whl (256 kB)
+Downloading deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+Downloading docstring_parser-0.18.0-py3-none-any.whl (22 kB)
+Downloading invoke-2.2.1-py3-none-any.whl (160 kB)
+Downloading paramiko-4.0.0-py3-none-any.whl (223 kB)
+Downloading pfzy-0.3.4-py3-none-any.whl (8.5 kB)
+Downloading urllib3-1.26.20-py2.py3-none-any.whl (144 kB)
+Downloading docker-7.1.0-py3-none-any.whl (147 kB)
+Downloading pyre_extensions-0.0.32-py3-none-any.whl (12 kB)
+Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_x86_64.whl (278 kB)
+Downloading pynacl-1.6.2-cp38-abi3-manylinux_2_34_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 17.3 MB/s eta 0:00:00
+Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+Downloading typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+Building wheels for collected packages: nemo_run
+  Building editable for nemo_run (pyproject.toml): started
+  Building editable for nemo_run (pyproject.toml): finished with status 'done'
+  Created wheel for nemo_run: filename=nemo_run-0.4.0-py3-none-any.whl size=7861 sha256=44061cd78a154f67991fa21300c692c5e706a12d1a6fb67ba59932977f936383
+  Stored in directory: /tmp/pip-ephem-wheel-cache-443dhg2w/wheels/26/6d/a5/2e215663c569ee6d86e0bb35ea73cfa43d85626d54c2c25059
+Successfully built nemo_run
+Installing collected packages: urllib3, typing-inspect, pfzy, invoke, docstring-parser, deprecated, cffi, bcrypt, pyre-extensions, pynacl, inquirerpy, cryptography, paramiko, docker, torchx, fabric, nemo_run
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 2.0.7
+    Uninstalling urllib3-2.0.7:
+      Successfully uninstalled urllib3-2.0.7
+  Attempting uninstall: cffi
+    Found existing installation: cffi 1.17.1
+    Uninstalling cffi-1.17.1:
+      Successfully uninstalled cffi-1.17.1
+Successfully installed bcrypt-5.0.0 cffi-2.0.0 cryptography-42.0.8 deprecated-1.3.1 docker-7.1.0 docstring-parser-0.18.0 fabric-3.2.3 inquirerpy-0.3.4 invoke-2.2.1 nemo_run-0.4.0 paramiko-4.0.0 pfzy-0.3.4 pynacl-1.6.2 pyre-extensions-0.0.32 torchx-0.7.0 typing-inspect-0.9.0 urllib3-1.26.20
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m ---> Removed intermediate container c36846b21954
+ ---> 61894b1cdae6
+Step 26/35 : COPY requirements.txt requirements.txt
+ ---> 03f6a0391ff8
+Step 27/35 : RUN pip3 install -r requirements.txt
+ ---> Running in ea1006208036
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Collecting git+https://github.com/mlcommons/logging.git@5.0.0-rc2 (from -r requirements.txt (line 1))
+  Cloning https://github.com/mlcommons/logging.git (to revision 5.0.0-rc2) to /tmp/pip-req-build-9v2cnaxw
+[91m  Running command git clone --filter=blob:none --quiet https://github.com/mlcommons/logging.git /tmp/pip-req-build-9v2cnaxw
+[0m[91m  Running command git checkout -q 13e08d215b42bf1668fd1ee634f248eaa6e11ab1
+[0m  Resolved https://github.com/mlcommons/logging.git to commit 13e08d215b42bf1668fd1ee634f248eaa6e11ab1
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting git+https://github.com/NVIDIA/mlperf-common.git@68cf1d0d5e3de3351e66abb696d0e2d011aabf47 (from -r requirements.txt (line 2))
+  Cloning https://github.com/NVIDIA/mlperf-common.git (to revision 68cf1d0d5e3de3351e66abb696d0e2d011aabf47) to /tmp/pip-req-build-2tmbs4eb
+[91m  Running command git clone --filter=blob:none --quiet https://github.com/NVIDIA/mlperf-common.git /tmp/pip-req-build-2tmbs4eb
+[0m[91m  Running command git rev-parse -q --verify 'sha^68cf1d0d5e3de3351e66abb696d0e2d011aabf47'
+[0m[91m  Running command git fetch -q https://github.com/NVIDIA/mlperf-common.git 68cf1d0d5e3de3351e66abb696d0e2d011aabf47
+[0m[91m  Running command git checkout -q 68cf1d0d5e3de3351e66abb696d0e2d011aabf47
+[0m  Resolved https://github.com/NVIDIA/mlperf-common.git to commit 68cf1d0d5e3de3351e66abb696d0e2d011aabf47
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting huggingface_hub==0.24.0 (from -r requirements.txt (line 3))
+  Downloading huggingface_hub-0.24.0-py3-none-any.whl.metadata (13 kB)
+Collecting transformers==4.43.2 (from -r requirements.txt (line 4))
+  Downloading transformers-4.43.2-py3-none-any.whl.metadata (43 kB)
+Requirement already satisfied: numpy==1.26.4 in /usr/local/lib/python3.12/dist-packages (from -r requirements.txt (line 5)) (1.26.4)
+Collecting plotly==6.0.0 (from -r requirements.txt (line 6))
+  Downloading plotly-6.0.0-py3-none-any.whl.metadata (5.6 kB)
+Requirement already satisfied: nbformat==5.10.4 in /usr/local/lib/python3.12/dist-packages (from -r requirements.txt (line 7)) (5.10.4)
+Collecting kaleido==0.2.1 (from -r requirements.txt (line 8))
+  Downloading kaleido-0.2.1-py2.py3-none-manylinux1_x86_64.whl.metadata (15 kB)
+Collecting redis==5.2.1 (from -r requirements.txt (line 9))
+  Downloading redis-5.2.1-py3-none-any.whl.metadata (9.1 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (3.16.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (2024.10.0)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (23.2)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (6.0.2)
+Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (2.32.3)
+Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (4.67.1)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /usr/local/lib/python3.12/dist-packages (from huggingface_hub==0.24.0->-r requirements.txt (line 3)) (4.15.0)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.12/dist-packages (from transformers==4.43.2->-r requirements.txt (line 4)) (2026.4.4)
+Collecting tokenizers<0.20,>=0.19 (from transformers==4.43.2->-r requirements.txt (line 4))
+  Downloading tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Requirement already satisfied: safetensors>=0.4.1 in /usr/local/lib/python3.12/dist-packages (from transformers==4.43.2->-r requirements.txt (line 4)) (0.5.2)
+Collecting narwhals>=1.15.1 (from plotly==6.0.0->-r requirements.txt (line 6))
+  Downloading narwhals-2.20.0-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: fastjsonschema>=2.15 in /usr/local/lib/python3.12/dist-packages (from nbformat==5.10.4->-r requirements.txt (line 7)) (2.21.1)
+Requirement already satisfied: jsonschema>=2.6 in /usr/local/lib/python3.12/dist-packages (from nbformat==5.10.4->-r requirements.txt (line 7)) (4.23.0)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in /usr/local/lib/python3.12/dist-packages (from nbformat==5.10.4->-r requirements.txt (line 7)) (5.7.2)
+Requirement already satisfied: traitlets>=5.1 in /usr/local/lib/python3.12/dist-packages (from nbformat==5.10.4->-r requirements.txt (line 7)) (5.14.3)
+Requirement already satisfied: pandas>=1.0 in /usr/local/lib/python3.12/dist-packages (from mlperf-logging==4.1.15->-r requirements.txt (line 1)) (2.2.2)
+Requirement already satisfied: scipy>=1.4.1 in /usr/local/lib/python3.12/dist-packages (from mlperf-logging==4.1.15->-r requirements.txt (line 1)) (1.14.1)
+Requirement already satisfied: attrs>=22.2.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=2.6->nbformat==5.10.4->-r requirements.txt (line 7)) (24.2.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=2.6->nbformat==5.10.4->-r requirements.txt (line 7)) (2024.10.1)
+Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=2.6->nbformat==5.10.4->-r requirements.txt (line 7)) (0.36.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.12/dist-packages (from jsonschema>=2.6->nbformat==5.10.4->-r requirements.txt (line 7)) (0.22.3)
+Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.12/dist-packages (from jupyter-core!=5.0.*,>=4.12->nbformat==5.10.4->-r requirements.txt (line 7)) (4.3.6)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.0->mlperf-logging==4.1.15->-r requirements.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.0->mlperf-logging==4.1.15->-r requirements.txt (line 1)) (2023.4)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas>=1.0->mlperf-logging==4.1.15->-r requirements.txt (line 1)) (2024.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests->huggingface_hub==0.24.0->-r requirements.txt (line 3)) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests->huggingface_hub==0.24.0->-r requirements.txt (line 3)) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests->huggingface_hub==0.24.0->-r requirements.txt (line 3)) (1.26.20)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests->huggingface_hub==0.24.0->-r requirements.txt (line 3)) (2024.12.14)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas>=1.0->mlperf-logging==4.1.15->-r requirements.txt (line 1)) (1.17.0)
+Downloading huggingface_hub-0.24.0-py3-none-any.whl (419 kB)
+Downloading transformers-4.43.2-py3-none-any.whl (9.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 MB 26.5 MB/s eta 0:00:00
+Downloading plotly-6.0.0-py3-none-any.whl (14.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.8/14.8 MB 34.0 MB/s eta 0:00:00
+Downloading kaleido-0.2.1-py2.py3-none-manylinux1_x86_64.whl (79.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 MB 7.9 MB/s eta 0:00:00
+Downloading redis-5.2.1-py3-none-any.whl (261 kB)
+Downloading narwhals-2.20.0-py3-none-any.whl (449 kB)
+Downloading tokenizers-0.19.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 20.0 MB/s eta 0:00:00
+Building wheels for collected packages: mlperf-logging, mlperf-common
+  Building wheel for mlperf-logging (setup.py): started
+  Building wheel for mlperf-logging (setup.py): finished with status 'done'
+  Created wheel for mlperf-logging: filename=mlperf_logging-4.1.15-py3-none-any.whl size=302097 sha256=266f287ed8b9bd28925750b15c4b96f60087ee8ae324d1b137b9a7285c6378c6
+  Stored in directory: /tmp/pip-ephem-wheel-cache-z2hh90rv/wheels/6b/36/f8/c9da61a214e2e5b001011426a189a8405f63842f55d9d3cf85
+  Building wheel for mlperf-common (setup.py): started
+  Building wheel for mlperf-common (setup.py): finished with status 'done'
+  Created wheel for mlperf-common: filename=mlperf_common-0.3-py3-none-any.whl size=23748 sha256=7d298090ec300fbe459281319565c7f851da672615154252691d5dd84660e7f8
+  Stored in directory: /tmp/pip-ephem-wheel-cache-z2hh90rv/wheels/c7/fa/69/52ee3cc850eb1cdf7d3ebd30a6f4894340da020f4b1d78c962
+Successfully built mlperf-logging mlperf-common
+Installing collected packages: kaleido, redis, narwhals, mlperf-common, plotly, huggingface_hub, tokenizers, mlperf-logging, transformers
+  Attempting uninstall: huggingface_hub
+    Found existing installation: huggingface_hub 1.14.0
+    Uninstalling huggingface_hub-1.14.0:
+      Successfully uninstalled huggingface_hub-1.14.0
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.22.2
+    Uninstalling tokenizers-0.22.2:
+      Successfully uninstalled tokenizers-0.22.2
+  Attempting uninstall: transformers
+    Found existing installation: transformers 5.8.0
+    Uninstalling transformers-5.8.0:
+      Successfully uninstalled transformers-5.8.0
+[91mERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+datasets 4.8.5 requires huggingface-hub<2.0,>=0.25.0, but you have huggingface-hub 0.24.0 which is incompatible.
+[0mSuccessfully installed huggingface_hub-0.24.0 kaleido-0.2.1 mlperf-common-0.3 mlperf-logging-4.1.15 narwhals-2.20.0 plotly-6.0.0 redis-5.2.1 tokenizers-0.19.1 transformers-4.43.2
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0m ---> Removed intermediate container ea1006208036
+ ---> 886c13e21da4
+Step 28/35 : ARG MCORE_REVISION=core_r0.11.0
+ ---> Running in 90f0d83288b6
+ ---> Removed intermediate container 90f0d83288b6
+ ---> d3d6033067bb
+Step 29/35 : ARG MCORE_REPO=https://github.com/NVIDIA/Megatron-LM.git
+ ---> Running in 4d33008cb81d
+ ---> Removed intermediate container 4d33008cb81d
+ ---> 4a1669129fe9
+Step 30/35 : ENV CUSTOM_MCORE_REVISION ${MCORE_REVISION}
+ ---> Running in e0b66749fb39
+ ---> Removed intermediate container e0b66749fb39
+ ---> 1e338c991712
+Step 31/35 : RUN if [ "${MCORE_REVISION}" != SKIP ]; then     pip uninstall -y megatron-core &&     git clone ${MCORE_REPO} Megatron-LM &&     cd Megatron-LM &&     git checkout ${MCORE_REVISION} &&     echo MCORE_COMMIT_HASH=$(git rev-parse HEAD) &&     echo $(git rev-parse HEAD) > /MCORE_COMMIT_HASH.env &&     pip install . &&     cd megatron/core/datasets &&     make     ; fi
+ ---> Running in 13731c9ceb50
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mWARNING: Skipping megatron-core as it is not installed.
+[0m[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91mCloning into 'Megatron-LM'...
+[0m[91mNote: switching to 'core_r0.11.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 7c00175e6 ci: Adjust release sha
+[0mMCORE_COMMIT_HASH=7c00175e6b24b3cd835d21a9d287c35a07e275b3
+[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/nvfuser-0.2.23a0+6627725-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/opt_einsum-3.4.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/lightning_thunder-0.2.0.dev0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0m[91mDEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/looseversion-1.3.0-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+[0mLooking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Processing /workspace/Megatron-LM
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: einops in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.8.0)
+Requirement already satisfied: flask-restful in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.3.10)
+Requirement already satisfied: nltk in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (3.9.4)
+Requirement already satisfied: pytest in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (8.1.1)
+Collecting pytest_asyncio (from megatron-core==0.11.0rc0)
+  Downloading pytest_asyncio-1.3.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting pytest-cov (from megatron-core==0.11.0rc0)
+  Downloading pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)
+Collecting pytest_mock (from megatron-core==0.11.0rc0)
+  Downloading pytest_mock-3.15.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting pytest-random-order (from megatron-core==0.11.0rc0)
+  Downloading pytest_random_order-1.2.0-py3-none-any.whl.metadata (9.6 kB)
+Requirement already satisfied: sentencepiece in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.2.1)
+Requirement already satisfied: tiktoken in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.7.0)
+Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (1.17.2)
+Requirement already satisfied: zarr in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (2.18.3)
+Requirement already satisfied: wandb in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.26.1)
+Requirement already satisfied: tensorstore!=0.1.46 in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (0.1.82)
+Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (2.6.0a0+ecf3bae40a.nv25.1)
+Collecting triton==3.1.0 (from megatron-core==0.11.0rc0)
+  Downloading triton-3.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
+Requirement already satisfied: nvidia-modelopt>=0.19.0 in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.21.0)
+Collecting nvidia-resiliency-ext (from megatron-core==0.11.0rc0)
+  Downloading nvidia_resiliency_ext-0.5.0-cp312-cp312-manylinux_2_39_x86_64.whl.metadata (4.9 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from megatron-core==0.11.0rc0) (23.2)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from triton==3.1.0->megatron-core==0.11.0rc0) (3.16.1)
+Requirement already satisfied: cloudpickle>=1.6.0 in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (3.1.0)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (1.11.1.3)
+Requirement already satisfied: numpy<2 in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (1.26.4)
+Requirement already satisfied: pydantic>=2.0 in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (2.10.5)
+Requirement already satisfied: rich in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (13.9.4)
+Requirement already satisfied: scipy in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (1.14.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (4.67.1)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (70.3.0)
+Requirement already satisfied: pulp in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (2.9.0)
+Requirement already satisfied: regex in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (2026.4.4)
+Requirement already satisfied: safetensors in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.5.2)
+Requirement already satisfied: torchprofile>=0.0.4 in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.0.4)
+Requirement already satisfied: torchvision in /usr/local/lib/python3.12/dist-packages (from nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.20.0a0)
+Requirement already satisfied: ml_dtypes>=0.5.0 in /usr/local/lib/python3.12/dist-packages (from tensorstore!=0.1.46->megatron-core==0.11.0rc0) (0.5.4)
+Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from torch->megatron-core==0.11.0rc0) (4.15.0)
+Requirement already satisfied: networkx in /usr/local/lib/python3.12/dist-packages (from torch->megatron-core==0.11.0rc0) (3.4.2)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch->megatron-core==0.11.0rc0) (3.1.4)
+Requirement already satisfied: fsspec in /usr/local/lib/python3.12/dist-packages (from torch->megatron-core==0.11.0rc0) (2024.10.0)
+Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.12/dist-packages (from torch->megatron-core==0.11.0rc0) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy==1.13.1->torch->megatron-core==0.11.0rc0) (1.3.0)
+Requirement already satisfied: aniso8601>=0.82 in /usr/local/lib/python3.12/dist-packages (from flask-restful->megatron-core==0.11.0rc0) (10.0.1)
+Requirement already satisfied: Flask>=0.8 in /usr/local/lib/python3.12/dist-packages (from flask-restful->megatron-core==0.11.0rc0) (3.1.3)
+Requirement already satisfied: six>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from flask-restful->megatron-core==0.11.0rc0) (1.17.0)
+Requirement already satisfied: pytz in /usr/local/lib/python3.12/dist-packages (from flask-restful->megatron-core==0.11.0rc0) (2023.4)
+Requirement already satisfied: click in /usr/local/lib/python3.12/dist-packages (from nltk->megatron-core==0.11.0rc0) (8.3.3)
+Requirement already satisfied: joblib in /usr/local/lib/python3.12/dist-packages (from nltk->megatron-core==0.11.0rc0) (1.4.2)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.12/dist-packages (from nvidia-resiliency-ext->megatron-core==0.11.0rc0) (0.7.1)
+Collecting nv-one-logger-core>=2.1.0 (from nvidia-resiliency-ext->megatron-core==0.11.0rc0)
+  Downloading nv_one_logger_core-2.3.1-py3-none-any.whl.metadata (12 kB)
+Collecting nv-one-logger-training-telemetry>=2.3.0 (from nvidia-resiliency-ext->megatron-core==0.11.0rc0)
+  Downloading nv_one_logger_training_telemetry-2.3.1-py3-none-any.whl.metadata (27 kB)
+Collecting nvidia-ml-py>=12.570.86 (from nvidia-resiliency-ext->megatron-core==0.11.0rc0)
+  Downloading nvidia_ml_py-13.595.45-py3-none-any.whl.metadata (9.7 kB)
+Requirement already satisfied: psutil>=6.0.0 in /usr/local/lib/python3.12/dist-packages (from nvidia-resiliency-ext->megatron-core==0.11.0rc0) (6.1.0)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.12/dist-packages (from nvidia-resiliency-ext->megatron-core==0.11.0rc0) (6.0.2)
+Requirement already satisfied: iniconfig in /usr/local/lib/python3.12/dist-packages (from pytest->megatron-core==0.11.0rc0) (2.0.0)
+Requirement already satisfied: pluggy<2.0,>=1.4 in /usr/local/lib/python3.12/dist-packages (from pytest->megatron-core==0.11.0rc0) (1.5.0)
+Collecting pytest (from megatron-core==0.11.0rc0)
+  Downloading pytest-9.0.3-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.12/dist-packages (from pytest->megatron-core==0.11.0rc0) (2.18.0)
+Collecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov->megatron-core==0.11.0rc0)
+  Downloading coverage-7.13.5-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.5 kB)
+Requirement already satisfied: requests>=2.26.0 in /usr/local/lib/python3.12/dist-packages (from tiktoken->megatron-core==0.11.0rc0) (2.32.3)
+Requirement already satisfied: gitpython!=3.1.29,>=1.0.0 in /usr/local/lib/python3.12/dist-packages (from wandb->megatron-core==0.11.0rc0) (3.1.50)
+Requirement already satisfied: platformdirs in /usr/local/lib/python3.12/dist-packages (from wandb->megatron-core==0.11.0rc0) (4.3.6)
+Requirement already satisfied: protobuf!=5.28.0,!=5.29.0,<8,>4.21.0 in /usr/local/lib/python3.12/dist-packages (from wandb->megatron-core==0.11.0rc0) (4.24.4)
+Requirement already satisfied: sentry-sdk>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from wandb->megatron-core==0.11.0rc0) (2.59.0)
+Requirement already satisfied: asciitree in /usr/local/lib/python3.12/dist-packages (from zarr->megatron-core==0.11.0rc0) (0.3.3)
+Requirement already satisfied: numcodecs>=0.10.0 in /usr/local/lib/python3.12/dist-packages (from zarr->megatron-core==0.11.0rc0) (0.13.1)
+Requirement already satisfied: fasteners in /usr/local/lib/python3.12/dist-packages (from zarr->megatron-core==0.11.0rc0) (0.19)
+Requirement already satisfied: blinker>=1.9.0 in /usr/local/lib/python3.12/dist-packages (from Flask>=0.8->flask-restful->megatron-core==0.11.0rc0) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from Flask>=0.8->flask-restful->megatron-core==0.11.0rc0) (2.2.0)
+Requirement already satisfied: markupsafe>=2.1.1 in /usr/local/lib/python3.12/dist-packages (from Flask>=0.8->flask-restful->megatron-core==0.11.0rc0) (3.0.2)
+Requirement already satisfied: werkzeug>=3.1.0 in /usr/local/lib/python3.12/dist-packages (from Flask>=0.8->flask-restful->megatron-core==0.11.0rc0) (3.1.3)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /usr/local/lib/python3.12/dist-packages (from gitpython!=3.1.29,>=1.0.0->wandb->megatron-core==0.11.0rc0) (4.0.12)
+Collecting StrEnum<0.5.0,>=0.4.0 (from nv-one-logger-core>=2.1.0->nvidia-resiliency-ext->megatron-core==0.11.0rc0)
+  Downloading StrEnum-0.4.15-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: overrides<8.0.0,>=7.7.0 in /usr/local/lib/python3.12/dist-packages (from nv-one-logger-core>=2.1.0->nvidia-resiliency-ext->megatron-core==0.11.0rc0) (7.7.0)
+Collecting pydantic>=2.0 (from nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0)
+  Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+Collecting toml<0.11.0,>=0.10.2 (from nv-one-logger-core>=2.1.0->nvidia-resiliency-ext->megatron-core==0.11.0rc0)
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic>=2.0->nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.7.0)
+Collecting pydantic-core==2.46.4 (from pydantic>=2.0->nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0)
+  Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic>=2.0->nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0)
+  Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->tiktoken->megatron-core==0.11.0rc0) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->tiktoken->megatron-core==0.11.0rc0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->tiktoken->megatron-core==0.11.0rc0) (1.26.20)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests>=2.26.0->tiktoken->megatron-core==0.11.0rc0) (2024.12.14)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /usr/local/lib/python3.12/dist-packages (from torchvision->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (11.1.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich->nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (3.0.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in /usr/local/lib/python3.12/dist-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->megatron-core==0.11.0rc0) (5.0.3)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich->nvidia-modelopt>=0.19.0->nvidia-modelopt[torch]>=0.19.0; sys_platform != "darwin"->megatron-core==0.11.0rc0) (0.1.2)
+Downloading triton-3.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.6/209.6 MB 61.9 MB/s eta 0:00:00
+Downloading nvidia_resiliency_ext-0.5.0-cp312-cp312-manylinux_2_39_x86_64.whl (407 kB)
+Downloading pytest_asyncio-1.3.0-py3-none-any.whl (15 kB)
+Downloading pytest-9.0.3-py3-none-any.whl (375 kB)
+Downloading pytest_cov-7.1.0-py3-none-any.whl (22 kB)
+Downloading pytest_mock-3.15.1-py3-none-any.whl (10 kB)
+Downloading pytest_random_order-1.2.0-py3-none-any.whl (10 kB)
+Downloading coverage-7.13.5-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (254 kB)
+Downloading nv_one_logger_core-2.3.1-py3-none-any.whl (63 kB)
+Downloading nv_one_logger_training_telemetry-2.3.1-py3-none-any.whl (44 kB)
+Downloading nvidia_ml_py-13.595.45-py3-none-any.whl (51 kB)
+Downloading pydantic-2.13.4-py3-none-any.whl (472 kB)
+Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 69.2 MB/s eta 0:00:00
+Downloading StrEnum-0.4.15-py3-none-any.whl (8.9 kB)
+Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Building wheels for collected packages: megatron-core
+  Building wheel for megatron-core (pyproject.toml): started
+  Building wheel for megatron-core (pyproject.toml): finished with status 'done'
+  Created wheel for megatron-core: filename=megatron_core-0.11.0rc0-cp312-cp312-linux_x86_64.whl size=1980575 sha256=7e90cf0e572da0d67c22de8dd1ca760593a9b5a24e8c68fc573c2da8d580db73
+  Stored in directory: /tmp/pip-ephem-wheel-cache-wu6zzcne/wheels/cf/09/a0/e5e70f3b525a6767bcc25c1fe2847b69d0314ab9e0573e5039
+Successfully built megatron-core
+Installing collected packages: StrEnum, nvidia-ml-py, typing-inspection, triton, toml, pytest, pydantic-core, coverage, pytest-random-order, pytest_mock, pytest_asyncio, pydantic, pytest-cov, nv-one-logger-core, nv-one-logger-training-telemetry, nvidia-resiliency-ext, megatron-core
+  Attempting uninstall: pytest
+    Found existing installation: pytest 8.1.1
+    Uninstalling pytest-8.1.1:
+      Successfully uninstalled pytest-8.1.1
+  Attempting uninstall: pydantic-core
+    Found existing installation: pydantic_core 2.27.2
+    Uninstalling pydantic_core-2.27.2:
+      Successfully uninstalled pydantic_core-2.27.2
+  Attempting uninstall: pydantic
+    Found existing installation: pydantic 2.10.5
+    Uninstalling pydantic-2.10.5:
+      Successfully uninstalled pydantic-2.10.5
+Successfully installed StrEnum-0.4.15 coverage-7.13.5 megatron-core-0.11.0rc0 nv-one-logger-core-2.3.1 nv-one-logger-training-telemetry-2.3.1 nvidia-ml-py-13.595.45 nvidia-resiliency-ext-0.5.0 pydantic-2.13.4 pydantic-core-2.46.4 pytest-9.0.3 pytest-cov-7.1.0 pytest-random-order-1.2.0 pytest_asyncio-1.3.0 pytest_mock-3.15.1 toml-0.10.2 triton-3.1.0 typing-inspection-0.4.2
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[0m[91m
+[notice] A new release of pip is available: 24.3.1 -> 26.1.1
+[notice] To update, run: python -m pip install --upgrade pip
+[0mg++ -O3 -Wall -shared -std=c++11 -fPIC -fdiagnostics-color -I/usr/include/python3.12 -I/usr/local/lib/python3.12/dist-packages/pybind11/include helpers.cpp -o helpers_cpp.cpython-312-x86_64-linux-gnu.so
+[91mIn file included from [01m[Khelpers.cpp:12[m[K:
+In function ‘[01m[Kpybind11::ssize_t pybind11::detail::[01;32m[Kbyte_offset_unsafe[m[K(const Strides&, pybind11::ssize_t, Ix ...) [35m[K[with long int Dim = 0; Strides = std::array<long int, 1>; Ix = {}][m[K[m[K’,
+    inlined from ‘[01m[Kconst T& pybind11::detail::unchecked_reference<T, Dims>::[01;32m[Koperator()[m[K(Ix ...) const [35m[K[with Ix = {long int}; T = long int; long int Dims = 1][m[K[m[K’ at [01m[K/usr/local/lib/python3.12/dist-packages/pybind11/include/pybind11/numpy.h:545:65[m[K,
+    inlined from ‘[01m[Kconst T& pybind11::detail::unchecked_reference<T, Dims>::[01;32m[Koperator[][m[K(pybind11::ssize_t) const [35m[K[with long int D = 1; <template-parameter-2-2> = void; T = long int; long int Dims = 1][m[K[m[K’ at [01m[K/usr/local/lib/python3.12/dist-packages/pybind11/include/pybind11/numpy.h:553:26[m[K,
+    inlined from ‘[01m[Kvoid[01;32m[K build_exhaustive_blending_indices[m[K(pybind11::array_t<short int>&, pybind11::array_t<long int>&, const pybind11::array_t<long int>&, int32_t)[m[K’ at [01m[Khelpers.cpp:67:31[m[K:
+[01m[K/usr/local/lib/python3.12/dist-packages/pybind11/include/pybind11/numpy.h:494:14:[m[K [01;35m[Kwarning: [m[K‘[01m[Kerror_argmax[m[K’ may be used uninitialized [[01;35m[K-Wmaybe-uninitialized[m[K]
+  494 |     return [01;35m[Ki * strides[[m[KDim] + byte_offset_unsafe<Dim + 1>(strides, index...);
+      |            [01;35m[K~~^~~~~~~~~~[m[K
+[01m[Khelpers.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K build_exhaustive_blending_indices[m[K(pybind11::array_t<short int>&, pybind11::array_t<long int>&, const pybind11::array_t<long int>&, int32_t)[m[K’:
+[01m[Khelpers.cpp:49:13:[m[K [01;36m[Knote: [m[K‘[01m[Kerror_argmax[m[K’ was declared here
+   49 |     int64_t [01;36m[Kerror_argmax[m[K;
+      |             [01;36m[K^~~~~~~~~~~~[m[K
+[0m ---> Removed intermediate container 13731c9ceb50
+ ---> a3e96c812e35
+Step 32/35 : ENV PYTHONPATH "${PYTHONPATH}:/workspace/Megatron-LM"
+ ---> Running in 953b05679895
+ ---> Removed intermediate container 953b05679895
+ ---> 5cb48851066c
+Step 33/35 : ENV PIP_CONSTRAINT=""
+ ---> Running in e4445a1629fd
+ ---> Removed intermediate container e4445a1629fd
+ ---> 8e4407bc5dce
+Step 34/35 : WORKDIR /workspace/code
+ ---> Running in b96f3f5a5f49
+ ---> Removed intermediate container b96f3f5a5f49
+ ---> d36aceca3557
+Step 35/35 : COPY . .
+ ---> ac523ef2a11d
+Successfully built ac523ef2a11d
+Successfully tagged mlperf-llama31-pretraining:h200
