@@ -118,3 +118,42 @@ stop_on_step=experiment_max_steps=1200000
            INFO     Waiting for job                              launcher.py:130
                     8b_0_seed_54984_0_0-1200000-steps-gzrgzmtb4j                
                     cwrc to finish [log=False]...                               
+[02:04:07] INFO     Job                                          launcher.py:160
+                    8b_0_seed_54984_0_0-1200000-steps-gzrgzmtb4j                
+                    cwrc finished: SUCCEEDED                                    
+──────────── Done waiting for Experiment 8b_0_seed_54984_1778088029 ────────────
+
+Experiment Status for 8b_0_seed_54984_1778088029
+
+Task 0: build_data_index
+- Status: SUCCEEDED
+- Executor: LocalExecutor
+- Job id: build_data_index-bfsvhl99j4l3w
+- Local Directory: /root/.nemo_run/experiments/8b_0_seed_54984/8b_0_seed_54984_1778088029/build_data_index
+
+Task 1: 8b_0_seed_54984_0_0-1200000-steps
+- Status: SUCCEEDED
+- Executor: LocalExecutor
+- Job id: 8b_0_seed_54984_0_0-1200000-steps-gzrgzmtb4jcwrc
+- Local Directory: /root/.nemo_run/experiments/8b_0_seed_54984/8b_0_seed_54984_1778088029/8b_0_seed_54984_0_0-1200000-steps
+
+╭───────────────────────── 8b_0_seed_54984_1778088029 ─────────────────────────╮
+│                                                                              │
+│   build_data_index SUCCEEDED                    ━━━━━━━━━━━━━━━━━━ 0:02:32   │
+│   8b_0_seed_54984_0_0-1200000-steps SUCCEEDED   ━━━━━━━━━━━━━━━━━━ 8:41:05   │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯                                                                                
+# The experiment was run with the following tasks: ['build_data_index', '8b_0_se
+# You can inspect and reconstruct this experiment at a later point in time using
+experiment = run.Experiment.from_id("8b_0_seed_54984_1778088029")               
+experiment.status() # Gets the overall status                                   
+experiment.logs("build_data_index") # Gets the log for the provided task        
+experiment.cancel("build_data_index") # Cancels the provided task if still runni
+                                                                                
+                                                                                
+# You can inspect this experiment at a later point in time using the CLI as well
+nemo experiment status 8b_0_seed_54984_1778088029                               
+nemo experiment logs 8b_0_seed_54984_1778088029 0                               
+nemo experiment cancel 8b_0_seed_54984_1778088029 0                             
+                                                                                
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

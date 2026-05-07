@@ -2,3 +2,32 @@ MLPerf Training Benchmark Summary
 Run date: Wed May  6 05:15:09 PM UTC 2026
 Hardware: H200 x 2 config(s): 1 4
 
+
+
+MLPERF TRAINING CONSOLIDATED RESULTS
+Generated: 2026-05-07 02:04:11.666629
+
+Benchmark               GPUs  Runs   Mean (min)   ±Stdev
+------------------------------------------------------------
+llama31_pretraining        1  ERROR: only 0 successful run(s); need at least 5
+llama31_pretraining        4  ERROR: only 0 successful run(s); need at least 5
+llm_finetuning             1  ERROR: only 0 successful run(s); need at least 5
+llm_finetuning             1  ERROR: only 0 successful run(s); need at least 5
+llm_finetuning             1  ERROR: only 0 successful run(s); need at least 5
+llm_finetuning             1  ERROR: only 0 successful run(s); need at least 5
+llm_finetuning             4  ERROR: only 1 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
+unknown                   16  ERROR: only 0 successful run(s); need at least 5
