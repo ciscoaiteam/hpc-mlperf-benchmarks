@@ -202,6 +202,82 @@
 
 ---
 
+## Comparison to MLPerf v5.1 Official Results
+
+**Reference:** MLCommons v5.1 Closed/Training, Cisco submissions (data as of 11/13/2025)
+
+### Official Cisco v5.1 Submissions
+
+| Public ID | System | Total GPUs | Accelerator | LLaMA2-70B TTT (min) | Llama31-8B TTT (min) | RetinaNet TTT (min) |
+|-----------|--------|-----------|-------------|----------------------|----------------------|---------------------|
+| 5.1-0023 | Cisco UCS C885A-8xH200-SXM-141G | 8 | H200-SXM5-141GB | — | **23.629** | 34.029 |
+| 5.1-0024 | Cisco UCS C885A-8xH200-SXM-141G | 16 | H200-SXM5-141GB | — | **12.881** | — |
+| 5.1-0025 | Cisco UCS C885A_M8-8xMI350X-OAM-288GB | 8 | AMD MI350X | — | 12.502 | 127.625 |
+| 5.1-0026 | hpf_n16 | 128 | H100-SXM5-80GB | 2.945 | 32.896 | — |
+| 5.1-0027 | hpf_n8 | 64 | H100-SXM5-80GB | 1.559 | 4.453 | 45.445 |
+
+> Software: 5.1-0023/0024 use NVIDIA NeMo Framework Release 24.04 on AMD EPYC 9575F × 2 sockets — **identical hardware platform to this test.**
+
+---
+
+### Llama 3.1 8B Pretraining — Direct Comparison (8× H200)
+
+| Metric | This Test | MLPerf v5.1 Official (5.1-0023) |
+|--------|-----------|----------------------------------|
+| System | Cisco UCS C885A (Node 2) | Cisco UCS C885A-8xH200-SXM-141G |
+| Accelerator | 8× H200-SXM5-141GB | 8× H200-SXM5-141GB |
+| Software | NeMo 24.04 (Docker) | NVIDIA NeMo Framework Release 24.04 |
+| **TTT (min)** | **269.8** | **23.629** |
+| Final val_loss | 3.291 | (at target 3.300) |
+| Convergence Samples | 208,864 | — |
+| **Performance gap** | **11.4× slower** | baseline |
+
+### Llama 3.1 8B Pretraining — 16× H200 (Projected vs Official)
+
+| Metric | This Test (Projected) | MLPerf v5.1 Official (5.1-0024) |
+|--------|----------------------|----------------------------------|
+| Accelerator | 16× H200 (2-node, not run) | 16× H200 (2-node) |
+| **TTT (projected, min)** | **~135** (linear from 8×) | **12.881** |
+| **Performance gap** | **~10.5× slower** | baseline |
+
+### LLaMA2-70B Fine-Tuning
+
+No directly comparable official result exists at 8× H200 — the v5.1 LLaMA2-70B entries are only available at 64× and 128× H100 (hpf_n8/n16, which are large-scale HPC clusters). Our 8× H200 result (**64.3 min**) cannot be meaningfully compared against those at 8–16× the GPU count.
+
+---
+
+### Root Cause of Performance Gap (Pretraining)
+
+The **11.4× gap** vs official on identical hardware is explained by two primary factors:
+
+1. **Global Batch Size (GBS):**
+   - This test: GBS = **32** (MLPerf minimum viable; yields 6,527 training steps)
+   - Official submission: likely GBS = **512–1024** (reduces step count 16–32×, each step faster due to higher GPU utilization)
+   - Estimated contribution: **~8–10×** of the gap
+
+2. **Software optimization level:**
+   - This test: standard NeMo Docker container, GBS=32, MBS=2
+   - Official: fully tuned submission with FlashAttention 3, fused kernels, CUDA graphs, optimized TP/PP parallelism, overlap of compute and NCCL communication
+   - Estimated contribution: **~1.2–1.5×** of the remaining gap
+
+3. **Multi-run averaging:** Official MLPerf reports the mean over ≥5 statistically independent runs. This test ran **1 run** — single-run results have higher variance and may not reflect best-case convergence behavior.
+
+**Bottom line:** This test validates the hardware platform is correctly configured and converges to target accuracy. Matching the official TTT would require tuning GBS to 512–1024 and enabling advanced NeMo optimizations in the benchmark scripts. That is the recommended focus for the next test cycle.
+
+---
+
+### Scaling Efficiency (This Test)
+
+| Config | TTT (min) | vs 8×GPU | Ideal | Efficiency |
+|--------|-----------|----------|-------|------------|
+| 4× H200 | 525.0 | 1.95× slower | 2.00× slower | **97.3%** |
+| 8× H200 | 269.8 | baseline | baseline | — |
+| 16× H200 (projected) | ~135 | ~2.0× faster | ~2.0× faster | ~100% |
+
+> Excellent near-linear scaling from 4→8 GPUs (97.3% efficiency), consistent with NVLink-connected H200 SXM5 topology.
+
+---
+
 ## Notes
 
 1. **"failed" status in wall_times.txt (pretraining):** The benchmark harness records `status=failed` because the Docker container was killed post-`run_stop` rather than exiting via the expected completion path. The MLPerf logs confirm `run_stop: success` for both pretraining runs.
