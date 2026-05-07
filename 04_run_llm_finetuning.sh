@@ -118,6 +118,7 @@ for run in $(seq 1 "${NUM_RUNS}"); do
         "${LLM_IMAGE}" \
         bash -c "
             set -e
+            pip install --quiet --force-reinstall nvidia-ml-py3 2>/dev/null || true
             cd /workspace/ft-llm
 
             accelerate launch --config_file configs/run_config.yaml \

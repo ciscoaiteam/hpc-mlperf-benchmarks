@@ -52,3 +52,8 @@
 :::MLLOG {"namespace": "", "time_ms": 1778100129694, "event_type": "POINT_IN_TIME", "key": "eval_accuracy", "value": 5.811708927154541, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 131, "samples_count": 12256}}
 :::MLLOG {"namespace": "", "time_ms": 1778100129696, "event_type": "INTERVAL_END", "key": "eval_stop", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 218, "samples_count": 12288}}
 :::MLLOG {"namespace": "", "time_ms": 1778100129696, "event_type": "INTERVAL_START", "key": "block_start", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 227, "samples_count": 12288}}
+:::MLLOG {"namespace": "", "time_ms": 1778101058361, "event_type": "INTERVAL_END", "key": "block_stop", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 207, "samples_count": 24576}}
+:::MLLOG {"namespace": "", "time_ms": 1778101058362, "event_type": "INTERVAL_START", "key": "eval_start", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 208, "samples_count": 24576}}
+:::MLLOG {"namespace": "", "time_ms": 1778101081393, "event_type": "POINT_IN_TIME", "key": "eval_accuracy", "value": 4.790311813354492, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 131, "samples_count": 24544}}
+:::MLLOG {"namespace": "", "time_ms": 1778101081395, "event_type": "INTERVAL_END", "key": "eval_stop", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 218, "samples_count": 24576}}
+:::MLLOG {"namespace": "", "time_ms": 1778101081395, "event_type": "INTERVAL_START", "key": "block_start", "value": null, "metadata": {"file": "/workspace/code/callbacks.py", "lineno": 227, "samples_count": 24576}}
