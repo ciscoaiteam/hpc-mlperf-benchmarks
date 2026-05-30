@@ -1,0 +1,3 @@
+# Large log files (RetinaNet logs exceed GitHub 100MB limit)
+results/node*/logs/retinanet/**/*.log
+results/node*/logs/retinanet_multinode_rank*.log
