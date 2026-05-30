@@ -1,4 +1,0 @@
-# run_num, status, wall_time_min
-1,failed,0.9000
-2,failed,1.3500
-3,failed,1.4333

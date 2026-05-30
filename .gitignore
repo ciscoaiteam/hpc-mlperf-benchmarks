@@ -1,3 +1,6 @@
-# RetinaNet artifacts (large logs, not needed in repo)
+# Raw results / logs (large files, not needed in repo)
+results/
+
+# RetinaNet artifacts
 *retinanet*
 *Retinanet*

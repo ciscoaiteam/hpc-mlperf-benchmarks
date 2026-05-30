@@ -27,10 +27,10 @@
 | Llama 2 70B LoRA Fine-Tuning | 16× H200 | 2 | Socket (400G, NCCL 2.25.1) | eval_loss 0.922 | ≤ 0.925 | 288 | 4,608 | ~78 | ✅ SUCCESS |
 | Llama 2 70B LoRA Fine-Tuning | 8× H200 | 1 | Intra-node only | eval_loss 0.925 | ≤ 0.925 | 384 | 3,072 | ~68 | ✅ SUCCESS |
 | Llama 2 70B LoRA Fine-Tuning | 4× H200 | 1 | Intra-node only | eval_loss 0.924 | ≤ 0.925 | 528 | 2,112 | ~99 | ✅ SUCCESS |
-| FUN3D 14.2 CFD (DPW-4 6M) | 1× H200 | 1 | N/A | 0.12 s/step | — | 100 | — | — | ✅ PASS |
-| FUN3D 14.2 CFD (DPW-4 6M) | 4× H200 | 1 | NVSwitch | 0.044 s/step | — | 100 | — | — | ✅ PASS |
-| FUN3D 14.2 CFD (DPW-4 6M) | 8× H200 | 1 | NVSwitch | 0.031 s/step | — | 100 | — | — | ✅ PASS |
-| FUN3D 14.2 CFD (DPW-4 6M) | 16× H200 | 2 | TCP (mgmt) | 0.158 s/step | — | 100 | — | — | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 6M) | 1× H200 | 1 | N/A | 0.12 s/step | — | 100 | — | 2.7 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 6M) | 4× H200 | 1 | NVSwitch | 0.044 s/step | — | 100 | — | 1.9 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 6M) | 8× H200 | 1 | NVSwitch | 0.031 s/step | — | 100 | — | 1.5 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 6M) | 16× H200 | 2 | TCP (mgmt) | 0.158 s/step | — | 100 | — | 1.2 | ✅ PASS |
 
 ### Performance Comparison
 

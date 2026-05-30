@@ -1,1243 +1,0 @@
-[2026-05-06 17:08:26,200] torch.distributed.run: [WARNING] 
-[2026-05-06 17:08:26,200] torch.distributed.run: [WARNING] *****************************************
-[2026-05-06 17:08:26,200] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-[2026-05-06 17:08:26,200] torch.distributed.run: [WARNING] *****************************************
-[2026-05-06 17:08:31,137] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:31,353] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:31,428] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:31,650] [INFO] [comm.py:637:init_distributed] cdb=None
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-[2026-05-06 17:08:32,665] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,672] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,834] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,858] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,890] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:32,911] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,911] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 17:08:32,945] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:33,099] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:33,103] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:33,171] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:33,178] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 17:08:33,178] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-ai-server-c885-h200-1:257:257 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:257:257 [0] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:257:257 [0] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:257:257 [0] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:257:257 [0] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:257:257 [0] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:257:257 [0] NCCL INFO cudaDriverVersion 13000
-NCCL version 2.19.4+cuda12.3
-ai-server-c885-h200-1:258:258 [1] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:258:258 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:258:258 [1] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:258:258 [1] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:258:258 [1] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:258:258 [1] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:258:258 [1] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:262:262 [5] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:262:262 [5] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:262:262 [5] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:260:260 [3] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:260:260 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:263:263 [6] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:263:263 [6] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:262:262 [5] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:262:262 [5] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:262:262 [5] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:262:262 [5] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:260:260 [3] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:263:263 [6] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:263:263 [6] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:263:263 [6] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:263:263 [6] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:263:263 [6] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:261:261 [4] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:261:261 [4] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:259:259 [2] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:259:259 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:260:260 [3] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:260:260 [3] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:260:260 [3] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:260:260 [3] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:261:261 [4] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:259:259 [2] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-ai-server-c885-h200-1:261:261 [4] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:261:261 [4] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:261:261 [4] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:261:261 [4] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:259:259 [2] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:259:259 [2] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:259:259 [2] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:259:259 [2] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:264:264 [7] NCCL INFO cudaDriverVersion 13000
-ai-server-c885-h200-1:264:264 [7] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:264:264 [7] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:264:264 [7] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:264:264 [7] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:264:264 [7] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:264:264 [7] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:257:890 [0] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Using network Socket
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:263:892 [6] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:258:891 [1] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Using network Socket
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Using network Socket
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:260:893 [3] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Using network Socket
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:262:894 [5] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Using network Socket
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:261:895 [4] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Using network Socket
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:259:896 [2] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Using network Socket
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:264:897 [7] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Using network Socket
-ai-server-c885-h200-1:261:895 [4] NCCL INFO comm 0x5599c0cb1da0 rank 4 nranks 8 cudaDev 4 nvmlDev 4 busId 7b000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:264:897 [7] NCCL INFO comm 0x5602b6be2730 rank 7 nranks 8 cudaDev 7 nvmlDev 7 busId e5000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:262:894 [5] NCCL INFO comm 0x55ac073cd060 rank 5 nranks 8 cudaDev 5 nvmlDev 5 busId a3000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:258:891 [1] NCCL INFO comm 0x55f72711a470 rank 1 nranks 8 cudaDev 1 nvmlDev 1 busId 29000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:260:893 [3] NCCL INFO comm 0x55cef4005030 rank 3 nranks 8 cudaDev 3 nvmlDev 3 busId 63000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:257:890 [0] NCCL INFO comm 0x561383ca4d60 rank 0 nranks 8 cudaDev 0 nvmlDev 0 busId 3000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:263:892 [6] NCCL INFO comm 0x561e91b50670 rank 6 nranks 8 cudaDev 6 nvmlDev 6 busId d3000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:259:896 [2] NCCL INFO comm 0x55af2e6c8690 rank 2 nranks 8 cudaDev 2 nvmlDev 2 busId 59000 commId 0x688c5b1e145f5080 - Init START
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Setting affinity for GPU 5 to ffff,00000000,00000000,00000000,0000ffff,00000000,00000000,00000000
-ai-server-c885-h200-1:262:894 [5] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Setting affinity for GPU 3 to ffff,00000000,00000000,00000000,0000ffff
-ai-server-c885-h200-1:260:893 [3] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Setting affinity for GPU 1 to ffff,00000000,00000000,00000000,0000ffff,00000000
-ai-server-c885-h200-1:258:891 [1] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Setting affinity for GPU 4 to ffff0000,00000000,00000000,00000000,ffff0000,00000000,00000000
-ai-server-c885-h200-1:261:895 [4] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Setting affinity for GPU 6 to ffff0000,00000000,00000000,00000000,ffff0000,00000000,00000000,00000000
-ai-server-c885-h200-1:263:892 [6] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Setting affinity for GPU 7 to ffff,00000000,00000000,00000000,0000ffff,00000000,00000000
-ai-server-c885-h200-1:264:897 [7] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Setting affinity for GPU 0 to ffff0000,00000000,00000000,00000000,ffff0000
-ai-server-c885-h200-1:257:890 [0] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Setting affinity for GPU 2 to ffff0000,00000000,00000000,00000000,ffff0000,00000000
-ai-server-c885-h200-1:259:896 [2] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Trees [0] 5/-1/-1->4->3 [1] 5/-1/-1->4->3 [2] 5/-1/-1->4->3 [3] 5/-1/-1->4->3 [4] 5/-1/-1->4->3 [5] 5/-1/-1->4->3 [6] 5/-1/-1->4->3 [7] 5/-1/-1->4->3 [8] 5/-1/-1->4->3 [9] 5/-1/-1->4->3 [10] 5/-1/-1->4->3 [11] 5/-1/-1->4->3 [12] 5/-1/-1->4->3 [13] 5/-1/-1->4->3 [14] 5/-1/-1->4->3 [15] 5/-1/-1->4->3 [16] 5/-1/-1->4->3 [17] 5/-1/-1->4->3 [18] 5/-1/-1->4->3 [19] 5/-1/-1->4->3 [20] 5/-1/-1->4->3 [21] 5/-1/-1->4->3 [22] 5/-1/-1->4->3 [23] 5/-1/-1->4->3
-ai-server-c885-h200-1:261:895 [4] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 00/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Trees [0] -1/-1/-1->7->6 [1] -1/-1/-1->7->6 [2] -1/-1/-1->7->6 [3] -1/-1/-1->7->6 [4] -1/-1/-1->7->6 [5] -1/-1/-1->7->6 [6] -1/-1/-1->7->6 [7] -1/-1/-1->7->6 [8] -1/-1/-1->7->6 [9] -1/-1/-1->7->6 [10] -1/-1/-1->7->6 [11] -1/-1/-1->7->6 [12] -1/-1/-1->7->6 [13] -1/-1/-1->7->6 [14] -1/-1/-1->7->6 [15] -1/-1/-1->7->6 [16] -1/-1/-1->7->6 [17] -1/-1/-1->7->6 [18] -1/-1/-1->7->6 [19] -1/-1/-1->7->6 [20] -1/-1/-1->7->6 [21] -1/-1/-1->7->6 [22] -1/-1/-1->7->6 [23] -1/-1/-1->7->6
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 3/-1/-1->2->1 [5] 3/-1/-1->2->1 [6] 3/-1/-1->2->1 [7] 3/-1/-1->2->1 [8] 3/-1/-1->2->1 [9] 3/-1/-1->2->1 [10] 3/-1/-1->2->1 [11] 3/-1/-1->2->1 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 3/-1/-1->2->1 [17] 3/-1/-1->2->1 [18] 3/-1/-1->2->1 [19] 3/-1/-1->2->1 [20] 3/-1/-1->2->1 [21] 3/-1/-1->2->1 [22] 3/-1/-1->2->1 [23] 3/-1/-1->2->1
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 01/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:264:897 [7] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:259:896 [2] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 02/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 03/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Trees [0] 7/-1/-1->6->5 [1] 7/-1/-1->6->5 [2] 7/-1/-1->6->5 [3] 7/-1/-1->6->5 [4] 7/-1/-1->6->5 [5] 7/-1/-1->6->5 [6] 7/-1/-1->6->5 [7] 7/-1/-1->6->5 [8] 7/-1/-1->6->5 [9] 7/-1/-1->6->5 [10] 7/-1/-1->6->5 [11] 7/-1/-1->6->5 [12] 7/-1/-1->6->5 [13] 7/-1/-1->6->5 [14] 7/-1/-1->6->5 [15] 7/-1/-1->6->5 [16] 7/-1/-1->6->5 [17] 7/-1/-1->6->5 [18] 7/-1/-1->6->5 [19] 7/-1/-1->6->5 [20] 7/-1/-1->6->5 [21] 7/-1/-1->6->5 [22] 7/-1/-1->6->5 [23] 7/-1/-1->6->5
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 04/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:263:892 [6] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 05/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 06/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 07/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 08/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 09/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 10/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 11/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 12/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 13/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 14/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 15/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 16/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 17/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 18/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 19/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 20/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 21/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 22/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 23/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Trees [0] 6/-1/-1->5->4 [1] 6/-1/-1->5->4 [2] 6/-1/-1->5->4 [3] 6/-1/-1->5->4 [4] 6/-1/-1->5->4 [5] 6/-1/-1->5->4 [6] 6/-1/-1->5->4 [7] 6/-1/-1->5->4 [8] 6/-1/-1->5->4 [9] 6/-1/-1->5->4 [10] 6/-1/-1->5->4 [11] 6/-1/-1->5->4 [12] 6/-1/-1->5->4 [13] 6/-1/-1->5->4 [14] 6/-1/-1->5->4 [15] 6/-1/-1->5->4 [16] 6/-1/-1->5->4 [17] 6/-1/-1->5->4 [18] 6/-1/-1->5->4 [19] 6/-1/-1->5->4 [20] 6/-1/-1->5->4 [21] 6/-1/-1->5->4 [22] 6/-1/-1->5->4 [23] 6/-1/-1->5->4
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 1/-1/-1->0->-1 [6] 1/-1/-1->0->-1 [7] 1/-1/-1->0->-1 [8] 1/-1/-1->0->-1 [9] 1/-1/-1->0->-1 [10] 1/-1/-1->0->-1 [11] 1/-1/-1->0->-1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 1/-1/-1->0->-1 [17] 1/-1/-1->0->-1 [18] 1/-1/-1->0->-1 [19] 1/-1/-1->0->-1 [20] 1/-1/-1->0->-1 [21] 1/-1/-1->0->-1 [22] 1/-1/-1->0->-1 [23] 1/-1/-1->0->-1
-ai-server-c885-h200-1:257:890 [0] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Trees [0] 4/-1/-1->3->2 [1] 4/-1/-1->3->2 [2] 4/-1/-1->3->2 [3] 4/-1/-1->3->2 [4] 4/-1/-1->3->2 [5] 4/-1/-1->3->2 [6] 4/-1/-1->3->2 [7] 4/-1/-1->3->2 [8] 4/-1/-1->3->2 [9] 4/-1/-1->3->2 [10] 4/-1/-1->3->2 [11] 4/-1/-1->3->2 [12] 4/-1/-1->3->2 [13] 4/-1/-1->3->2 [14] 4/-1/-1->3->2 [15] 4/-1/-1->3->2 [16] 4/-1/-1->3->2 [17] 4/-1/-1->3->2 [18] 4/-1/-1->3->2 [19] 4/-1/-1->3->2 [20] 4/-1/-1->3->2 [21] 4/-1/-1->3->2 [22] 4/-1/-1->3->2 [23] 4/-1/-1->3->2
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 2/-1/-1->1->0 [5] 2/-1/-1->1->0 [6] 2/-1/-1->1->0 [7] 2/-1/-1->1->0 [8] 2/-1/-1->1->0 [9] 2/-1/-1->1->0 [10] 2/-1/-1->1->0 [11] 2/-1/-1->1->0 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 2/-1/-1->1->0 [17] 2/-1/-1->1->0 [18] 2/-1/-1->1->0 [19] 2/-1/-1->1->0 [20] 2/-1/-1->1->0 [21] 2/-1/-1->1->0 [22] 2/-1/-1->1->0 [23] 2/-1/-1->1->0
-ai-server-c885-h200-1:258:891 [1] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:262:894 [5] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:260:893 [3] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 00/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 01/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 02/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 03/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 04/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 05/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 06/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 07/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 08/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 09/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 10/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 11/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 12/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 13/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 14/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 15/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 16/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 17/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 18/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 19/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 00/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 20/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 00/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 01/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 21/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 01/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 02/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 22/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 23/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 03/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 02/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 04/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 05/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 03/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 06/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 04/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 05/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 07/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 08/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 06/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 00/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 07/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 09/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 00/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 10/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 01/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 08/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 01/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 02/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 11/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 09/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 03/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 02/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 04/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 12/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 03/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 05/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 10/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 04/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 13/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 05/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 06/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 11/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 12/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 07/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 08/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 14/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 06/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 13/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 09/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 15/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 14/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 10/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 07/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 16/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 11/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 15/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 08/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 12/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 17/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 09/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 13/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 16/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 18/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 14/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 17/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 15/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 10/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 19/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 18/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 16/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 11/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 19/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 20/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 20/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 17/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 12/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 18/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 21/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 21/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 00/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 13/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 22/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 23/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 14/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 19/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 01/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 22/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 20/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 02/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 03/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 15/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 23/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 04/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 21/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 16/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 05/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 00/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 06/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 22/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 01/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 07/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 17/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 18/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 08/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 02/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 23/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 09/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 19/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 03/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 10/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 04/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 05/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 20/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 11/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 21/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 06/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 12/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 22/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 23/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 16/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 07/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 13/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 17/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 08/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 14/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 15/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 09/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 16/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 10/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 17/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 11/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 18/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 12/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 19/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 13/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 20/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 14/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 15/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 21/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 16/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 22/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 17/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 18/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 23/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 19/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 20/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 21/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 22/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 23/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Connected all rings
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Connected all rings
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Connected all rings
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Connected all rings
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Connected all rings
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Connected all rings
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 00/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 01/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 02/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 03/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 04/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 05/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 06/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 07/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 08/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 09/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 10/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 11/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 12/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 13/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 14/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 15/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 16/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 17/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 18/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 19/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 20/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 21/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 00/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 22/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 01/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Channel 23/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 02/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 03/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 04/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 05/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 06/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 07/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 00/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 01/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 00/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 02/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 08/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 01/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 00/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 02/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 03/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 09/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 03/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 04/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 05/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 10/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 04/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 11/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 06/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 01/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 05/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 12/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 02/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 07/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 06/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 13/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 07/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 03/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 14/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 15/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 08/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 00/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 04/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 08/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 09/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 16/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 01/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 02/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 04/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 05/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 17/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 18/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 09/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 06/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 10/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 03/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 07/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 10/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 11/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 06/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 07/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 11/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 12/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 19/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 20/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 04/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 13/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 14/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 05/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 08/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 09/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 21/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 06/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 12/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 15/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 22/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 07/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 10/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 08/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Channel 23/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 16/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 13/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 09/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 11/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 14/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 10/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 11/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 17/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 15/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 12/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 18/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 16/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 17/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 12/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 19/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 13/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 18/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 13/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 20/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 21/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 16/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 14/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 14/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 15/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 22/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 19/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 15/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 16/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 17/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 16/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 20/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Channel 23/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 17/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 21/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 22/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 18/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 18/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 17/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 19/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 18/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Channel 23/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 20/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 19/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 19/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 20/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 21/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 21/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 20/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 22/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 22/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 21/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Channel 23/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Channel 23/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 22/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Channel 23/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:890 [0] NCCL INFO Connected all trees
-ai-server-c885-h200-1:257:890 [0] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:257:890 [0] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:258:891 [1] NCCL INFO Connected all trees
-ai-server-c885-h200-1:258:891 [1] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:258:891 [1] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:259:896 [2] NCCL INFO Connected all trees
-ai-server-c885-h200-1:260:893 [3] NCCL INFO Connected all trees
-ai-server-c885-h200-1:259:896 [2] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:259:896 [2] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:260:893 [3] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:260:893 [3] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:264:897 [7] NCCL INFO Connected all trees
-ai-server-c885-h200-1:264:897 [7] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:264:897 [7] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:261:895 [4] NCCL INFO Connected all trees
-ai-server-c885-h200-1:261:895 [4] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:261:895 [4] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:263:892 [6] NCCL INFO Connected all trees
-ai-server-c885-h200-1:263:892 [6] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:263:892 [6] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:262:894 [5] NCCL INFO Connected all trees
-ai-server-c885-h200-1:262:894 [5] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:262:894 [5] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:261:895 [4] NCCL INFO comm 0x5599c0cb1da0 rank 4 nranks 8 cudaDev 4 nvmlDev 4 busId 7b000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:259:896 [2] NCCL INFO comm 0x55af2e6c8690 rank 2 nranks 8 cudaDev 2 nvmlDev 2 busId 59000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:263:892 [6] NCCL INFO comm 0x561e91b50670 rank 6 nranks 8 cudaDev 6 nvmlDev 6 busId d3000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:257:890 [0] NCCL INFO comm 0x561383ca4d60 rank 0 nranks 8 cudaDev 0 nvmlDev 0 busId 3000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:262:894 [5] NCCL INFO comm 0x55ac073cd060 rank 5 nranks 8 cudaDev 5 nvmlDev 5 busId a3000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:260:893 [3] NCCL INFO comm 0x55cef4005030 rank 3 nranks 8 cudaDev 3 nvmlDev 3 busId 63000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:258:891 [1] NCCL INFO comm 0x55f72711a470 rank 1 nranks 8 cudaDev 1 nvmlDev 1 busId 29000 commId 0x688c5b1e145f5080 - Init COMPLETE
-ai-server-c885-h200-1:264:897 [7] NCCL INFO comm 0x5602b6be2730 rank 7 nranks 8 cudaDev 7 nvmlDev 7 busId e5000 commId 0x688c5b1e145f5080 - Init COMPLETE
-[2026-05-06 17:08:37,071] [INFO] [partition_parameters.py:343:__exit__] finished initializing model - num_params = 563, num_elems = 68.98B
-Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:04,  6.36it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:04,  6.18it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:04,  6.11it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:05,  5.15it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:05,  5.01it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:06,  4.65it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:07,  3.81it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:03,  6.97it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:03,  6.88it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:03,  6.94it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:04,  5.43it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:04,  5.44it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:05,  4.87it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:03,  7.32it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:03,  7.27it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:03,  7.38it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:05,  4.55it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:04,  5.91it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:04,  5.85it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:03,  7.58it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:03,  7.63it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:03,  7.51it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:04,  5.21it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:00<00:05,  5.15it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:17,  1.56it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:03,  7.80it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:03,  7.74it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:04,  6.05it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:04,  6.08it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:03,  6.04it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:04,  5.26it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:00<00:04,  5.27it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:03,  6.00it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:04,  5.90it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:04,  5.26it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:00<00:04,  5.30it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:00<00:04,  5.11it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:04,  5.02it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:03,  5.81it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:03,  5.79it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:04,  4.86it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:04,  5.38it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:01<00:04,  5.52it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:01<00:15,  1.70it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:06,  3.17it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:07,  3.13it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:06,  3.31it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:06,  3.30it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:07,  3.09it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:06,  3.65it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:01<00:06,  3.54it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:01<00:15,  1.73it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.48it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.47it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.54it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.47it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.53it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:07,  2.67it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:02<00:08,  2.62it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:02<00:14,  1.73it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:09,  2.18it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:09,  2.18it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:09,  2.22it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:09,  2.22it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:09,  2.18it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:08,  2.29it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:02<00:08,  2.26it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:02<00:13,  1.77it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.19it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.18it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.20it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.20it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.25it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:08,  2.24it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:03<00:09,  2.09it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:03<00:12,  1.81it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.03it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.02it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.04it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.04it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.07it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:08,  2.07it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:03<00:09,  1.97it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:03<00:12,  1.81it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.94it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.93it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.95it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.94it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.97it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.95it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:04<00:08,  1.93it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:04<00:11,  1.79it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.87it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.86it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.87it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.87it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.88it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.88it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:04<00:08,  1.88it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:05<00:11,  1.79it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.82it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.82it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.83it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.83it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.83it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.83it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:05<00:08,  1.84it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:05<00:10,  1.80it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:05<00:07,  1.91it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:05<00:07,  1.91it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:06<00:07,  1.90it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:06<00:07,  1.90it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:06<00:07,  1.91it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:06<00:07,  1.91it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:06<00:07,  1.90it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:06<00:09,  1.81it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.87it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.87it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.90it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.87it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.87it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.88it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:06<00:06,  1.87it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:06<00:09,  1.84it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.84it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.84it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.84it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.84it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.85it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.85it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:07<00:06,  1.85it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:07<00:08,  1.82it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:05,  1.84it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:07<00:06,  1.81it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:07<00:08,  1.81it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.78it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.78it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.79it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.78it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.78it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.79it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:08<00:05,  1.78it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:08<00:07,  1.80it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.87it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.87it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.87it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.86it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.86it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.86it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:08<00:04,  1.87it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:08<00:07,  1.84it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.86it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.85it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.87it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.85it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.85it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.85it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:09<00:04,  1.85it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:09<00:06,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.83it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:09<00:03,  1.84it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:10<00:06,  1.82it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.80it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.79it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.81it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.79it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.79it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.80it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:03,  1.80it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:10<00:05,  1.80it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:10<00:02,  1.78it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:10<00:02,  1.77it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  1.78it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  1.78it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  1.78it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  1.78it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  1.78it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:11<00:04,  1.82it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.87it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.86it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.88it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.86it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.86it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.86it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:02,  1.87it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:11<00:04,  1.82it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.84it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:12<00:03,  1.84it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.85it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.82it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:01,  1.83it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:12<00:03,  1.82it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  1.79it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:13<00:02,  1.79it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.90it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.13it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.13it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.91it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.13it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.90it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.12it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.90it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.12it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.12it/s]
-Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  1.90it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.12it/s]
-Loading checkpoint shards:  86%|████████▌ | 25/29 [00:13<00:02,  1.80it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:14<00:01,  1.85it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:14<00:01,  1.84it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:15<00:00,  1.82it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:16<00:00,  1.86it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:16<00:00,  1.81it/s]
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 3901 examples [00:00, 5692.09 examples/s]Generating train split: 3901 examples [00:00, 5596.38 examples/s]
-Generating validation split: 0 examples [00:00, ? examples/s]Generating validation split: 173 examples [00:00, 7695.64 examples/s]
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): CustomLlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(32000, 8192)
-        (layers): ModuleList(
-          (0-79): 80 x LlamaDecoderLayer(
-            (self_attn): LlamaFlashAttention2(
-              (qkv_proj): lora.Linear(
-                (base_layer): Linear(in_features=8192, out_features=10240, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=8192, out_features=16, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=16, out_features=10240, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-              )
-              (o_proj): lora.Linear(
-                (base_layer): Linear(in_features=8192, out_features=8192, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=8192, out_features=16, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=16, out_features=8192, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-              )
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=8192, out_features=28672, bias=False)
-              (up_proj): Linear(in_features=8192, out_features=28672, bias=False)
-              (down_proj): Linear(in_features=28672, out_features=8192, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm()
-            (post_attention_layernorm): LlamaRMSNorm()
-          )
-        )
-        (norm): LlamaRMSNorm()
-      )
-      (lm_head): Linear(in_features=8192, out_features=32000, bias=False)
-    )
-  )
-)
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-Parameter Offload: Total persistent parameters: 1318912 in 161 params
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-:::MLLOG {"namespace": "", "time_ms": 1778087340044, "event_type": "POINT_IN_TIME", "key": "cache_clear", "value": "True", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 94}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_benchmark", "value": "llama2_70b_lora", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 97}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_division", "value": "closed", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 101}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_org", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 105}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_platform", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 108}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_poc_name", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 112}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_poc_email", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 116}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "submission_status", "value": "onprem", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 120}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "global_batch_size", "value": 8, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 124}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "train_samples", "value": 3901, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 128}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "eval_samples", "value": 173, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 132}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "seed", "value": 63295, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 136}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_warmup_factor", "value": 0.0, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 137}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_training_steps", "value": 1024, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 138}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "opt_adamw_weight_decay", "value": 0.0001, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 139}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "opt_gradient_clip_norm", "value": 0.3, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 140}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "opt_base_learning_rate", "value": 0.0004, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 141}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "lora_alpha", "value": 32, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 142}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "lora_rank", "value": 16, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 143}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "POINT_IN_TIME", "key": "gradient_accumulation_steps", "value": 1, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 144}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "INTERVAL_START", "key": "init_start", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 145}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "INTERVAL_END", "key": "init_stop", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 147}}
-:::MLLOG {"namespace": "", "time_ms": 1778087340045, "event_type": "INTERVAL_START", "key": "run_start", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 148}}
-  0%|          | 0/1024 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Using network Socket
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Using network Socket
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Using network Socket
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Using network Socket
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Using network Socket
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Using network Socket
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Using network Socket
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Using network Socket
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO comm 0x5602ce0ed510 rank 7 nranks 8 cudaDev 7 nvmlDev 7 busId e5000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO comm 0x561ea8fdae90 rank 6 nranks 8 cudaDev 6 nvmlDev 6 busId d3000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO comm 0x56139b127370 rank 0 nranks 8 cudaDev 0 nvmlDev 0 busId 3000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO comm 0x55ac1e8ed510 rank 5 nranks 8 cudaDev 5 nvmlDev 5 busId a3000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO comm 0x5599d8215480 rank 4 nranks 8 cudaDev 4 nvmlDev 4 busId 7b000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO comm 0x55cf0b525d90 rank 3 nranks 8 cudaDev 3 nvmlDev 3 busId 63000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO comm 0x55af45c0f4f0 rank 2 nranks 8 cudaDev 2 nvmlDev 2 busId 59000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO comm 0x55f73e636600 rank 1 nranks 8 cudaDev 1 nvmlDev 1 busId 29000 commId 0xfd125ba784b4aa36 - Init START
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Setting affinity for GPU 7 to ffff,00000000,00000000,00000000,0000ffff,00000000,00000000
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Setting affinity for GPU 6 to ffff0000,00000000,00000000,00000000,ffff0000,00000000,00000000,00000000
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Setting affinity for GPU 3 to ffff,00000000,00000000,00000000,0000ffff
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Setting affinity for GPU 5 to ffff,00000000,00000000,00000000,0000ffff,00000000,00000000,00000000
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Setting affinity for GPU 4 to ffff0000,00000000,00000000,00000000,ffff0000,00000000,00000000
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Setting affinity for GPU 2 to ffff0000,00000000,00000000,00000000,ffff0000,00000000
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Setting affinity for GPU 0 to ffff0000,00000000,00000000,00000000,ffff0000
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Setting affinity for GPU 1 to ffff,00000000,00000000,00000000,0000ffff,00000000
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 00/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Trees [0] 7/-1/-1->6->5 [1] 7/-1/-1->6->5 [2] 7/-1/-1->6->5 [3] 7/-1/-1->6->5 [4] 7/-1/-1->6->5 [5] 7/-1/-1->6->5 [6] 7/-1/-1->6->5 [7] 7/-1/-1->6->5 [8] 7/-1/-1->6->5 [9] 7/-1/-1->6->5 [10] 7/-1/-1->6->5 [11] 7/-1/-1->6->5 [12] 7/-1/-1->6->5 [13] 7/-1/-1->6->5 [14] 7/-1/-1->6->5 [15] 7/-1/-1->6->5 [16] 7/-1/-1->6->5 [17] 7/-1/-1->6->5 [18] 7/-1/-1->6->5 [19] 7/-1/-1->6->5 [20] 7/-1/-1->6->5 [21] 7/-1/-1->6->5 [22] 7/-1/-1->6->5 [23] 7/-1/-1->6->5
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 01/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 02/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Trees [0] -1/-1/-1->7->6 [1] -1/-1/-1->7->6 [2] -1/-1/-1->7->6 [3] -1/-1/-1->7->6 [4] -1/-1/-1->7->6 [5] -1/-1/-1->7->6 [6] -1/-1/-1->7->6 [7] -1/-1/-1->7->6 [8] -1/-1/-1->7->6 [9] -1/-1/-1->7->6 [10] -1/-1/-1->7->6 [11] -1/-1/-1->7->6 [12] -1/-1/-1->7->6 [13] -1/-1/-1->7->6 [14] -1/-1/-1->7->6 [15] -1/-1/-1->7->6 [16] -1/-1/-1->7->6 [17] -1/-1/-1->7->6 [18] -1/-1/-1->7->6 [19] -1/-1/-1->7->6 [20] -1/-1/-1->7->6 [21] -1/-1/-1->7->6 [22] -1/-1/-1->7->6 [23] -1/-1/-1->7->6
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 03/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Trees [0] 5/-1/-1->4->3 [1] 5/-1/-1->4->3 [2] 5/-1/-1->4->3 [3] 5/-1/-1->4->3 [4] 5/-1/-1->4->3 [5] 5/-1/-1->4->3 [6] 5/-1/-1->4->3 [7] 5/-1/-1->4->3 [8] 5/-1/-1->4->3 [9] 5/-1/-1->4->3 [10] 5/-1/-1->4->3 [11] 5/-1/-1->4->3 [12] 5/-1/-1->4->3 [13] 5/-1/-1->4->3 [14] 5/-1/-1->4->3 [15] 5/-1/-1->4->3 [16] 5/-1/-1->4->3 [17] 5/-1/-1->4->3 [18] 5/-1/-1->4->3 [19] 5/-1/-1->4->3 [20] 5/-1/-1->4->3 [21] 5/-1/-1->4->3 [22] 5/-1/-1->4->3 [23] 5/-1/-1->4->3
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 04/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Trees [0] 6/-1/-1->5->4 [1] 6/-1/-1->5->4 [2] 6/-1/-1->5->4 [3] 6/-1/-1->5->4 [4] 6/-1/-1->5->4 [5] 6/-1/-1->5->4 [6] 6/-1/-1->5->4 [7] 6/-1/-1->5->4 [8] 6/-1/-1->5->4 [9] 6/-1/-1->5->4 [10] 6/-1/-1->5->4 [11] 6/-1/-1->5->4 [12] 6/-1/-1->5->4 [13] 6/-1/-1->5->4 [14] 6/-1/-1->5->4 [15] 6/-1/-1->5->4 [16] 6/-1/-1->5->4 [17] 6/-1/-1->5->4 [18] 6/-1/-1->5->4 [19] 6/-1/-1->5->4 [20] 6/-1/-1->5->4 [21] 6/-1/-1->5->4 [22] 6/-1/-1->5->4 [23] 6/-1/-1->5->4
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 05/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 06/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Trees [0] 4/-1/-1->3->2 [1] 4/-1/-1->3->2 [2] 4/-1/-1->3->2 [3] 4/-1/-1->3->2 [4] 4/-1/-1->3->2 [5] 4/-1/-1->3->2 [6] 4/-1/-1->3->2 [7] 4/-1/-1->3->2 [8] 4/-1/-1->3->2 [9] 4/-1/-1->3->2 [10] 4/-1/-1->3->2 [11] 4/-1/-1->3->2 [12] 4/-1/-1->3->2 [13] 4/-1/-1->3->2 [14] 4/-1/-1->3->2 [15] 4/-1/-1->3->2 [16] 4/-1/-1->3->2 [17] 4/-1/-1->3->2 [18] 4/-1/-1->3->2 [19] 4/-1/-1->3->2 [20] 4/-1/-1->3->2 [21] 4/-1/-1->3->2 [22] 4/-1/-1->3->2 [23] 4/-1/-1->3->2
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 07/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 08/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->1 [4] 3/-1/-1->2->1 [5] 3/-1/-1->2->1 [6] 3/-1/-1->2->1 [7] 3/-1/-1->2->1 [8] 3/-1/-1->2->1 [9] 3/-1/-1->2->1 [10] 3/-1/-1->2->1 [11] 3/-1/-1->2->1 [12] 3/-1/-1->2->1 [13] 3/-1/-1->2->1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->1 [16] 3/-1/-1->2->1 [17] 3/-1/-1->2->1 [18] 3/-1/-1->2->1 [19] 3/-1/-1->2->1 [20] 3/-1/-1->2->1 [21] 3/-1/-1->2->1 [22] 3/-1/-1->2->1 [23] 3/-1/-1->2->1
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 09/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 10/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 11/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] 2/-1/-1->1->0 [4] 2/-1/-1->1->0 [5] 2/-1/-1->1->0 [6] 2/-1/-1->1->0 [7] 2/-1/-1->1->0 [8] 2/-1/-1->1->0 [9] 2/-1/-1->1->0 [10] 2/-1/-1->1->0 [11] 2/-1/-1->1->0 [12] 2/-1/-1->1->0 [13] 2/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] 2/-1/-1->1->0 [16] 2/-1/-1->1->0 [17] 2/-1/-1->1->0 [18] 2/-1/-1->1->0 [19] 2/-1/-1->1->0 [20] 2/-1/-1->1->0 [21] 2/-1/-1->1->0 [22] 2/-1/-1->1->0 [23] 2/-1/-1->1->0
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 12/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 13/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 14/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 15/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 16/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 17/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 18/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 19/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 20/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 21/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 22/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 23/24 :    0   1   2   3   4   5   6   7
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 1/-1/-1->0->-1 [6] 1/-1/-1->0->-1 [7] 1/-1/-1->0->-1 [8] 1/-1/-1->0->-1 [9] 1/-1/-1->0->-1 [10] 1/-1/-1->0->-1 [11] 1/-1/-1->0->-1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 1/-1/-1->0->-1 [17] 1/-1/-1->0->-1 [18] 1/-1/-1->0->-1 [19] 1/-1/-1->0->-1 [20] 1/-1/-1->0->-1 [21] 1/-1/-1->0->-1 [22] 1/-1/-1->0->-1 [23] 1/-1/-1->0->-1
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO P2P Chunksize set to 524288
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 00/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 00/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 01/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 01/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 02/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 02/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 03/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 04/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 05/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 03/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 04/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 06/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 05/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 07/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 06/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 07/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 08/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 08/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 09/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 09/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 10/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 00/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 11/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 10/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 12/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 01/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 02/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 11/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 13/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 12/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 03/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 14/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 13/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 14/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 15/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 04/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 15/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 16/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 16/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 05/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 17/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 06/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 00/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 17/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 01/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 18/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 02/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 00/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 07/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 19/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 18/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 20/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 01/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 03/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 04/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 05/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 02/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 08/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 19/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 02/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 21/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 20/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 03/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 03/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 06/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 07/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 04/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 09/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 22/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 21/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 22/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 10/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 08/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 23/0 : 7[7] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 04/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 23/0 : 5[5] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 00/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 05/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 11/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 09/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 01/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 05/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 06/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 12/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 13/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 06/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 07/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 02/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 10/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 07/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 08/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 09/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 03/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 14/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 08/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 11/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 15/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 09/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 04/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 10/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 00/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 16/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 10/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 12/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 17/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 01/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 11/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 12/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 05/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 02/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 18/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 11/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 12/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 13/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 19/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 03/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 04/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 13/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 06/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 20/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 14/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 15/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 13/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 05/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 21/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 14/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 06/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 14/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 22/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 23/0 : 6[6] -> 7[7] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 07/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 07/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 15/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 16/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 08/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 17/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 08/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 15/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 16/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 17/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 09/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 09/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 16/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 10/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 11/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 18/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 18/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 10/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 17/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 11/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 19/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 20/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 12/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 18/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 12/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 19/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 13/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 19/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 20/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 21/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 13/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 20/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 21/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 14/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 22/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 21/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 22/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 14/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 22/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 23/0 : 4[4] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 15/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Channel 23/0 : 0[0] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 23/0 : 3[3] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 15/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 16/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 17/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 16/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 18/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 17/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 18/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 19/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 19/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 20/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 20/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 21/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 22/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 21/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 23/0 : 1[1] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 22/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 23/0 : 2[2] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 00/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 01/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Connected all rings
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 02/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 03/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 04/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 05/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 06/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 07/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 08/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 09/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 10/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 11/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 12/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Connected all rings
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Connected all rings
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Connected all rings
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 13/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 14/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 15/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 16/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 17/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 18/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 19/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 00/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 20/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 21/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 22/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 01/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Channel 23/0 : 7[7] -> 6[6] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 02/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 03/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 04/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 05/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 00/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 06/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 01/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 00/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 07/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 02/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 03/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 04/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 08/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 01/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 09/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 05/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 02/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 03/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 06/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 10/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 00/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 07/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 08/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 04/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 01/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 11/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 05/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 09/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 02/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 12/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 13/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 14/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 03/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 06/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 04/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 10/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 07/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 15/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 00/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 16/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 05/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 11/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 08/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 01/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 06/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 12/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 02/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 17/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 13/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 07/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 08/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 03/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 09/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 14/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 09/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 18/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 04/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 15/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 10/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 11/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 16/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 00/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 10/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 12/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 05/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 11/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 19/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 13/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 17/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 06/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 01/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 14/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 18/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 20/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 15/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 12/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 19/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 07/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 02/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 13/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 20/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 21/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 08/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 21/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 14/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 16/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 22/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Channel 23/0 : 6[6] -> 5[5] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 09/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 03/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 17/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 22/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Channel 23/0 : 5[5] -> 4[4] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 10/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 15/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 18/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 11/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 04/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 19/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 05/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 12/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 16/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 13/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 14/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 20/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 17/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 06/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 07/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 21/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 15/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 18/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 08/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 22/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 19/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 09/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 20/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Channel 23/0 : 4[4] -> 3[3] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 16/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 17/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 21/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 10/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 22/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 18/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 11/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 19/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 20/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Channel 23/0 : 3[3] -> 2[2] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 12/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 21/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 22/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 13/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Channel 23/0 : 1[1] -> 0[0] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 14/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 15/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 16/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 17/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 18/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 19/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 20/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 21/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 22/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Channel 23/0 : 2[2] -> 1[1] via P2P/CUMEM
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO Connected all trees
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO Connected all trees
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO Connected all trees
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO Connected all trees
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO Connected all trees
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO Connected all trees
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO Connected all trees
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO Connected all trees
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO threadThresholds 8/8/64 | 64/8/64 | 512 | 512
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO 24 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:258:1030 [1] NCCL INFO comm 0x55f73e636600 rank 1 nranks 8 cudaDev 1 nvmlDev 1 busId 29000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:262:1034 [5] NCCL INFO comm 0x55ac1e8ed510 rank 5 nranks 8 cudaDev 5 nvmlDev 5 busId a3000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:263:1033 [6] NCCL INFO comm 0x561ea8fdae90 rank 6 nranks 8 cudaDev 6 nvmlDev 6 busId d3000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:260:1036 [3] NCCL INFO comm 0x55cf0b525d90 rank 3 nranks 8 cudaDev 3 nvmlDev 3 busId 63000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:261:1032 [4] NCCL INFO comm 0x5599d8215480 rank 4 nranks 8 cudaDev 4 nvmlDev 4 busId 7b000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:259:1031 [2] NCCL INFO comm 0x55af45c0f4f0 rank 2 nranks 8 cudaDev 2 nvmlDev 2 busId 59000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:257:1029 [0] NCCL INFO comm 0x56139b127370 rank 0 nranks 8 cudaDev 0 nvmlDev 0 busId 3000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-ai-server-c885-h200-1:264:1035 [7] NCCL INFO comm 0x5602ce0ed510 rank 7 nranks 8 cudaDev 7 nvmlDev 7 busId e5000 commId 0xfd125ba784b4aa36 - Init COMPLETE
-  0%|          | 1/1024 [00:11<3:18:05, 11.62s/it]  0%|          | 2/1024 [00:20<2:50:59, 10.04s/it]  0%|          | 3/1024 [00:29<2:42:21,  9.54s/it]  0%|          | 4/1024 [00:38<2:38:13,  9.31s/it]  0%|          | 5/1024 [00:47<2:35:56,  9.18s/it]  1%|          | 6/1024 [00:56<2:34:33,  9.11s/it]  1%|          | 7/1024 [01:05<2:33:39,  9.06s/it]  1%|          | 8/1024 [01:14<2:33:01,  9.04s/it]  1%|          | 9/1024 [01:23<2:32:36,  9.02s/it]  1%|          | 10/1024 [01:32<2:32:16,  9.01s/it]  1%|          | 11/1024 [01:41<2:32:04,  9.01s/it]  1%|          | 12/1024 [01:50<2:31:53,  9.01s/it]  1%|▏         | 13/1024 [01:59<2:31:43,  9.00s/it]  1%|▏         | 14/1024 [02:08<2:31:36,  9.01s/it]  1%|▏         | 15/1024 [02:17<2:31:30,  9.01s/it]  2%|▏         | 16/1024 [02:26<2:31:22,  9.01s/it]  2%|▏         | 17/1024 [02:35<2:31:12,  9.01s/it]  2%|▏         | 18/1024 [02:44<2:31:03,  9.01s/it]  2%|▏         | 19/1024 [02:53<2:30:50,  9.01s/it]  2%|▏         | 20/1024 [03:02<2:30:41,  9.01s/it]  2%|▏         | 21/1024 [03:11<2:30:31,  9.00s/it]  2%|▏         | 22/1024 [03:20<2:30:21,  9.00s/it]  2%|▏         | 23/1024 [03:29<2:30:09,  9.00s/it]  2%|▏         | 24/1024 [03:38<2:29:58,  9.00s/it]                                                   {'loss': 2.2258, 'grad_norm': 0.3537383411256105, 'learning_rate': 0.00039945809133573807, 'epoch': 0.05}
-  2%|▏         | 24/1024 [03:38<2:29:58,  9.00s/it]:::MLLOG {"namespace": "", "time_ms": 1778087558409, "event_type": "POINT_IN_TIME", "key": "train_loss", "value": 2.2258, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 166, "samples_count": 192}}
-  2%|▏         | 25/1024 [03:47<2:29:53,  9.00s/it]                                                   {'loss': 1.3508, 'grad_norm': 0.40518574425829534, 'learning_rate': 0.0003994120140678966, 'epoch': 0.05}
-  2%|▏         | 25/1024 [03:47<2:29:53,  9.00s/it]  3%|▎         | 26/1024 [03:56<2:29:46,  9.00s/it]  3%|▎         | 27/1024 [04:05<2:29:37,  9.00s/it]  3%|▎         | 28/1024 [04:14<2:29:31,  9.01s/it]  3%|▎         | 29/1024 [04:23<2:29:21,  9.01s/it]  3%|▎         | 30/1024 [04:32<2:29:12,  9.01s/it]  3%|▎         | 31/1024 [04:41<2:29:04,  9.01s/it]  3%|▎         | 32/1024 [04:50<2:28:56,  9.01s/it]  3%|▎         | 33/1024 [04:59<2:28:50,  9.01s/it]  3%|▎         | 34/1024 [05:08<2:28:43,  9.01s/it]  3%|▎         | 35/1024 [05:17<2:28:35,  9.01s/it]  4%|▎         | 36/1024 [05:26<2:28:25,  9.01s/it]

@@ -1,250 +1,0 @@
-[2026-05-06 14:26:41,342] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2026-05-06 14:26:41,572] [INFO] [comm.py:637:init_distributed] cdb=None
-[2026-05-06 14:26:41,572] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
-You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
-ai-server-c885-h200-1:211:211 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:211:211 [0] NCCL INFO Bootstrap : Using ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:211:211 [0] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v7 symbol.
-ai-server-c885-h200-1:211:211 [0] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-ai-server-c885-h200-1:211:211 [0] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v7 symbol.
-ai-server-c885-h200-1:211:211 [0] NCCL INFO NET/Plugin: Loaded coll plugin SHARP (v6)
-ai-server-c885-h200-1:211:211 [0] NCCL INFO cudaDriverVersion 13000
-NCCL version 2.19.4+cuda12.3
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Plugin Path : /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so
-ai-server-c885-h200-1:211:353 [0] NCCL INFO P2P plugin IBext
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NET/IB : No device found.
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_SOCKET_IFNAME set by environment to ens211f0np0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NET/Socket : Using [0]ens211f0np0:10.195.0.10<0>
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Using non-device net plugin version 0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Using network Socket
-ai-server-c885-h200-1:211:353 [0] NCCL INFO comm 0x55604dde1050 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3000 commId 0xeef2506862b4efe9 - Init START
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to NVL
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Setting affinity for GPU 0 to ffff0000,00000000,00000000,00000000,ffff0000
-ai-server-c885-h200-1:211:353 [0] NCCL INFO NCCL_NVLS_ENABLE set by environment to 0.
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 00/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 01/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 02/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 03/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 04/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 05/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 06/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 07/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 08/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 09/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 10/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 11/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 12/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 13/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 14/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 15/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 16/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 17/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 18/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 19/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 20/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 21/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 22/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 23/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 24/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 25/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 26/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 27/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 28/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 29/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 30/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Channel 31/32 :    0
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Trees [0] -1/-1/-1->0->-1 [1] -1/-1/-1->0->-1 [2] -1/-1/-1->0->-1 [3] -1/-1/-1->0->-1 [4] -1/-1/-1->0->-1 [5] -1/-1/-1->0->-1 [6] -1/-1/-1->0->-1 [7] -1/-1/-1->0->-1 [8] -1/-1/-1->0->-1 [9] -1/-1/-1->0->-1 [10] -1/-1/-1->0->-1 [11] -1/-1/-1->0->-1 [12] -1/-1/-1->0->-1 [13] -1/-1/-1->0->-1 [14] -1/-1/-1->0->-1 [15] -1/-1/-1->0->-1 [16] -1/-1/-1->0->-1 [17] -1/-1/-1->0->-1 [18] -1/-1/-1->0->-1 [19] -1/-1/-1->0->-1 [20] -1/-1/-1->0->-1 [21] -1/-1/-1->0->-1 [22] -1/-1/-1->0->-1 [23] -1/-1/-1->0->-1 [24] -1/-1/-1->0->-1 [25] -1/-1/-1->0->-1 [26] -1/-1/-1->0->-1 [27] -1/-1/-1->0->-1 [28] -1/-1/-1->0->-1 [29] -1/-1/-1->0->-1 [30] -1/-1/-1->0->-1 [31] -1/-1/-1->0->-1
-ai-server-c885-h200-1:211:353 [0] NCCL INFO P2P Chunksize set to 131072
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Connected all rings
-ai-server-c885-h200-1:211:353 [0] NCCL INFO Connected all trees
-ai-server-c885-h200-1:211:353 [0] NCCL INFO 32 coll channels, 0 nvls channels, 32 p2p channels, 32 p2p channels per peer
-ai-server-c885-h200-1:211:353 [0] NCCL INFO comm 0x55604dde1050 rank 0 nranks 1 cudaDev 0 nvmlDev 0 busId 3000 commId 0xeef2506862b4efe9 - Init COMPLETE
-[2026-05-06 14:26:42,008] [INFO] [partition_parameters.py:343:__exit__] finished initializing model - num_params = 563, num_elems = 68.98B
-Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:00<00:13,  2.12it/s]Loading checkpoint shards:   7%|▋         | 2/29 [00:00<00:12,  2.11it/s]Loading checkpoint shards:  10%|█         | 3/29 [00:01<00:12,  2.07it/s]Loading checkpoint shards:  14%|█▍        | 4/29 [00:01<00:12,  2.04it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:02<00:11,  2.07it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:02<00:10,  2.11it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:03<00:10,  2.11it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:03<00:10,  2.09it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:04<00:09,  2.09it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:04<00:09,  2.09it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:05<00:08,  2.10it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:05<00:07,  2.15it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:06<00:07,  2.11it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:06<00:07,  2.10it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:07<00:06,  2.10it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:07<00:06,  2.14it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:08<00:05,  2.14it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:08<00:05,  2.11it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:09<00:04,  2.08it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:09<00:04,  2.08it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:10<00:03,  2.10it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:10<00:03,  2.11it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:10<00:02,  2.10it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:11<00:02,  2.07it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:11<00:01,  2.08it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:12<00:01,  2.13it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:12<00:00,  2.12it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:13<00:00,  2.10it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.18it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:13<00:00,  2.11it/s]
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 3901 examples [00:00, 7225.65 examples/s]Generating train split: 3901 examples [00:00, 7057.02 examples/s]
-Generating validation split: 0 examples [00:00, ? examples/s]Generating validation split: 173 examples [00:00, 8155.17 examples/s]
-PeftModelForCausalLM(
-  (base_model): LoraModel(
-    (model): CustomLlamaForCausalLM(
-      (model): LlamaModel(
-        (embed_tokens): Embedding(32000, 8192)
-        (layers): ModuleList(
-          (0-79): 80 x LlamaDecoderLayer(
-            (self_attn): LlamaFlashAttention2(
-              (qkv_proj): lora.Linear(
-                (base_layer): Linear(in_features=8192, out_features=10240, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=8192, out_features=16, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=16, out_features=10240, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-              )
-              (o_proj): lora.Linear(
-                (base_layer): Linear(in_features=8192, out_features=8192, bias=False)
-                (lora_dropout): ModuleDict(
-                  (default): Dropout(p=0.1, inplace=False)
-                )
-                (lora_A): ModuleDict(
-                  (default): Linear(in_features=8192, out_features=16, bias=False)
-                )
-                (lora_B): ModuleDict(
-                  (default): Linear(in_features=16, out_features=8192, bias=False)
-                )
-                (lora_embedding_A): ParameterDict()
-                (lora_embedding_B): ParameterDict()
-              )
-              (rotary_emb): LlamaRotaryEmbedding()
-            )
-            (mlp): LlamaMLP(
-              (gate_proj): Linear(in_features=8192, out_features=28672, bias=False)
-              (up_proj): Linear(in_features=8192, out_features=28672, bias=False)
-              (down_proj): Linear(in_features=28672, out_features=8192, bias=False)
-              (act_fn): SiLU()
-            )
-            (input_layernorm): LlamaRMSNorm()
-            (post_attention_layernorm): LlamaRMSNorm()
-          )
-        )
-        (norm): LlamaRMSNorm()
-      )
-      (lm_head): Linear(in_features=8192, out_features=32000, bias=False)
-    )
-  )
-)
-trainable params: 44,564,480 || all params: 69,021,212,672 || trainable%: 0.06456635326269569
-Parameter Offload: Total persistent parameters: 1318912 in 161 params
-:::MLLOG {"namespace": "", "time_ms": 1778077618969, "event_type": "POINT_IN_TIME", "key": "cache_clear", "value": "True", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 94}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_benchmark", "value": "llama2_70b_lora", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 97}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_division", "value": "closed", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 101}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_org", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 105}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_platform", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 108}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_poc_name", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 112}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_poc_email", "value": "referece", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 116}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "submission_status", "value": "onprem", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 120}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "global_batch_size", "value": 1, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 124}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "train_samples", "value": 3901, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 128}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "eval_samples", "value": 173, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 132}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "seed", "value": 45970, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 136}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_warmup_factor", "value": 0.0, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 137}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "opt_learning_rate_training_steps", "value": 1024, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 138}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618970, "event_type": "POINT_IN_TIME", "key": "opt_adamw_weight_decay", "value": 0.0001, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 139}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "POINT_IN_TIME", "key": "opt_gradient_clip_norm", "value": 0.3, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 140}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "POINT_IN_TIME", "key": "opt_base_learning_rate", "value": 0.0004, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 141}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "POINT_IN_TIME", "key": "lora_alpha", "value": 32, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 142}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "POINT_IN_TIME", "key": "lora_rank", "value": 16, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 143}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "POINT_IN_TIME", "key": "gradient_accumulation_steps", "value": 1, "metadata": {"file": "mlperf_logging_utils.py", "lineno": 144}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "INTERVAL_START", "key": "init_start", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 145}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "INTERVAL_END", "key": "init_stop", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 147}}
-:::MLLOG {"namespace": "", "time_ms": 1778077618971, "event_type": "INTERVAL_START", "key": "run_start", "value": "", "metadata": {"file": "mlperf_logging_utils.py", "lineno": 148}}
-  0%|          | 0/1024 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:459: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
-  warnings.warn(
-Traceback (most recent call last):
-  File "/workspace/ft-llm/scripts/train.py", line 205, in <module>
-    main(args)
-  File "/workspace/ft-llm/scripts/train.py", line 199, in main
-    trainer.train()
-  File "/usr/local/lib/python3.10/dist-packages/transformers/trainer.py", line 1624, in train
-    return inner_training_loop(
-  File "/usr/local/lib/python3.10/dist-packages/transformers/trainer.py", line 1961, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/usr/local/lib/python3.10/dist-packages/transformers/trainer.py", line 2902, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/usr/local/lib/python3.10/dist-packages/transformers/trainer.py", line 2925, in compute_loss
-    outputs = model(**inputs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1519, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
-    ret_val = func(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/deepspeed/runtime/engine.py", line 1852, in forward
-    loss = self.module(*inputs, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1560, in _call_impl
-    result = forward_call(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/peft/peft_model.py", line 1083, in forward
-    return self.base_model(
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1560, in _call_impl
-    result = forward_call(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/peft/tuners/tuners_utils.py", line 161, in forward
-    return self.model.forward(*args, **kwargs)
-  File "/root/.cache/huggingface/modules/transformers_modules/llama-v2-fused-qkv/modeling_llama.py", line 1364, in forward
-    outputs = self.model(
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1560, in _call_impl
-    result = forward_call(*args, **kwargs)
-  File "/root/.cache/huggingface/modules/transformers_modules/llama-v2-fused-qkv/modeling_llama.py", line 1159, in forward
-    layer_outputs = self._gradient_checkpointing_func(
-  File "/usr/local/lib/python3.10/dist-packages/torch/_compile.py", line 24, in inner
-    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 410, in _fn
-    return fn(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/external_utils.py", line 17, in inner
-    return fn(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py", line 481, in checkpoint
-    return CheckpointFunction.apply(function, preserve, *args)
-  File "/usr/local/lib/python3.10/dist-packages/torch/autograd/function.py", line 551, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py", line 260, in forward
-    outputs = run_function(*args)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1560, in _call_impl
-    result = forward_call(*args, **kwargs)
-  File "/root/.cache/huggingface/modules/transformers_modules/llama-v2-fused-qkv/modeling_llama.py", line 900, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1510, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1560, in _call_impl
-    result = forward_call(*args, **kwargs)
-  File "/root/.cache/huggingface/modules/transformers_modules/llama-v2-fused-qkv/modeling_llama.py", line 266, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB. GPU 0 has a total capacity of 139.80 GiB of which 144.06 MiB is free. Process 212678 has 139.65 GiB memory in use. Of the allocated memory 136.15 GiB is allocated by PyTorch, and 2.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-  0%|          | 0/1024 [00:01<?, ?it/s]
-[2026-05-06 14:27:02,415] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 211) of binary: /usr/bin/python
-Traceback (most recent call last):
-  File "/usr/local/bin/accelerate", line 8, in <module>
-    sys.exit(main())
-  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 47, in main
-    args.func(args)
-  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1008, in launch_command
-    deepspeed_launcher(args)
-  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 724, in deepspeed_launcher
-    distrib_run.run(args)
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 797, in run
-    elastic_launch(
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 134, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-scripts/train.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2026-05-06_14:27:02
-  host      : ai-server-c885-h200-1
-  rank      : 0 (local_rank: 0)
-  exitcode  : 1 (pid: 211)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================

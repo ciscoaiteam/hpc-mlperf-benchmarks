@@ -1,4 +1,0 @@
-MLPerf Training Benchmark Summary
-Run date: Wed May  6 03:43:28 PM UTC 2026
-Hardware: H200 x 1 config(s): 8
-

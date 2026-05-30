@@ -1,4 +1,6 @@
-# MLPerf Training Benchmarks — H200 Node
+# HPC & MLPerf Benchmarks — Cisco UCS C885A HGX H200
+
+> **[Full Benchmark Results Summary (885a-run-summary.md)](885a-run-summary.md)** — MLPerf Training + FUN3D GPU CFD results, scaling analysis, network config, and bugs fixed.
 
 Closed-division scripts for two selected tasks:
 

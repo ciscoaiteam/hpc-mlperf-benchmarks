@@ -1,1 +1,0 @@
-/workspace/NeMo-Run/nemo_run/core/runners/fdl_runner.py -n 8b_0_seed_54984_0_0-1200000-steps /root/.nemo_run/experiments/8b_0_seed_54984/8b_0_seed_54984_1778088029/8b_0_seed_54984_0_0-1200000-steps/configs/8b_0_seed_54984_0_0-1200000-steps_fn_or_script
