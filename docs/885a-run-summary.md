@@ -102,10 +102,10 @@ The original 16× fine-tuning run used TCP socket transport due to NCCL 2.19.4's
 
 ### Key Files
 
-- **Launch script (multi-node):** `05_run_llama31_multinode.sh`
-- **Launch script (single-node):** `03_run_llama31_pretraining.sh`
-- **Python wrapper:** `multinode_wrapper.py`
-- **Config:** `config.env`
+- **Launch script (multi-node):** `scripts/05_run_llama31_multinode.sh`
+- **Launch script (single-node):** `scripts/03_run_llama31_pretraining.sh`
+- **Python wrapper:** `scripts/multinode_wrapper.py`
+- **Config:** `scripts/config.env`
 
 ---
 
@@ -171,9 +171,9 @@ The original 16× fine-tuning run used TCP socket transport due to NCCL 2.19.4's
 
 ### Key Files
 
-- **Launch script (multi-node):** `06_run_llm_finetuning_multinode.sh`
-- **Launch script (single-node):** `04_run_llm_finetuning.sh`
-- **Python wrapper:** `ft_multinode_wrapper.py`
+- **Launch script (multi-node):** `scripts/06_run_llm_finetuning_multinode.sh`
+- **Launch script (single-node):** `scripts/04_run_llm_finetuning.sh`
+- **Python wrapper:** `scripts/ft_multinode_wrapper.py`
 - **DeepSpeed config:** Generated inline (ZeRO-3, BF16)
 
 ---
@@ -434,7 +434,7 @@ mpirun --allow-run-as-root --hostfile hostfile -np 8 \
 
 ### Switch Configuration (Cisco Nexus 9332)
 
-See `switch_config_roce_n9332.txt` for full NX-OS config including:
+See `network/switch_config_roce_n9332.txt` for full NX-OS config including:
 - `system jumbomtu 9216`
 - QoS class-map matching DSCP 26
 - Queuing policy with no-drop on queue 3
@@ -543,15 +543,15 @@ HuggingFace `accelerate launch` with `deepspeed_multinode_launcher: standard` fa
 
 | File | Purpose |
 |------|---------|
-| `config.env` | Shared paths, GPU configs, NCCL tuning, NUMA topology |
-| `05_run_llama31_multinode.sh` | 16× GPU Llama 3.1 pretraining launcher |
-| `06_run_llm_finetuning_multinode.sh` | 16× GPU Llama 2 70B fine-tuning launcher |
-| `03_run_llama31_pretraining.sh` | Single-node pretraining launcher |
-| `04_run_llm_finetuning.sh` | Single-node fine-tuning launcher |
-| `multinode_wrapper.py` | NeMo/Megatron multi-node wrapper for pretraining |
-| `ft_multinode_wrapper.py` | DeepSpeed/HF Trainer multi-node wrapper for fine-tuning |
-| `switch_config_roce_n9332.txt` | Cisco Nexus 9332 NX-OS lossless RoCE config |
-| `power_monitor.sh` | CIMC Redfish power polling script |
+| `scripts/config.env` | Shared paths, GPU configs, NCCL tuning, NUMA topology |
+| `scripts/05_run_llama31_multinode.sh` | 16× GPU Llama 3.1 pretraining launcher |
+| `scripts/06_run_llm_finetuning_multinode.sh` | 16× GPU Llama 2 70B fine-tuning launcher |
+| `scripts/03_run_llama31_pretraining.sh` | Single-node pretraining launcher |
+| `scripts/04_run_llm_finetuning.sh` | Single-node fine-tuning launcher |
+| `scripts/multinode_wrapper.py` | NeMo/Megatron multi-node wrapper for pretraining |
+| `scripts/ft_multinode_wrapper.py` | DeepSpeed/HF Trainer multi-node wrapper for fine-tuning |
+| `network/switch_config_roce_n9332.txt` | Cisco Nexus 9332 NX-OS lossless RoCE config |
+| `scripts/power_monitor.sh` | CIMC Redfish power polling script |
 
 ---
 

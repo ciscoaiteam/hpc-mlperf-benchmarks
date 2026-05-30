@@ -1,8 +1,8 @@
 # HPC & MLPerf Benchmarks — Cisco UCS C885A HGX H200
 
-> **[C885A Benchmark Results (885a-run-summary.md)](885a-run-summary.md)** — MLPerf Training + FUN3D GPU CFD on 2× C885A HGX H200 (16× H200 SXM5).
+> **[C885A Benchmark Results](docs/885a-run-summary.md)** — MLPerf Training + FUN3D GPU CFD on 2× C885A HGX H200 (16× H200 SXM5).
 >
-> **[C845A Benchmark Results (845a-run-summary.md)](845a-run-summary.md)** — FUN3D GPU CFD on 2× C845A (8× H200 NVL).
+> **[C845A Benchmark Results](docs/845a-run-summary.md)** — FUN3D GPU CFD on 2× C845A (8× H200 NVL).
 
 Closed-division scripts for two selected tasks:
 
@@ -31,26 +31,26 @@ Runs per configuration: **10** (fastest + slowest dropped; 8 averaged per MLPerf
 
 ```bash
 # 1. One-time environment setup (installs Docker, nvidia-ctk, clones MLCommons repo)
-bash 00_setup_environment.sh
+bash scripts/00_setup_environment.sh
 
 # 2. Download pre-tokenized C4/en dataset + tokenizer (~350 GB — run in tmux)
 tmux new -s llama31_data
-bash 01_download_llama31_data.sh
+bash scripts/01_download_llama31_data.sh
 
 # 3. Download Llama 2 70B + GovReport (~132 GB — run in tmux, needs HF_TOKEN)
 tmux new -s llm_data
-HF_TOKEN=hf_xxxx bash 02_prepare_llm_assets.sh
+HF_TOKEN=hf_xxxx bash scripts/02_prepare_llm_assets.sh
 
 # 4a. Run everything (all benchmarks, all GPU configs)
-bash 05_run_all_benchmarks.sh
+bash scripts/05_run_all_benchmarks.sh
 
 # 4b. Or run individually
-bash 03_run_llama31_pretraining.sh 8   # Llama 3.1 8B pretraining, 8 GPUs, 10 runs
-bash 03_run_llama31_pretraining.sh 4   # Llama 3.1 8B pretraining, 4 GPUs, 10 runs
-bash 04_run_llm_finetuning.sh 8        # LLM FT,   8 GPUs, 10 runs
+bash scripts/03_run_llama31_pretraining.sh 8   # Llama 3.1 8B pretraining, 8 GPUs, 10 runs
+bash scripts/03_run_llama31_pretraining.sh 4   # Llama 3.1 8B pretraining, 4 GPUs, 10 runs
+bash scripts/04_run_llm_finetuning.sh 8        # LLM FT,   8 GPUs, 10 runs
 
 # 5. Process results
-python3 process_results.py --log-root /data/mlperf/logs
+python3 scripts/process_results.py --log-root /data/mlperf/logs
 ```
 
 ---
@@ -59,14 +59,14 @@ python3 process_results.py --log-root /data/mlperf/logs
 
 | Script | Purpose |
 |--------|---------|
-| `config.env` | Shared paths, GPU configs, NCCL tuning |
-| `00_setup_environment.sh` | Docker, nvidia-ctk, repo clone, image builds |
-| `01_download_llama31_data.sh` | Pre-tokenized C4/en dataset + Llama 3.1 8B tokenizer |
-| `02_prepare_llm_assets.sh` | Llama 2 70B weights + SCROLLS tokenization |
-| `03_run_llama31_pretraining.sh <gpus> [runs]` | Llama 3.1 8B pretraining run loop with MLLOG capture |
-| `04_run_llm_finetuning.sh <gpus> [runs]` | LLM LoRA+DeepSpeed run loop |
-| `05_run_all_benchmarks.sh [bench] [gpus...]` | Full orchestration |
-| `process_results.py` | Parse logs, drop hi/lo, report trimmed mean |
+| `scripts/config.env` | Shared paths, GPU configs, NCCL tuning |
+| `scripts/00_setup_environment.sh` | Docker, nvidia-ctk, repo clone, image builds |
+| `scripts/01_download_llama31_data.sh` | Pre-tokenized C4/en dataset + Llama 3.1 8B tokenizer |
+| `scripts/02_prepare_llm_assets.sh` | Llama 2 70B weights + SCROLLS tokenization |
+| `scripts/03_run_llama31_pretraining.sh <gpus> [runs]` | Llama 3.1 8B pretraining run loop with MLLOG capture |
+| `scripts/04_run_llm_finetuning.sh <gpus> [runs]` | LLM LoRA+DeepSpeed run loop |
+| `scripts/05_run_all_benchmarks.sh [bench] [gpus...]` | Full orchestration |
+| `scripts/process_results.py` | Parse logs, drop hi/lo, report trimmed mean |
 
 ---
 
@@ -114,7 +114,7 @@ token is needed — the benchmark trains **from random initialisation**, so mode
 weights are not required.
 
 ```bash
-bash 01_download_llama31_data.sh   # downloads both dataset and tokenizer
+bash scripts/01_download_llama31_data.sh   # downloads both dataset and tokenizer
 ```
 
 ### Framework
