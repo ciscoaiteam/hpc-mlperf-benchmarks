@@ -1,6 +1,8 @@
 # HPC & MLPerf Benchmarks — Cisco UCS C885A HGX H200
 
-> **[Full Benchmark Results Summary (885a-run-summary.md)](885a-run-summary.md)** — MLPerf Training + FUN3D GPU CFD results, scaling analysis, network config, and bugs fixed.
+> **[C885A Benchmark Results (885a-run-summary.md)](885a-run-summary.md)** — MLPerf Training + FUN3D GPU CFD on 2× C885A HGX H200 (16× H200 SXM5).
+>
+> **[C845A Benchmark Results (845a-run-summary.md)](845a-run-summary.md)** — FUN3D GPU CFD on 2× C845A (8× H200 NVL).
 
 Closed-division scripts for two selected tasks:
 

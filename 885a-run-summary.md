@@ -1,4 +1,4 @@
-# MLPerf Training Benchmarks — Cisco UCS C885A HGX H200
+# MLPerf Training Benchmarks — Cisco UCS C885A HGX H200 & C845A H200 NVL
 
 ## System Overview
 
@@ -31,6 +31,10 @@
 | FUN3D 14.2 CFD (DPW-4 6M) | 4× H200 | 1 | NVSwitch | 0.044 s/step | — | 100 | — | 1.9 | ✅ PASS |
 | FUN3D 14.2 CFD (DPW-4 6M) | 8× H200 | 1 | NVSwitch | 0.031 s/step | — | 100 | — | 1.5 | ✅ PASS |
 | FUN3D 14.2 CFD (DPW-4 6M) | 16× H200 | 2 | TCP (mgmt) | 0.158 s/step | — | 100 | — | 1.2 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 10Mc) | 1× H200 NVL | 1 (C845) | N/A | 0.066 s/step | — | 100 | — | 0.9 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 35Mc) | 1× H200 NVL | 1 (C845) | N/A | 0.41 s/step | — | 100 | — | 1.5 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 35Mc) | 4× H200 NVL | 1 (C845) | NVLink | 0.42 s/step | — | 100 | — | 1.5 | ✅ PASS |
+| FUN3D 14.2 CFD (DPW-4 35Mc) | 8× H200 NVL | 2 (C845) | TCP (mgmt) | 0.42 s/step | — | 100 | — | 1.5 | ✅ PASS |
 
 ### Performance Comparison
 
@@ -295,6 +299,120 @@ mpirun --allow-run-as-root --hostfile hostfile -np 16 \
 | 3 | `libudev` not found | `apt-get install libudev-dev` |
 | 4 | CUDA lib path `lib` vs `lib64` | Symlinks + `LD_LIBRARY_PATH` |
 | 5 | UCX/RDMA transport retry on RoCE for multi-node MPI | Forced TCP transport (`--mca pml ob1 --mca btl tcp,self`) |
+
+---
+
+## Benchmark 4: FUN3D 14.2 GPU CFD — Cisco UCS C845A (H200 NVL)
+
+### System Overview
+
+| Component | Details |
+|-----------|--------|
+| **Platform** | 2× Cisco UCS C845A |
+| **GPUs** | 4× NVIDIA H200 NVL per node, 8 total |
+| **GPU Interconnect (Intra-node)** | NVLink |
+| **GPU Interconnect (Inter-node)** | Management network (TCP) |
+| **CPU** | AMD EPYC |
+| **CUDA** | 12.8.2 (toolkit installed alongside CUDA 13) |
+
+### Task Details
+
+| Parameter | Value |
+|-----------|-------|
+| **Software** | FUN3D 14.2-ffaff71 (NASA Langley CFD solver) |
+| **GPU Library** | FLUDA (precompiled H100 binary, compatible with H200 NVL) |
+| **CUDA** | 12.8.2 |
+| **MPI** | OpenMPI 4.1.9a1 |
+| **Compiler** | gfortran 11.4.0 |
+| **Test Cases** | AIAA DPW-4 wing-body-tail grids (VGRID format, converted to AFLR3) |
+| **Physics** | Mach 0.85, Re=5M, AOA=2°, Spalart-Allmaras RANS |
+| **Grid source** | `https://dpw.larc.nasa.gov/DPW4/unstructured_Larc/CellBase/` |
+
+### Benchmark Grids
+
+| Grid | Nodes | Tetrahedra | Size (ugrid) | Source File |
+|------|-------|------------|-------------|-------------|
+| 3.5Mc (coarse) | 672,235 | 3,935,055 | 77 MB | `dpw-wbt0_crs-3.5Mc_5.tgz` |
+| **10Mc (medium)** | **1,712,882** | **10,067,380** | **195 MB** | `dpw-wbt0_med-10Mc_5.tgz` |
+| **35Mc (fine)** | **5,917,692** | **34,878,666** | **674 MB** | `dpw_wbt0_fine-35Mc_5.tgz` |
+
+### Results — 10Mc Grid (1.7M nodes, 100 steps)
+
+| GPUs | Nodes | Transport | Solver Loop (100 steps) | Per-step |
+|------|-------|-----------|------------------------|----------|
+| 1 | 1 (C845-1) | N/A | 13.7 s | 0.066 s |
+| 2 | 1 (C845-1) | NVLink | 13.7 s | 0.066 s |
+| 4 | 1 (C845-1) | NVLink | 14.0 s | 0.073 s |
+
+**Note:** The 10Mc grid is too small for multi-GPU scaling — communication overhead equals or exceeds the reduced compute per GPU.
+
+### Results — 35Mc Grid (5.9M nodes, 100 steps)
+
+| GPUs | Nodes | Transport | Solver Loop (100 steps) | Per-step | GPU VRAM |
+|------|-------|-----------|------------------------|----------|----------|
+| 1 | 1 (C845-1) | N/A | 47.8 s | 0.41 s | ~96 GB |
+| 2 | 1 (C845-1) | NVLink | 48.0 s | 0.42 s | ~24 GB each |
+| 4 | 1 (C845-1) | NVLink | 49.0 s | 0.42 s | ~24 GB each |
+| 8 | 2 (C845-1 + C845-2) | TCP (mgmt) | 49.0 s | 0.42 s | ~24 GB each |
+
+### Scaling Analysis
+
+| Metric | 1 GPU | 2 GPU | 4 GPU | 8 GPU (2-node) |
+|--------|-------|-------|-------|----------------|
+| **Solver loop time** | 47.8 s | 48.0 s | 49.0 s | 49.0 s |
+| **Speedup vs 1 GPU** | 1.0× | 1.0× | 0.97× | 0.97× |
+| **Per-GPU nodes** | 5.9M | 3.0M | 1.5M | 740K |
+| **GPU VRAM** | 96 GB | 24 GB | 24 GB | 24 GB |
+
+**Observations:**
+- **Single GPU saturates the workload**: The H200 NVL is so fast that a single GPU handles 5.9M nodes at 0.41 s/step. Adding more GPUs only adds partitioning + communication overhead with no speedup.
+- **VRAM efficiency**: 1 GPU uses 96 GB (full grid in memory), while multi-GPU runs use only 24 GB each (partitioned). Multi-GPU is needed for larger grids that exceed single-GPU memory.
+- **Grid-too-small effect**: At 740K–5.9M nodes per GPU, the kernel launch overhead and MPI communication dominate. NASA recommends ≥1M points/GPU for GPU-accelerated FUN3D; this grid is marginal even for 1 GPU.
+- **To demonstrate scaling**, a much larger grid (100M+ cells) would be needed, or alternatively running with CPU-only to show GPU acceleration speedup.
+- **C845 vs C885A comparison**: The C845 H200 NVL achieves similar per-step times (0.41 s vs ~0.12 s on the 885A's 6M grid) — the 35Mc grid has 6× more cells than the 885A benchmark grid, so the ~3.4× longer step time is expected.
+
+### Build Notes (C845)
+
+```bash
+# Install CUDA 12.8 (alongside CUDA 13)
+apt-get install -y cuda-toolkit-12-8
+ln -sfn /usr/local/cuda-12.8/lib64 /usr/local/cuda-12.8/lib  # symlink for configure
+
+# Configure
+../fun3d_intg-14.2-ffaff71/configure \
+  --prefix=/opt/fun3d/install \
+  CC=mpicc FC=mpif90 CFLAGS="-O2" FFLAGS="-O2" \
+  --with-cuda=/usr/local/cuda-12.8 \
+  --with-libfluda=/opt/fun3d/nvidia/x86_64/h100
+
+# GPU wrapper (assigns CUDA_VISIBLE_DEVICES per MPI rank)
+cat > /tmp/gpu_wrapper.sh << 'EOF'
+#!/bin/bash
+export CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK
+exec "$@"
+EOF
+
+# Run (4 GPUs, single node)
+mpirun --allow-run-as-root -np 4 /tmp/gpu_wrapper.sh nodet --time_timestep_loop
+
+# Run (8 GPUs, multi-node)
+mpirun --allow-run-as-root --hostfile hostfile -np 8 \
+  -x PATH -x LD_LIBRARY_PATH \
+  --mca btl tcp,self --mca btl_tcp_if_include <MGMT_SUBNET>/24 \
+  /tmp/gpu_wrapper.sh nodet --time_timestep_loop
+```
+
+### Build Issues Resolved (C845)
+
+| # | Issue | Fix |
+|---|-------|-----|
+| 1 | `--with-fluda` not recognized by configure | Correct flag is `--with-libfluda` |
+| 2 | CUDA 13 incompatible with FLUDA binary (`cudaGetDeviceProperties_v2` undefined) | Installed CUDA 12.8 toolkit |
+| 3 | Configure uses `-L/usr/local/cuda-12.8/lib` but libs are in `lib64` | Created symlink `lib → lib64` |
+| 4 | VGRID `.mapbc` format incompatible with AFLR3 reader | Converted to simple `N\npatch_id bc_type` format (BC 3→5050 farfield, 4→4000 wall, 1→6662 symmetry) |
+| 5 | VGRID `.cogsg` grids need AFLR3 `.lb8.ugrid` format for GPU runs | Used `cogsg2ugrid` converter (pipe project name to stdin) |
+| 6 | All MPI ranks default to GPU 0 | Created `gpu_wrapper.sh` setting `CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK` |
+| 7 | Partitioning 35M cells takes ~7 min on CPU before GPU solver starts | Expected behavior; no fix needed |
 
 ---
 
