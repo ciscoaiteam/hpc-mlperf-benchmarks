@@ -1,10 +1,10 @@
 #!/bin/bash
 # Power + training monitor — runs locally, polls BMCs and mlperf1 via SSH
-BMC1="<BMC1_IP>"
-BMC2="<BMC2_IP>"
-CREDS="root:<BMC_PASSWORD>"
+BMC1="${BMC1_IP:?Set BMC1_IP}"
+BMC2="${BMC2_IP:?Set BMC2_IP}"
+CREDS="${BMC_CREDS:?Set BMC_CREDS (user:pass)}"
 URL="/redfish/v1/Chassis/PlatformSensors/Sensors/power_PWR_System"
-LOG="/Users/mikcochr/gitprojects/mlperf-h200/power_log.csv"
+LOG="${POWER_LOG:-./power_log.csv}"
 INTERVAL=10
 
 echo "timestamp,n1_watts,n2_watts,total_watts" > "$LOG"

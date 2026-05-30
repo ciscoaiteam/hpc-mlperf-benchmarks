@@ -7,11 +7,11 @@
 | **Platform** | 2× Cisco UCS C885A M8 HGX H200 |
 | **GPUs** | 8× NVIDIA H200 SXM5 (141 GB HBM3e) per node, 16 total |
 | **GPU Interconnect (Intra-node)** | NVSwitch full NV18 mesh (900 GB/s bidirectional per GPU pair) |
-| **GPU Interconnect (Inter-node)** | 8× Mellanox ConnectX-7 400G RoCE v2 per node (<GPU_FABRIC_SUBNET>.x/24) |
+| **GPU Interconnect (Inter-node)** | 8× Mellanox ConnectX-7 400G RoCE v2 per node (dedicated /24 subnet) |
 | **CPU** | 2× AMD EPYC 9575F per node, 256 logical CPUs, 8 NUMA nodes (1 per GPU) |
-| **Network Switch** | Cisco Nexus 9332 (NX-OS 10.5(5)), mgmt IP <SWITCH_MGMT_IP> |
-| **Node 2 (H200-2)** | <NODE2_MGMT_IP> (mgmt), <NODE2_GPU_FABRIC_IP>–28 (GPU fabric), switch ports Eth1/1–1/8 |
-| **Node 1 (H200-1)** | <NODE1_MGMT_IP> (mgmt), <NODE1_GPU_FABRIC_IP>–18 (GPU fabric), switch ports Eth1/9–1/16 |
+| **Network Switch** | Cisco Nexus 9332 (NX-OS 10.5(5)) |
+| **Node 2 (H200-2)** | Switch ports Eth1/1–1/8 (8× 400G GPU fabric) |
+| **Node 1 (H200-1)** | Switch ports Eth1/9–1/16 (8× 400G GPU fabric) |
 
 ---
 
@@ -306,7 +306,7 @@ mpirun --allow-run-as-root --hostfile hostfile -np 16 \
 |-----------|-------|
 | **NICs per node** | 8× Mellanox ConnectX-7 400GbE |
 | **RDMA devices** | mlx5_0, mlx5_1, mlx5_4, mlx5_5, mlx5_6, mlx5_9, mlx5_10, mlx5_11 |
-| **Subnet** | <GPU_FABRIC_SUBNET>/24 (all NICs, both nodes) |
+| **Subnet** | Dedicated /24 subnet (all NICs, both nodes) |
 | **RoCE version** | v2 (GID index 3 = IPv4-mapped) |
 | **DSCP** | 26 (AF31) → Priority 3 |
 | **PFC** | Enabled on priority 3 (no-drop queue) |

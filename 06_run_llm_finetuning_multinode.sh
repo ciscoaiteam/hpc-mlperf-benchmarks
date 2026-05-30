@@ -4,8 +4,8 @@
 # 2-node (16× H200) Llama 2 70B LoRA fine-tuning on SCROLLS GovReport
 # Uses DeepSpeed ZeRO-3 via HuggingFace accelerate.
 #
-# Node 2  <NODE2_MGMT_IP>  → master / machine_rank=0
-# Node 1  <NODE1_MGMT_IP>  → worker / machine_rank=1
+# Node 2  ${NODE2_IP}  → master / machine_rank=0
+# Node 1  ${NODE1_IP}  → worker / machine_rank=1
 #
 # Usage:
 #   ./06_run_llm_finetuning_multinode.sh [num_runs]
@@ -16,9 +16,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/config.env"
 
 # ─── Node identifiers ────────────────────────────────────────────────────────
-MASTER_SSH="<NODE2_MGMT_IP>"   # Node 2 (mlperf2) mgmt IP
-WORKER_SSH="<NODE1_MGMT_IP>"   # Node 1 (mlperf1) mgmt IP
-MASTER_IB_ADDR="<NODE2_GPU_FABRIC_IP>"   # Node 2 GPU fabric IP (ens201np0, mlx5_4)
+MASTER_SSH="${NODE2_IP:?Set NODE2_IP}"       # Node 2 (master) mgmt IP
+WORKER_SSH="${NODE1_IP:?Set NODE1_IP}"       # Node 1 (worker) mgmt IP
+MASTER_IB_ADDR="${MASTER_IB_ADDR:?Set MASTER_IB_ADDR}"  # Node 2 GPU fabric IP
 ACCEL_PORT="29600"           # avoid clash with torchrun 29500
 NUM_NODES=2
 GPUS_PER_NODE=8

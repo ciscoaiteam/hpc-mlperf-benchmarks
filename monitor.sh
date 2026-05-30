@@ -5,11 +5,11 @@
 # Tracks: GPU util/mem/power, benchmark progress, data download,
 #         Docker image build, and BMC system power on both nodes.
 
-N1="root@<NODE1_MGMT_IP>"
-N2="root@<NODE2_MGMT_IP>"
-BMC1="<BMC1_IP>"
-BMC2="<BMC2_IP>"
-BMC_CREDS="root:<BMC_PASSWORD>"
+N1="root@${NODE1_IP:?Set NODE1_IP}"
+N2="root@${NODE2_IP:?Set NODE2_IP}"
+BMC1="${BMC1_IP:?Set BMC1_IP}"
+BMC2="${BMC2_IP:?Set BMC2_IP}"
+BMC_CREDS="${BMC_CREDS:?Set BMC_CREDS (user:pass)}"
 INTERVAL="${1:-30}"
 
 SSH_OPTS="-o ConnectTimeout=5 -o StrictHostKeyChecking=no -o BatchMode=yes"
@@ -83,7 +83,7 @@ while true; do
     echo "╚══════════════════════════════════════════════════════╝"
 
     # --- Job status ---
-    echo ""; divider; echo "  JOB STATUS  (Node1=<NODE1_MGMT_IP> | Node2=<NODE2_MGMT_IP>)"
+    echo ""; divider; echo "  JOB STATUS  (Node1=${NODE1_IP} | Node2=${NODE2_IP})"
     divider
     echo "  Node 1:"
     ssh $SSH_OPTS -T "$N1" 'tmux ls 2>/dev/null || echo "  no sessions"' 2>/dev/null | sed 's/^/    /'
@@ -91,12 +91,12 @@ while true; do
     ssh $SSH_OPTS -T "$N2" 'tmux ls 2>/dev/null || echo "  no sessions"' 2>/dev/null | sed 's/^/    /'
 
     # --- Node 1 GPUs ---
-    echo ""; divider; echo "  NODE 1  (<NODE1_MGMT_IP>)"
+    echo ""; divider; echo "  NODE 1  (${NODE1_IP})"
     divider
     gpu_table "$N1"
 
     # --- Node 2 GPUs ---
-    echo ""; divider; echo "  NODE 2  (<NODE2_MGMT_IP>)"
+    echo ""; divider; echo "  NODE 2  (${NODE2_IP})"
     divider
     gpu_table "$N2"
 

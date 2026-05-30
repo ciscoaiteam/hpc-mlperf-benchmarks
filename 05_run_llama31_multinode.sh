@@ -3,8 +3,8 @@
 # 05_run_llama31_multinode.sh
 # 2-node (16× H200) Llama 3.1 8B pretraining — direct torchrun multi-node
 #
-# Node 2  <NODE2_MGMT_IP>  (IB: <NODE2_RDMA_IP>)  → master / rank-0 node
-# Node 1  <NODE1_MGMT_IP>  (IB: <NODE1_RDMA_IP>)  → worker / rank-1 node
+# Node 2  ${NODE2_IP}  (IB: ${MASTER_IB_ADDR})  → master / rank-0 node
+# Node 1  ${NODE1_IP}  (IB: worker)              → worker / rank-1 node
 #
 # Strategy: bypass NeMo-Run LocalExecutor (single-node only in v0.4.0).
 # Both nodes run identical torchrun commands pointing at the same c10d
@@ -19,9 +19,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/config.env"
 
 # ─── Node identifiers ────────────────────────────────────────────────────────
-MASTER_SSH="<NODE2_MGMT_IP>"   # Node 2 (mlperf2) mgmt IP
-WORKER_SSH="<NODE1_MGMT_IP>"   # Node 1 (mlperf1) mgmt IP
-MASTER_IB_ADDR="<NODE2_GPU_FABRIC_IP>"   # Node 2 GPU fabric IP (ens201np0, mlx5_4)
+MASTER_SSH="${NODE2_IP:?Set NODE2_IP}"       # Node 2 (master) mgmt IP
+WORKER_SSH="${NODE1_IP:?Set NODE1_IP}"       # Node 1 (worker) mgmt IP
+MASTER_IB_ADDR="${MASTER_IB_ADDR:?Set MASTER_IB_ADDR}"  # Node 2 GPU fabric IP
 RDZV_PORT="29500"
 NUM_NODES=2
 GPUS_PER_NODE=8

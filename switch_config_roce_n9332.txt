@@ -1,8 +1,8 @@
 ! ============================================================
-! Cisco Nexus 9332 (<SWITCH_HOSTNAME>) - RoCE v2 Lossless Config
+! Cisco Nexus 9332 - RoCE v2 Lossless Config
 ! Switch: <SWITCH_HOSTNAME> (mgmt IP: <SWITCH_MGMT_IP>)
 ! NX-OS: 10.5(5)
-! Ports: Eth1/1-1/16 (400G GPU NICs, <GPU_FABRIC_SUBNET>.x/24)
+! Ports: Eth1/1-1/16 (400G GPU NICs, <GPU_FABRIC_SUBNET>/24)
 !   Node2 (H200-2): Eth1/1-1/8
 !   Node1 (H200-1): Eth1/9-1/16
 ! RoCE traffic: DSCP 26 (AF31) -> Priority 3

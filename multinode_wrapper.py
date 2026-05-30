@@ -7,7 +7,7 @@ Bypasses NeMo-Run LocalExecutor (which is single-node only in v0.4.0).
 
 Launch on BOTH nodes simultaneously:
   torchrun --nnodes=2 --nproc_per_node=8 \
-           --rdzv_backend=c10d --rdzv_endpoint=<NODE2_RDMA_IP>:29500 \
+           --rdzv_backend=c10d --rdzv_endpoint=<MASTER_IB_ADDR>:29500 \
            --rdzv_id=mlperf_llama31_16gpu_SEED \
            /workspace/code/multinode_wrapper.py [args]
 
