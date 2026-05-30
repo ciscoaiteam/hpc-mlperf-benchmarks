@@ -1,0 +1,68 @@
+! ============================================================
+! Cisco Nexus 9332 (<SWITCH_HOSTNAME>) - RoCE v2 Lossless Config
+! Switch: <SWITCH_HOSTNAME> (mgmt IP: <SWITCH_MGMT_IP>)
+! NX-OS: 10.5(5)
+! Ports: Eth1/1-1/16 (400G GPU NICs, <GPU_FABRIC_SUBNET>.x/24)
+!   Node2 (H200-2): Eth1/1-1/8
+!   Node1 (H200-1): Eth1/9-1/16
+! RoCE traffic: DSCP 26 (AF31) -> Priority 3
+!
+! CRITICAL FINDING: Switch has DEFAULT MTU (1500).
+!   Jumbo ping fails at 1541+ payload (1569+ on wire).
+!   RDMA ib_write_bw fails at >1580B messages.
+!   ib_write_lat (2B) works fine (3.26 us).
+!   ib_write_bw gets "transport retry counter exceeded" on bulk.
+! ============================================================
+
+! Step 0: Enable jumbo frames system-wide (REQUIRED for RoCE)
+system jumbomtu 9216
+
+! Step 1: Enable QoS features
+feature pfc
+feature ecn
+
+! Step 2: Create a QoS class-map matching RoCE DSCP 26
+class-map type qos match-all class-roce
+  match dscp 26
+
+! Step 3: Create a QoS policy-map to mark traffic to qos-group 3
+policy-map type qos roce-qos-policy
+  class class-roce
+    set qos-group 3
+
+! Step 4: Create a queuing policy with no-drop on queue 3
+policy-map type queuing roce-queuing-policy
+  class type queuing c-out-8q-q3
+    priority level 1
+    no-drop
+  class type queuing c-out-8q-q-default
+    bandwidth remaining percent 100
+
+! Step 5: Create a network-qos policy enabling PFC on qos-group 3
+policy-map type network-qos roce-nq-policy
+  class type network-qos c-8q-nq3
+    pause pfc-cos 3
+    mtu 9216
+    congestion-control ecn
+  class type network-qos c-8q-nq-default
+    mtu 9216
+
+! Step 6: Apply network-qos globally
+system qos
+  service-policy type network-qos roce-nq-policy
+
+! Step 7: Apply QoS and queuing policies to GPU-facing interfaces
+interface Ethernet1/1-16
+  service-policy type qos input roce-qos-policy
+  service-policy type queuing output roce-queuing-policy
+  priority-flow-control mode on
+  priority-flow-control priority 3 no-drop
+  mtu 9216
+
+! ============================================================
+! Verification commands (run after applying):
+!   show policy-map system type network-qos
+!   show queuing interface ethernet 1/1
+!   show interface priority-flow-control
+!   show interface ethernet 1/1 counters detailed | include pfc
+! ============================================================

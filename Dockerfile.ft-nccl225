@@ -1,0 +1,26 @@
+FROM mlperf-llm-finetuning:h200
+
+# 1. Build shim providing C23 functions that NCCL 2.25.1 needs
+#    (The binaries are hex-patched to request GLIBC_2.35 instead of 2.38,
+#     so the linker accepts them; the shim provides the actual implementations.)
+COPY glibc_shim.c /tmp/glibc_shim.c
+RUN gcc -shared -fPIC -o /usr/lib/x86_64-linux-gnu/libglibc_shim.so /tmp/glibc_shim.c && \
+    rm /tmp/glibc_shim.c
+
+# 2. Replace NCCL 2.19.4 with patched 2.25.1 (GLIBC_2.38 -> GLIBC_2.35)
+COPY libnccl.so.2.25.1.patched /usr/lib/x86_64-linux-gnu/libnccl.so.2.25.1
+RUN cd /usr/lib/x86_64-linux-gnu && \
+    rm -f libnccl.so.2.19.4 && \
+    ln -sf libnccl.so.2.25.1 libnccl.so.2 && \
+    ln -sf libnccl.so.2 libnccl.so
+
+# 3. Replace HPC-X IBext v6 plugin with patched v8 (GLIBC_2.38 -> GLIBC_2.35)
+COPY libnccl-net.so.0.0.0.patched /opt/hpcx/nccl_rdma_sharp_plugin/lib/libnccl-net.so.0.0.0
+RUN cd /opt/hpcx/nccl_rdma_sharp_plugin/lib && \
+    ln -sf libnccl-net.so.0.0.0 libnccl-net.so.0 && \
+    ln -sf libnccl-net.so.0 libnccl-net.so
+
+# 4. Update linker cache
+RUN ldconfig
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libglibc_shim.so
+ENV NCCL_VERSION=2.25.1

@@ -1,0 +1,372 @@
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] The package `megatron.core` was not imported in this environment which is needed for SSMs.
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/gpt/data/pre_training.py:175: UserWarning: split='900,50,50' will be ignored since datasets are being created from 3 separate distributions.
+      warnings.warn(
+    
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] /workspace/NeMo/nemo/collections/llm/api.py:963: UserWarning: Disabling virtual pipeline parallelism because pipeline model parallelism is disabled
+      warnings.warn("Disabling virtual pipeline parallelism because pipeline model parallelism is disabled")
+    
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] No version folders would be created under the log folder as 'resume_if_exists' is enabled.
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Experiments will be logged at /outputs/8b
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] "update_logger_directory" is True. Overwriting tensorboard logger "save_dir" to /outputs
+[NeMo W 2026-05-28 19:35:01 nemo_logging:405] There were no checkpoints found in checkpoint_dir or no checkpoint folder at checkpoint_dir :/outputs/8b/checkpoints. Training from scratch.
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Fixing mis-match between ddp-config & mcore-optimizer config
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has data parallel group : [0, 1, 2, 3, 4, 5, 6, 7]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has combined group of data parallel and context parallel : [0, 1, 2, 3, 4, 5, 6, 7]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All data parallel group ranks with context parallel combined: [[0, 1, 2, 3, 4, 5, 6, 7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Ranks 0 has data parallel rank: 0
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has context parallel group: [0]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All context parallel group ranks: [[0], [1], [2], [3], [4], [5], [6], [7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Ranks 0 has context parallel rank: 0
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has model parallel group: [0]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All model parallel group ranks: [[0], [1], [2], [3], [4], [5], [6], [7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has tensor model parallel group: [0]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All tensor model parallel group ranks: [[0], [1], [2], [3], [4], [5], [6], [7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has tensor model parallel rank: 0
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has pipeline model parallel group: [0]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has embedding group: [0]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All pipeline model parallel group ranks: [[0], [1], [2], [3], [4], [5], [6], [7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has pipeline model parallel rank 0
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] All embedding group ranks: [[0], [1], [2], [3], [4], [5], [6], [7]]
+[NeMo I 2026-05-28 19:35:01 nemo_logging:393] Rank 0 has embedding rank: 0
+[NeMo I 2026-05-28 19:35:03 utils:302] Building GPTDataset splits with sizes=[19200000, 1600512, 1024] and config=GPTDatasetConfig(random_seed=4408, sequence_length=8192, blend=None, blend_per_split=[(['/preproc_data/c4-train.en_6_text_document'], [10.0]), (['/preproc_data/c4-validation-91205-samples.en_text_document'], None), (['/preproc_data/c4-validation-91205-samples.en_text_document'], None)], split=None, split_matrix=None, num_dataset_builder_threads=1, path_to_cache='/npy_index', mmap_bin_files=True, mock=False, tokenizer=<nemo.collections.common.tokenizers.huggingface.auto_tokenizer.AutoTokenizer object at 0x7fee76ba9d30>, reset_position_ids=False, reset_attention_mask=False, eod_mask_loss=False, create_attention_mask=False, drop_last_partial_validation_sequence=True, add_extra_token_to_sequence=True, s3_cache_path=None)
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the _IndexReader from /preproc_data/c4-train.en_6_text_document.idx
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence lengths
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence pointers
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the document indices
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of sequences: 45608611
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of documents: 45608611
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the GPTDataset train indices
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the document index from b1a394801452a1912205311c24032e78-GPTDataset-train-document_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the sample index from b1a394801452a1912205311c24032e78-GPTDataset-train-sample_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the shuffle index from b1a394801452a1912205311c24032e78-GPTDataset-train-shuffle_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of samples: 20502142
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the _IndexReader from /preproc_data/c4-validation-91205-samples.en_text_document.idx
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence lengths
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence pointers
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the document indices
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of sequences: 91205
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of documents: 91205
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the GPTDataset valid indices
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the document index from fd216b54a8b5e761c023807328e15560-GPTDataset-valid-document_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the sample index from fd216b54a8b5e761c023807328e15560-GPTDataset-valid-sample_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the shuffle index from fd216b54a8b5e761c023807328e15560-GPTDataset-valid-shuffle_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of samples: 1601227
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the _IndexReader from /preproc_data/c4-validation-91205-samples.en_text_document.idx
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence lengths
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the sequence pointers
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Extract the document indices
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of sequences: 91205
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of documents: 91205
+[NeMo I 2026-05-28 19:35:03 utils:302] Load the GPTDataset test indices
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the document index from d75301eeeda4e4284caaf52dde5dfab2-GPTDataset-test-document_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the sample index from d75301eeeda4e4284caaf52dde5dfab2-GPTDataset-test-sample_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] 	Load the shuffle index from d75301eeeda4e4284caaf52dde5dfab2-GPTDataset-test-shuffle_index.npy
+[NeMo I 2026-05-28 19:35:03 utils:302] > total number of samples: 5083
+[NeMo I 2026-05-28 19:35:04 nemo_logging:393] Padded vocab_size: 128256, original vocab_size: 128256, dummy tokens: 0.
+[NeMo I 2026-05-28 19:35:04 nemo_logging:393] Apply rope scaling with factor=8, low_freq_factor=1, high_freq_factor=4, old_context_len=8192.
+[NeMo I 2026-05-28 19:35:04 nemo_logging:393] Copying Trainer's 'max_steps' (1200000) to LR scheduler's 'max_steps'.
+[NeMo I 2026-05-28 19:35:04 num_microbatches_calculator:228] setting number of microbatches to constant 1
+[NeMo I 2026-05-28 19:35:04 nemo_logging:393]  > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 8030261248
+[NeMo I 2026-05-28 19:35:04 utils:302] Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=False, overlap_grad_reduce=True, overlap_param_gather=True, align_param_gather=False, use_distributed_optimizer=True, num_distributed_optimizer_instances=1, check_for_nan_in_grad=True, bucket_size=40000000, average_in_collective=True, fp8_param_gather=True)
+[NeMo I 2026-05-28 19:35:04 utils:323] Number of buckets for gradient all-reduce / reduce-scatter: 2
+    Params for bucket 1 (525336576 elements):
+    	module.output_layer.weight
+    Params for bucket 2 (525602816 elements):
+    	module.decoder.layers.31.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.29.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.27.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.25.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.21.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.13.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.final_layernorm.weight
+    	module.decoder.layers.9.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight
+    	module.embedding.word_embeddings.weight
+    	module.decoder.layers.12.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.30.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.28.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.24.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.24.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.26.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.20.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.18.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.8.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.6.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.10.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.31.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.29.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.27.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.25.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.17.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.30.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.28.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.26.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.22.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.16.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.14.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight
+    	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight
+    	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight
+[NeMo I 2026-05-28 19:35:04 utils:323] Number of buckets for gradient all-reduce / reduce-scatter: 96
+    Params for bucket 1 (58720256 elements):
+    	module.decoder.layers.31.mlp.linear_fc2.weight
+    Params for bucket 2 (117440512 elements):
+    	module.decoder.layers.31.mlp.linear_fc1.weight
+    Params for bucket 3 (41943040 elements):
+    	module.decoder.layers.31.self_attention.linear_qkv.weight
+    	module.decoder.layers.31.self_attention.linear_proj.weight
+    Params for bucket 4 (58720256 elements):
+    	module.decoder.layers.30.mlp.linear_fc2.weight
+    Params for bucket 5 (117440512 elements):
+    	module.decoder.layers.30.mlp.linear_fc1.weight
+    Params for bucket 6 (41943040 elements):
+    	module.decoder.layers.30.self_attention.linear_qkv.weight
+    	module.decoder.layers.30.self_attention.linear_proj.weight
+    Params for bucket 7 (58720256 elements):
+    	module.decoder.layers.29.mlp.linear_fc2.weight
+    Params for bucket 8 (117440512 elements):
+    	module.decoder.layers.29.mlp.linear_fc1.weight
+    Params for bucket 9 (41943040 elements):
+    	module.decoder.layers.29.self_attention.linear_qkv.weight
+    	module.decoder.layers.29.self_attention.linear_proj.weight
+    Params for bucket 10 (58720256 elements):
+    	module.decoder.layers.28.mlp.linear_fc2.weight
+    Params for bucket 11 (117440512 elements):
+    	module.decoder.layers.28.mlp.linear_fc1.weight
+    Params for bucket 12 (41943040 elements):
+    	module.decoder.layers.28.self_attention.linear_qkv.weight
+    	module.decoder.layers.28.self_attention.linear_proj.weight
+    Params for bucket 13 (58720256 elements):
+    	module.decoder.layers.27.mlp.linear_fc2.weight
+    Params for bucket 14 (117440512 elements):
+    	module.decoder.layers.27.mlp.linear_fc1.weight
+    Params for bucket 15 (41943040 elements):
+    	module.decoder.layers.27.self_attention.linear_qkv.weight
+    	module.decoder.layers.27.self_attention.linear_proj.weight
+    Params for bucket 16 (58720256 elements):
+    	module.decoder.layers.26.mlp.linear_fc2.weight
+    Params for bucket 17 (117440512 elements):
+    	module.decoder.layers.26.mlp.linear_fc1.weight
+    Params for bucket 18 (41943040 elements):
+    	module.decoder.layers.26.self_attention.linear_qkv.weight
+    	module.decoder.layers.26.self_attention.linear_proj.weight
+    Params for bucket 19 (58720256 elements):
+    	module.decoder.layers.25.mlp.linear_fc2.weight
+    Params for bucket 20 (117440512 elements):
+    	module.decoder.layers.25.mlp.linear_fc1.weight
+    Params for bucket 21 (41943040 elements):
+    	module.decoder.layers.25.self_attention.linear_qkv.weight
+    	module.decoder.layers.25.self_attention.linear_proj.weight
+    Params for bucket 22 (58720256 elements):
+    	module.decoder.layers.24.mlp.linear_fc2.weight
+    Params for bucket 23 (117440512 elements):
+    	module.decoder.layers.24.mlp.linear_fc1.weight
+    Params for bucket 24 (41943040 elements):
+    	module.decoder.layers.24.self_attention.linear_qkv.weight
+    	module.decoder.layers.24.self_attention.linear_proj.weight
+    Params for bucket 25 (58720256 elements):
+    	module.decoder.layers.23.mlp.linear_fc2.weight
+    Params for bucket 26 (117440512 elements):
+    	module.decoder.layers.23.mlp.linear_fc1.weight
+    Params for bucket 27 (41943040 elements):
+    	module.decoder.layers.23.self_attention.linear_qkv.weight
+    	module.decoder.layers.23.self_attention.linear_proj.weight
+    Params for bucket 28 (58720256 elements):
+    	module.decoder.layers.22.mlp.linear_fc2.weight
+    Params for bucket 29 (117440512 elements):
+    	module.decoder.layers.22.mlp.linear_fc1.weight
+    Params for bucket 30 (41943040 elements):
+    	module.decoder.layers.22.self_attention.linear_qkv.weight
+    	module.decoder.layers.22.self_attention.linear_proj.weight
+    Params for bucket 31 (58720256 elements):
+    	module.decoder.layers.21.mlp.linear_fc2.weight
+    Params for bucket 32 (117440512 elements):
+    	module.decoder.layers.21.mlp.linear_fc1.weight
+    Params for bucket 33 (41943040 elements):
+    	module.decoder.layers.21.self_attention.linear_qkv.weight
+    	module.decoder.layers.21.self_attention.linear_proj.weight
+    Params for bucket 34 (58720256 elements):
+    	module.decoder.layers.20.mlp.linear_fc2.weight
+    Params for bucket 35 (117440512 elements):
+    	module.decoder.layers.20.mlp.linear_fc1.weight
+    Params for bucket 36 (41943040 elements):
+    	module.decoder.layers.20.self_attention.linear_qkv.weight
+    	module.decoder.layers.20.self_attention.linear_proj.weight
+    Params for bucket 37 (58720256 elements):
+    	module.decoder.layers.19.mlp.linear_fc2.weight
+    Params for bucket 38 (117440512 elements):
+    	module.decoder.layers.19.mlp.linear_fc1.weight
+    Params for bucket 39 (41943040 elements):
+    	module.decoder.layers.19.self_attention.linear_qkv.weight
+    	module.decoder.layers.19.self_attention.linear_proj.weight
+    Params for bucket 40 (58720256 elements):
+    	module.decoder.layers.18.mlp.linear_fc2.weight
+    Params for bucket 41 (117440512 elements):
+    	module.decoder.layers.18.mlp.linear_fc1.weight
+    Params for bucket 42 (41943040 elements):
+    	module.decoder.layers.18.self_attention.linear_qkv.weight
+    	module.decoder.layers.18.self_attention.linear_proj.weight
+    Params for bucket 43 (58720256 elements):
+    	module.decoder.layers.17.mlp.linear_fc2.weight
+    Params for bucket 44 (117440512 elements):
+    	module.decoder.layers.17.mlp.linear_fc1.weight
+    Params for bucket 45 (41943040 elements):
+    	module.decoder.layers.17.self_attention.linear_qkv.weight
+    	module.decoder.layers.17.self_attention.linear_proj.weight
+    Params for bucket 46 (58720256 elements):
+    	module.decoder.layers.16.mlp.linear_fc2.weight
+    Params for bucket 47 (117440512 elements):
+    	module.decoder.layers.16.mlp.linear_fc1.weight
+    Params for bucket 48 (41943040 elements):
+    	module.decoder.layers.16.self_attention.linear_qkv.weight
+    	module.decoder.layers.16.self_attention.linear_proj.weight
+    Params for bucket 49 (58720256 elements):
+    	module.decoder.layers.15.mlp.linear_fc2.weight
+    Params for bucket 50 (117440512 elements):
+    	module.decoder.layers.15.mlp.linear_fc1.weight
+    Params for bucket 51 (41943040 elements):
+    	module.decoder.layers.15.self_attention.linear_qkv.weight
+    	module.decoder.layers.15.self_attention.linear_proj.weight
+    Params for bucket 52 (58720256 elements):
+    	module.decoder.layers.14.mlp.linear_fc2.weight
+    Params for bucket 53 (117440512 elements):
+    	module.decoder.layers.14.mlp.linear_fc1.weight
+    Params for bucket 54 (41943040 elements):
+    	module.decoder.layers.14.self_attention.linear_qkv.weight
+    	module.decoder.layers.14.self_attention.linear_proj.weight
+    Params for bucket 55 (58720256 elements):
+    	module.decoder.layers.13.mlp.linear_fc2.weight
+    Params for bucket 56 (117440512 elements):
+    	module.decoder.layers.13.mlp.linear_fc1.weight
+    Params for bucket 57 (41943040 elements):
+    	module.decoder.layers.13.self_attention.linear_qkv.weight
+    	module.decoder.layers.13.self_attention.linear_proj.weight
+    Params for bucket 58 (58720256 elements):
+    	module.decoder.layers.12.mlp.linear_fc2.weight
+    Params for bucket 59 (117440512 elements):
+    	module.decoder.layers.12.mlp.linear_fc1.weight
+    Params for bucket 60 (41943040 elements):
+    	module.decoder.layers.12.self_attention.linear_qkv.weight
+    	module.decoder.layers.12.self_attention.linear_proj.weight
+    Params for bucket 61 (58720256 elements):
+    	module.decoder.layers.11.mlp.linear_fc2.weight
+    Params for bucket 62 (117440512 elements):
+    	module.decoder.layers.11.mlp.linear_fc1.weight
+    Params for bucket 63 (41943040 elements):
+    	module.decoder.layers.11.self_attention.linear_qkv.weight
+    	module.decoder.layers.11.self_attention.linear_proj.weight
+    Params for bucket 64 (58720256 elements):
+    	module.decoder.layers.10.mlp.linear_fc2.weight
+    Params for bucket 65 (117440512 elements):
+    	module.decoder.layers.10.mlp.linear_fc1.weight
+    Params for bucket 66 (41943040 elements):
+    	module.decoder.layers.10.self_attention.linear_qkv.weight
+    	module.decoder.layers.10.self_attention.linear_proj.weight
+    Params for bucket 67 (58720256 elements):
+    	module.decoder.layers.9.mlp.linear_fc2.weight
+    Params for bucket 68 (117440512 elements):
+    	module.decoder.layers.9.mlp.linear_fc1.weight
+    Params for bucket 69 (41943040 elements):
+    	module.decoder.layers.9.self_attention.linear_qkv.weight
+    	module.decoder.layers.9.self_attention.linear_proj.weight
+    Params for bucket 70 (58720256 elements):
+    	module.decoder.layers.8.mlp.linear_fc2.weight
+    Params for bucket 71 (117440512 elements):
+    	module.decoder.layers.8.mlp.linear_fc1.weight
+    Params for bucket 72 (41943040 elements):
+    	module.decoder.layers.8.self_attention.linear_qkv.weight
+    	module.decoder.layers.8.self_attention.linear_proj.weight
+    Params for bucket 73 (58720256 elements):
+    	module.decoder.layers.7.mlp.linear_fc2.weight
+    Params for bucket 74 (117440512 elements):
+    	module.decoder.layers.7.mlp.linear_fc1.weight
+    Params for bucket 75 (41943040 elements):
+    	module.decoder.layers.7.self_attention.linear_qkv.weight
+    	module.decoder.layers.7.self_attention.linear_proj.weight
+    Params for bucket 76 (58720256 elements):
+    	module.decoder.layers.6.mlp.linear_fc2.weight
+    Params for bucket 77 (117440512 elements):
+    	module.decoder.layers.6.mlp.linear_fc1.weight
+    Params for bucket 78 (41943040 elements):
+    	module.decoder.layers.6.self_attention.linear_qkv.weight
+    	module.decoder.layers.6.self_attention.linear_proj.weight
+    Params for bucket 79 (58720256 elements):
+    	module.decoder.layers.5.mlp.linear_fc2.weight
+    Params for bucket 80 (117440512 elements):
+    	module.decoder.layers.5.mlp.linear_fc1.weight
+    Params for bucket 81 (41943040 elements):
+    	module.decoder.layers.5.self_attention.linear_qkv.weight
+    	module.decoder.layers.5.self_attention.linear_proj.weight
+    Params for bucket 82 (58720256 elements):
+    	module.decoder.layers.4.mlp.linear_fc2.weight
+    Params for bucket 83 (117440512 elements):
+    	module.decoder.layers.4.mlp.linear_fc1.weight
+    Params for bucket 84 (41943040 elements):
+    	module.decoder.layers.4.self_attention.linear_qkv.weight
+    	module.decoder.layers.4.self_attention.linear_proj.weight
+    Params for bucket 85 (58720256 elements):
+    	module.decoder.layers.3.mlp.linear_fc2.weight
+    Params for bucket 86 (117440512 elements):
+    	module.decoder.layers.3.mlp.linear_fc1.weight
+    Params for bucket 87 (41943040 elements):
+    	module.decoder.layers.3.self_attention.linear_qkv.weight
+    	module.decoder.layers.3.self_attention.linear_proj.weight
+    Params for bucket 88 (58720256 elements):
+    	module.decoder.layers.2.mlp.linear_fc2.weight
+    Params for bucket 89 (117440512 elements):
+    	module.decoder.layers.2.mlp.linear_fc1.weight
+    Params for bucket 90 (41943040 elements):
+    	module.decoder.layers.2.self_attention.linear_qkv.weight
+    	module.decoder.layers.2.self_attention.linear_proj.weight
+    Params for bucket 91 (58720256 elements):
+    	module.decoder.layers.1.mlp.linear_fc2.weight
+    Params for bucket 92 (117440512 elements):
+    	module.decoder.layers.1.mlp.linear_fc1.weight
+    Params for bucket 93 (41943040 elements):
+    	module.decoder.layers.1.self_attention.linear_qkv.weight
+    	module.decoder.layers.1.self_attention.linear_proj.weight
+    Params for bucket 94 (58720256 elements):
+    	module.decoder.layers.0.mlp.linear_fc2.weight
+    Params for bucket 95 (117440512 elements):
+    	module.decoder.layers.0.mlp.linear_fc1.weight
+    Params for bucket 96 (41943040 elements):
+    	module.decoder.layers.0.self_attention.linear_qkv.weight
+    	module.decoder.layers.0.self_attention.linear_proj.weight
+[NeMo I 2026-05-28 19:35:04 utils:302] Setting up optimizer with config OptimizerConfig(optimizer='adam', lr=0.0004, min_lr=None, decoupled_lr=None, decoupled_min_lr=None, weight_decay=0.1, fp16=False, bf16=True, params_dtype=torch.bfloat16, use_precision_aware_optimizer=False, main_grads_dtype=torch.float32, main_params_dtype=torch.float32, exp_avg_dtype=torch.float32, exp_avg_sq_dtype=torch.float32, loss_scale=None, initial_loss_scale=4294967296, min_loss_scale=1.0, loss_scale_window=1000, hysteresis=2, adam_beta1=0.9, adam_beta2=0.95, adam_eps=1e-05, sgd_momentum=0.9, use_distributed_optimizer=True, overlap_param_gather_with_optimizer_step=False, clip_grad=1.0, log_num_zeros_in_grad=False, barrier_with_L1_time=False, timers=None, config_logger_dir='')
+[NeMo W 2026-05-28 19:35:45 rerun_state_machine:1088] Implicit initialization of Rerun State Machine!
+[NeMo W 2026-05-28 19:35:45 rerun_state_machine:211] RerunStateMachine initialized in mode RerunMode.DISABLED
+[NeMo W 2026-05-28 19:52:10 nemo_logging:405] /usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py:431: It is recommended to use `self.log('global_batch_size', ..., sync_dist=True)` when logging on epoch level in distributed setting to accumulate the metric across devices.
+    
+[NeMo W 2026-05-28 19:52:10 nemo_logging:405] /usr/local/lib/python3.12/dist-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py:431: It is recommended to use `self.log('val_loss', ..., sync_dist=True)` when logging on epoch level in distributed setting to accumulate the metric across devices.
+    

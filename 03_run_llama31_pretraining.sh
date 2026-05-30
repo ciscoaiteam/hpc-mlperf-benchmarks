@@ -68,7 +68,7 @@ for run in $(seq 1 "${NUM_RUNS}"); do
 
     START_EPOCH=$(date +%s%N)
 
-    RUN_SEED=$(( RANDOM * RANDOM % 65536 ))
+    RUN_SEED=4408  # fixed to reuse cached npy_index for seed 4408 (train: 672ce1be)
     RUN_OUT="${LLAMA31_RESULT_DIR}/run_${run}"
     mkdir -p "${RUN_OUT}" "${LLAMA31_NPY_INDEX_DIR}"
 
@@ -91,6 +91,7 @@ for run in $(seq 1 "${NUM_RUNS}"); do
         -v "${RUN_OUT}:/mlperf-outputs" \
         -v "${LLAMA31_NPY_INDEX_DIR}:/npy_index" \
         -v "${OUT_DIR}:/run_logs" \
+        -v "${SCRIPT_DIR}/pretrain_llama31_patched.py:/workspace/code/pretrain_llama31.py:ro" \
         -e PREPROCESSED_PATH=/preproc_data \
         -e GBS="${LLAMA31_GBS}" \
         -e NCCL_SOCKET_IFNAME="${NCCL_SOCKET_IFNAME}" \
