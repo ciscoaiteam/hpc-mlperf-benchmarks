@@ -31,7 +31,23 @@
 | **GPU VRAM used** | ~96 GB | ~24 GB | ~24 GB | ~24 GB |
 | **Partitioning time** | ~3 min | ~5 min | ~7 min | ~10 min |
 
-### Key Observations
+### ABTP HVW-GPU (Official NASA Benchmark) — 7.75M Nodes, 3000 Steps
+
+| GPUs | Node | Transport | sec/step | Solver Loop | Total Walltime | Lift (CL) | Drag (CD) | Accuracy |
+|------|------|-----------|----------|-------------|----------------|-----------|-----------|----------|
+| 1 | C845A-1 | N/A | 1.32 s | 3,958 s | 4,323 s (72 min) | 0.3340 | 0.0927 | ✅ PASSES |
+| 4 | C845A-2 | PCIe | 1.32 s | 3,959 s | 4,352 s (73 min) | 0.3340 | 0.0927 | ✅ PASSES |
+
+**ABTP accuracy reference:** CL=0.3345468168 (±1%), CD=0.09916422295 (±10%)
+
+**Observations:**
+- Same per-step performance at 1 and 4 GPUs — grid is too small for multi-GPU scaling
+- ~6% slower than C885A SXM5 (1.32 vs 1.24 s/step) due to HBM bandwidth differences
+- Accuracy identical to C885A results — all within ABTP tolerance
+
+---
+
+### Key Observations (DPW-4)
 
 - **Single GPU saturates this workload.** The H200 NVL is fast enough that 5.9M nodes at 0.41 s/step leaves no room for multi-GPU speedup — adding GPUs only introduces MPI communication overhead.
 
@@ -350,12 +366,17 @@ mpirun --allow-run-as-root --hostfile hostfile -np 8 \
     ├── run_35Mc_1gpu/
     ├── run_35Mc_2gpu/
     ├── run_35Mc_4gpu/
-    └── run_35Mc_8gpu_multinode/
-        └── hostfile                      # <MGMT_IP_C845A1> slots=4 / .35 slots=4
+    ├── run_35Mc_8gpu_multinode/
+    │   └── hostfile                      # <MGMT_IP_C845A1> slots=4 / .35 slots=4
+    └── hvw-gpu/                          # ABTP HVW-GPU benchmark
+        ├── input/                        # Shared: hvw.b8.ugrid, hvw.mapbc, tdata, fun3d.nml
+        ├── ref/abtp_fun3d_hvw_acccheck.pl
+        ├── run_1gpu/                     # 1-GPU results (C845A-1)
+        └── run_4gpu/                     # 4-GPU results (C845A-2)
 ```
 
 ---
 
 ## Date
 
-All benchmarks run on **May 30, 2026**.
+DPW-4 benchmarks run on **May 30, 2026**. ABTP HVW-GPU benchmarks run on **June 4, 2026**.

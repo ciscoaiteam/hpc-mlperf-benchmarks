@@ -35,6 +35,12 @@
 | FUN3D 14.2 CFD (DPW-4 35Mc) | 1× H200 NVL | 1 (C845) | N/A | 0.41 s/step | — | 100 | — | 1.5 | ✅ PASS |
 | FUN3D 14.2 CFD (DPW-4 35Mc) | 4× H200 NVL | 1 (C845) | NVLink | 0.42 s/step | — | 100 | — | 1.5 | ✅ PASS |
 | FUN3D 14.2 CFD (DPW-4 35Mc) | 8× H200 NVL | 2 (C845) | TCP (mgmt) | 0.42 s/step | — | 100 | — | 1.5 | ✅ PASS |
+| FUN3D 14.2 ABTP HVW-GPU | 4× H200 SXM5 | 1 (C885) | NVSwitch | CL=0.3340, CD=0.0927 | ABTP ref | 3,000 | — | 69 | ✅ PASSES |
+| FUN3D 14.2 ABTP HVW-GPU | 8× H200 SXM5 | 1 (C885) | NVSwitch | CL=0.3341, CD=0.0927 | ABTP ref | 3,000 | — | 70 | ✅ PASSES |
+| FUN3D 14.2 ABTP HVW-GPU | 16× H200 SXM5 | 2 (C885) | TCP (mgmt) | — | — | — | — | — | ❌ FAILED (script bug) |
+| FUN3D 14.2 ABTP HVW-GPU | 16× H200 SXM5 | 2 (C885) | UCX/RDMA (400G) | CL=0.3340, CD=0.0927 | ABTP ref | 3,000 | — | 70 | ✅ PASSES |
+| FUN3D 14.2 ABTP HVW-GPU | 1× H200 NVL | 1 (C845) | N/A | CL=0.3340, CD=0.0927 | ABTP ref | 3,000 | — | 72 | ✅ PASSES |
+| FUN3D 14.2 ABTP HVW-GPU | 4× H200 NVL | 1 (C845) | PCIe | CL=0.3340, CD=0.0927 | ABTP ref | 3,000 | — | 73 | ✅ PASSES |
 
 ### Performance Comparison
 
@@ -413,6 +419,231 @@ mpirun --allow-run-as-root --hostfile hostfile -np 8 \
 | 5 | VGRID `.cogsg` grids need AFLR3 `.lb8.ugrid` format for GPU runs | Used `cogsg2ugrid` converter (pipe project name to stdin) |
 | 6 | All MPI ranks default to GPU 0 | Created `gpu_wrapper.sh` setting `CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK` |
 | 7 | Partitioning 35M cells takes ~7 min on CPU before GPU solver starts | Expected behavior; no fix needed |
+
+---
+
+## Benchmark 5: FUN3D 14.2 ABTP HVW-GPU (Official NASA Benchmark)
+
+### Task Details
+
+| Parameter | Value |
+|-----------|-------|
+| **Benchmark** | FUN3D Application Benchmark Test Package (ABTP) — HVW-GPU test case |
+| **Software** | FUN3D 14.2-ffaff71 (NASA Langley CFD solver) |
+| **GPU Library** | FLUDA (precompiled H100 binary, compatible with H200) |
+| **CUDA** | 12.8 |
+| **MPI** | OpenMPI 4.1.9a1 (Mellanox HPC-X) |
+| **Compiler** | gfortran 11.4.0 |
+| **Grid** | HVW 7.75M node unstructured mesh (`hvw.b8.ugrid`, 583 MB) |
+| **Physics** | Mach 7.98, 5-species non-equilibrium air (N₂, O₂, NO, N, O) |
+| **Turbulence** | SA-neg (Spalart-Allmaras negative) |
+| **Flux scheme** | HLLE++ with van Albada limiter |
+| **Steps** | 3,000 |
+| **Accuracy check** | Lift/Drag coefficients vs reference (1% / 10% tolerance) |
+
+### fun3d.nml (HVW-GPU benchmark)
+
+```fortran
+&project
+  project_rootname = 'hvw'
+/
+&raw_grid
+  grid_format = 'aflr3'
+  data_format = 'stream'
+/
+&governing_equations
+  eqn_type = 'generic'
+  viscous_terms = 'turbulent'
+/
+&turbulent_diffusion_models
+  turbulence_model = 'sa-neg'
+  new_sa_neg = .true.
+/
+&reference_physical_properties
+  dim_input_type = 'dimensional-SI'
+  velocity = 2414.1976
+  density = 0.01801531
+  angle_of_attack = 5.0
+  temperature = 226.65
+/
+&inviscid_flux_method
+  flux_construction = 'hlle++'
+  flux_limiter = 'hvanalbada'
+/
+&nonlinear_solver_parameters
+  schedule_cfl = 10.0 200.0
+  schedule_cflturb = 1.0 30.0
+/
+&code_run_control
+  steps = 3000
+  restart_read = 'off'
+/
+&gpu_support
+  use_fluda = .true.
+/
+```
+
+### Accuracy Check Reference Values
+
+| Metric | Reference Value | Tolerance |
+|--------|----------------|-----------|
+| **Lift coefficient** | 0.3345468168 | 1.0% |
+| **Drag coefficient** | 0.09916422295 | 10.0% |
+
+### Results — C885A (H200 SXM5, 8 GPUs/node, NVSwitch)
+
+| GPUs | Nodes | Transport | sec/step | Solver Loop (3000 steps) | Total Walltime | Lift (CL) | Drag (CD) | Accuracy |
+|------|-------|-----------|----------|--------------------------|----------------|-----------|-----------|----------|
+| 4 | 1 | NVSwitch | 1.24 s | 3,722 s | 4,157 s (69 min) | 0.3341 | 0.0927 | ✅ PASSES |
+| 8 | 1 | NVSwitch | 1.24 s | 3,709 s | 4,208 s (70 min) | 0.3341 | 0.0927 | ✅ PASSES |
+| 16 | 2 | TCP (mgmt) | — | — | — | — | — | ❌ FAILED (missing `-x PATH` in mpirun) |
+| 16 | 2 | UCX/RDMA (400G RoCE) | 1.23 s | 3,704 s | 4,211 s (70 min) | 0.3340 | 0.0927 | ✅ PASSES |
+
+### Results — C845A (H200 NVL, 4 GPUs/node, PCIe)
+
+| GPUs | Nodes | Transport | sec/step | Solver Loop (3000 steps) | Total Walltime | Lift (CL) | Drag (CD) | Accuracy |
+|------|-------|-----------|----------|--------------------------|----------------|-----------|-----------|----------|
+| 1 | 1 | N/A | 1.32 s | 3,958 s | 4,323 s (72 min) | 0.3340 | 0.0927 | ✅ PASSES |
+| 4 | 1 | PCIe | 1.32 s | 3,959 s | 4,352 s (73 min) | 0.3340 | 0.0927 | ✅ PASSES |
+
+### Scaling Analysis — HVW-GPU
+
+| Platform | GPUs | sec/step | Solver Loop | vs C885A 4-GPU |
+|----------|------|----------|-------------|----------------|
+| C885A | 4 | 1.24 s | 3,722 s | 1.00× |
+| C885A | 8 | 1.24 s | 3,709 s | 1.00× |
+| C885A | 16 (RDMA) | 1.23 s | 3,704 s | 1.00× |
+| C845A | 1 | 1.32 s | 3,958 s | 0.94× |
+| C845A | 4 | 1.32 s | 3,959 s | 0.94× |
+
+**Observations:**
+- **No multi-GPU scaling** — the 7.75M node HVW grid is too small to benefit from additional GPUs. All C885A runs achieve ~1.24 s/step regardless of GPU count.
+- **RDMA works but doesn't help** — with this grid size, inter-node MPI latency is not the bottleneck. UCX/RDMA over 400G performs identically to single-node NVSwitch.
+- **C845A is ~6% slower** per step (1.32 vs 1.24 s/step), consistent with SXM5 vs NVL memory bandwidth differences.
+- **16-GPU TCP failed** due to a scripting bug (missing `-x PATH -x LD_LIBRARY_PATH` in the mpirun command, causing Node 2 to return exit code 127). Not a transport limitation.
+- **Accuracy is identical** across all platforms and GPU counts — CL≈0.3340, CD≈0.0927, all within ABTP tolerance.
+
+### Multi-Node MPI Transport Options
+
+FUN3D uses **MPI** (not NCCL) for inter-process communication. Two transport options are available for multi-node runs:
+
+#### Option 1: TCP over Management Network (Baseline)
+
+```bash
+mpirun --allow-run-as-root -np 16 \
+    --hostfile hostfile \
+    --mca btl_tcp_if_include <MGMT_SUBNET>/24 \
+    /tmp/gpu_wrapper.sh nodet --project_rootname hvw
+```
+
+**Hostfile (management IPs):**
+```
+<MGMT_IP_NODE1> slots=8
+<MGMT_IP_NODE2> slots=8
+```
+
+This uses the 1G/10G management NICs. Simple to set up but adds significant latency for MPI halo exchanges, especially with small per-GPU partitions.
+
+#### Option 2: UCX/RDMA over 400G RoCE v2 (Recommended)
+
+```bash
+# UCX environment
+export UCX_NET_DEVICES=mlx5_0:1,mlx5_1:1,mlx5_4:1,mlx5_5:1,mlx5_6:1,mlx5_9:1,mlx5_10:1,mlx5_11:1
+export UCX_TLS=rc_mlx5,self,shm
+export UCX_IB_GID_INDEX=3
+
+mpirun --allow-run-as-root -np 16 \
+    --hostfile hostfile_rdma \
+    --mca pml ucx \
+    --mca btl ^vader,tcp,openib \
+    --mca osc ucx \
+    -x UCX_NET_DEVICES \
+    -x UCX_TLS \
+    -x UCX_IB_GID_INDEX \
+    -x PATH \
+    -x LD_LIBRARY_PATH \
+    /tmp/gpu_wrapper.sh nodet --project_rootname hvw
+```
+
+**Hostfile (400G RoCE IPs):**
+```
+<ROCE_NODE1_NIC3> slots=8
+<ROCE_NODE2_NIC3> slots=8
+```
+
+**Key parameters:**
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| `UCX_TLS=rc_mlx5,self,shm` | Use reliable-connection MLX5 transport for inter-node, shared memory for intra-node |
+| `UCX_NET_DEVICES` | 8× ConnectX-7 400G NICs per node (mlx5_0,1,4,5,6,9,10,11) |
+| `UCX_IB_GID_INDEX=3` | RoCE v2 with IPv4-mapped GID (matches switch DSCP/PFC config) |
+| `--mca pml ucx` | Use UCX point-to-point messaging layer instead of OB1/BTL |
+| `--mca btl ^vader,tcp,openib` | Disable legacy BTL transports to avoid conflicts |
+
+**Prerequisites:**
+- SSH must work between nodes over 400G IPs (192.168.200.x subnet)
+- Switch must have jumbo MTU (9216), PFC on priority 3, DSCP 26 QoS class
+- Host NICs must have `mlnx_qos --trust dscp --pfc 0,0,0,1,0,0,0,0`
+- OpenMPI must be built with UCX support (Mellanox HPC-X distribution includes this)
+
+**400G NIC mapping (C885A-1, <MGMT_IP_NODE1>):**
+
+| RDMA Device | Network Interface | IP Address | Speed |
+|-------------|-------------------|------------|-------|
+| mlx5_0 | ens202np0 | <ROCE_NODE1_NIC1> | 400G |
+| mlx5_1 | ens204np0 | <ROCE_NODE1_NIC2> | 400G |
+| mlx5_4 | ens201np0 | <ROCE_NODE1_NIC3> | 400G |
+| mlx5_5 | ens203np0 | <ROCE_NODE1_NIC4> | 400G |
+| mlx5_6 | ens205np0 | <ROCE_NODE1_NIC5> | 400G |
+| mlx5_9 | ens207np0 | <ROCE_NODE1_NIC6> | 400G |
+| mlx5_10 | ens206np0 | <ROCE_NODE1_NIC7> | 400G |
+| mlx5_11 | ens208np0 | <ROCE_NODE1_NIC8> | 400G |
+
+**400G NIC mapping (C885A-2, <MGMT_IP_NODE2>):**
+
+| RDMA Device | Network Interface | IP Address | Speed |
+|-------------|-------------------|------------|-------|
+| mlx5_0 | ens202np0 | <ROCE_NODE2_NIC1> | 400G |
+| mlx5_1 | ens204np0 | <ROCE_NODE2_NIC2> | 400G |
+| mlx5_4 | ens201np0 | <ROCE_NODE2_NIC3> | 400G |
+| mlx5_5 | ens203np0 | <ROCE_NODE2_NIC4> | 400G |
+| mlx5_6 | ens205np0 | <ROCE_NODE2_NIC5> | 400G |
+| mlx5_9 | ens207np0 | <ROCE_NODE2_NIC6> | 400G |
+| mlx5_10 | ens206np0 | <ROCE_NODE2_NIC7> | 400G |
+| mlx5_11 | ens208np0 | <ROCE_NODE2_NIC8> | 400G |
+
+> **Note:** mlx5_2, mlx5_3, mlx5_7, mlx5_8 are 200G NICs on the <SECONDARY_FABRIC_SUBNET> subnet (separate fabric) and should **not** be used for the benchmark.
+
+### GPU Wrapper Script
+
+Each MPI rank must be assigned to a unique GPU using `CUDA_VISIBLE_DEVICES`:
+
+```bash
+#!/bin/bash
+# /tmp/gpu_wrapper.sh — assigns GPU based on MPI local rank
+export CUDA_VISIBLE_DEVICES=$OMPI_COMM_WORLD_LOCAL_RANK
+exec "$@"
+```
+
+### Directory Structure (C885A)
+
+```
+/opt/fun3d/
+├── install/bin/nodet           # FUN3D executable
+├── benchmarks/hvw-gpu/
+│   ├── input/                  # Shared input files
+│   │   ├── hvw.b8.ugrid       # 7.75M node grid (583 MB)
+│   │   ├── hvw.mapbc          # Boundary conditions
+│   │   ├── tdata              # 5-species air composition
+│   │   └── fun3d.nml          # Namelist
+│   ├── ref/
+│   │   └── abtp_fun3d_hvw_acccheck.pl  # Accuracy check script
+│   ├── run_4gpu/               # 4-GPU results
+│   ├── run_8gpu/               # 8-GPU results
+│   ├── run_16gpu/              # 16-GPU TCP results
+│   ├── run_16gpu_rdma/         # 16-GPU RDMA results
+│   └── benchmark_results.log   # Consolidated results log
+```
 
 ---
 
