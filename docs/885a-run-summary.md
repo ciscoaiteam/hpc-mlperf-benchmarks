@@ -318,8 +318,8 @@ mpirun --allow-run-as-root -np 16 \
 
 **Hostfile (400G RoCE IPs):**
 ```
-<ROCE_NODE1_NIC3> slots=8
-<ROCE_NODE2_NIC3> slots=8
+<ROCE_IP_NODE1> slots=8
+<ROCE_IP_NODE2> slots=8
 ```
 
 **Key parameters:**
@@ -332,12 +332,12 @@ mpirun --allow-run-as-root -np 16 \
 | `--mca btl ^vader,tcp,openib` | Disable legacy BTL transports to avoid conflicts |
 
 **Prerequisites:**
-- SSH must work between nodes over 400G IPs (192.168.200.x subnet)
+- SSH must work between nodes over 400G IPs (RoCE subnet)
 - Switch must have jumbo MTU (9216), PFC on priority 3, DSCP 26 QoS class
 - Host NICs must have `mlnx_qos --trust dscp --pfc 0,0,0,1,0,0,0,0`
 - OpenMPI must be built with UCX support (Mellanox HPC-X distribution includes this)
 
-**400G NIC mapping (C885A-1, <MGMT_IP_NODE1>):**
+**400G NIC mapping (C885A-1):**
 
 | RDMA Device | Network Interface | IP Address | Speed |
 |-------------|-------------------|------------|-------|
@@ -350,7 +350,7 @@ mpirun --allow-run-as-root -np 16 \
 | mlx5_10 | ens206np0 | <ROCE_NODE1_NIC7> | 400G |
 | mlx5_11 | ens208np0 | <ROCE_NODE1_NIC8> | 400G |
 
-**400G NIC mapping (C885A-2, <MGMT_IP_NODE2>):**
+**400G NIC mapping (C885A-2):**
 
 | RDMA Device | Network Interface | IP Address | Speed |
 |-------------|-------------------|------------|-------|
@@ -363,7 +363,7 @@ mpirun --allow-run-as-root -np 16 \
 | mlx5_10 | ens206np0 | <ROCE_NODE2_NIC7> | 400G |
 | mlx5_11 | ens208np0 | <ROCE_NODE2_NIC8> | 400G |
 
-> **Note:** mlx5_2, mlx5_3, mlx5_7, mlx5_8 are 200G NICs on the <SECONDARY_FABRIC_SUBNET> subnet (separate fabric) and should **not** be used for the benchmark.
+> **Note:** mlx5_2, mlx5_3, mlx5_7, mlx5_8 are 200G NICs on a separate fabric and should **not** be used for the benchmark.
 
 ### GPU Wrapper Script
 
